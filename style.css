@@ -1,6 +1,15 @@
 body {
   margin: 0;
   font-family: "Source Serif 4", serif;
+  overflow-x: hidden;
+}
+
+body.locked {
+  overflow: hidden;
+}
+
+.accordion:focus {
+  outline: none;
 }
 
 * {
@@ -294,19 +303,20 @@ footer {
 }
 
 .WrapperForImageAbout {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 20px;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
   overflow: hidden;
-  justify-content: space-between;
+  display: flex;
+}
+
+.LeftImageMargin {
+  margin-right: 20px;
 }
 
 .WrapperForImageAbout img {
   flex: 1 1 0;
-  max-width: calc(50% - 20px);
+  max-width: calc(50% - 10px);
   height: auto;
   object-fit: contain;
 }
@@ -513,7 +523,7 @@ footer {
 }
 
 .buttonBlockMargin {
-  margin-top: 22px;
+  margin-top: 24px;
 }
 
 .buttonWhite {
@@ -953,6 +963,10 @@ footer {
   width: calc(33.333% - 7px);
 }
 
+.swiper-pagination {
+  bottom: -5px !important;
+}
+
 @media (max-width: 768px) {
   .slide-grid {
     display: none;
@@ -1024,8 +1038,8 @@ footer {
 
   .date,
   .day {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
   }
 
   .calendar-header button {
@@ -1093,6 +1107,12 @@ footer {
 }
 
 @media (max-width: 1075px) {
+  .LeftImageMargin {
+    margin-right: 16px;
+  }
+  .WrapperForImageAbout img {
+    max-width: calc(50% - 8px);
+  }
   .prev-btn {
     left: -20px;
   }
@@ -1187,6 +1207,7 @@ footer {
 
   .blueBlockService ul {
     font-size: 15px;
+    padding-bottom: 24px;
   }
 
   .reverseBlock {
@@ -1199,7 +1220,7 @@ footer {
   }
 
   .buttonBlockMargin {
-    margin-top: 22px;
+    margin-top: 0px;
   }
 
   .whiteBlockService {
@@ -1394,5 +1415,13 @@ footer {
 
   .language-select {
     display: none;
+  }
+
+  .MinPadding {
+    padding-bottom: 8px !important;
+  }
+
+  .swiper {
+    padding-top: 0px;
   }
 }

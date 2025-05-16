@@ -298,10 +298,9 @@ const langSelect = document.getElementById("langSelect");
 const currentLang = document.getElementById("currentLang");
 const otherLang = document.getElementById("otherLang");
 
-// Toggle open on click
 langSelect.addEventListener("click", (e) => {
   langSelect.classList.toggle("open");
-  e.stopPropagation(); // Щоб не спрацював зовнішній клік
+  e.stopPropagation();
 });
 
 // Swap language
@@ -319,3 +318,85 @@ document.addEventListener("click", (e) => {
     langSelect.classList.remove("open");
   }
 });
+
+// scroll
+const lockSection = document.getElementById("accordeonSection");
+const innerScroll = lockSection.querySelector(".accordion");
+
+let isBodyLocked = false;
+
+function lockBodyScroll() {
+  if (!isBodyLocked) {
+    const scrollBarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = scrollBarWidth + "px";
+    isBodyLocked = true;
+  }
+}
+
+function unlockBodyScroll() {
+  if (isBodyLocked) {
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
+    isBodyLocked = false;
+  }
+}
+
+function checkScrollPosition() {
+  const scrollY = window.scrollY;
+  const viewportHeight = window.innerHeight;
+  const sectionTop = lockSection.offsetTop;
+  const sectionHeight = lockSection.offsetHeight;
+  const sectionBottom = sectionTop + sectionHeight;
+
+  if (scrollY + viewportHeight >= sectionBottom) {
+    lockBodyScroll();
+  }
+}
+
+function onInnerScroll() {
+  const scrollTop = innerScroll.scrollTop;
+  const clientHeight = innerScroll.clientHeight;
+  const scrollHeight = innerScroll.scrollHeight;
+
+  if (scrollTop + clientHeight >= scrollHeight - 1) {
+    unlockBodyScroll();
+  } else if (scrollTop <= 0) {
+    unlockBodyScroll();
+  } else {
+    lockBodyScroll();
+  }
+}
+
+function onWheel(e) {
+  if (!isBodyLocked) return;
+
+  e.preventDefault();
+
+  innerScroll.scrollTop += e.deltaY;
+
+  const scrollTop = innerScroll.scrollTop;
+  const clientHeight = innerScroll.clientHeight;
+  const scrollHeight = innerScroll.scrollHeight;
+
+  if (scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0) {
+    unlockBodyScroll();
+  } else if (scrollTop <= 0 && e.deltaY < 0) {
+    unlockBodyScroll();
+  }
+}
+
+window.addEventListener("load", () => {
+  checkScrollPosition();
+});
+
+window.addEventListener("scroll", () => {
+  if (!isBodyLocked) {
+    checkScrollPosition();
+  }
+});
+
+innerScroll.addEventListener("scroll", onInnerScroll);
+
+window.addEventListener("wheel", onWheel, { passive: false });
