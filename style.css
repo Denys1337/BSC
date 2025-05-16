@@ -282,6 +282,10 @@ footer {
   display: block;
 }
 
+.MinPadding {
+  padding-bottom: 24px !important;
+}
+
 .contentAbout {
   display: flex;
   flex-direction: column;
@@ -297,6 +301,7 @@ footer {
   max-width: 100%;
   box-sizing: border-box;
   overflow: hidden;
+  justify-content: space-between;
 }
 
 .WrapperForImageAbout img {
@@ -319,6 +324,10 @@ footer {
   font-size: 16px;
   text-decoration: none;
   text-align: center;
+  width: 220px;
+  max-width: 220px;
+  box-sizing: border-box;
+  white-space: nowrap;
 }
 
 .buttonNonColor:hover {
@@ -336,6 +345,11 @@ footer {
   overflow: hidden;
   gap: 41px;
   align-items: center;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
 }
 
 .text img {
@@ -499,7 +513,7 @@ footer {
 }
 
 .buttonBlockMargin {
-  margin-top: 72px;
+  margin-top: 22px;
 }
 
 .buttonWhite {
@@ -512,6 +526,10 @@ footer {
   font-size: 16px;
   text-decoration: none;
   text-align: center;
+  width: 220px;
+  max-width: 220px;
+  box-sizing: border-box;
+  white-space: nowrap;
 }
 
 .buttonWhite:hover {
@@ -530,6 +548,10 @@ footer {
   font-size: 16px;
   text-decoration: none;
   text-align: center;
+  width: 220px;
+  max-width: 220px;
+  box-sizing: border-box;
+  white-space: nowrap;
 }
 
 .buttonBlue:hover {
@@ -540,12 +562,13 @@ footer {
 
 .bottomBlockMargin {
   margin-top: -113px;
+  padding-bottom: 123px;
 }
 
 /* Reviews */
 .slider-container {
   position: relative;
-  width: 93%;
+  width: 100%;
   margin: 0px auto;
   overflow: hidden;
 }
@@ -593,13 +616,13 @@ footer {
 }
 
 .prev-btn {
-  left: 0px;
+  left: -40px;
   transform: rotate(180deg);
   top: 40%;
 }
 
 .next-btn {
-  right: 0px;
+  right: -50px;
 }
 
 /* accordion */
@@ -607,7 +630,9 @@ footer {
 .accordion {
   max-width: 790px;
   font-family: sans-serif;
-  padding-bottom: 100px;
+  margin-bottom: 100px;
+  max-height: 430px;
+  overflow-y: auto;
 }
 
 .accordion-item {
@@ -672,7 +697,7 @@ footer {
 }
 
 .swiper {
-  padding: 20px 0;
+  padding-top: 20px;
 }
 
 .swiper-slide {
@@ -965,6 +990,7 @@ footer {
     gap: 24px;
     width: min-content;
     margin: 0 auto;
+    padding: 16px;
   }
 
   .event-list {
@@ -1067,6 +1093,16 @@ footer {
 }
 
 @media (max-width: 1075px) {
+  .prev-btn {
+    left: -20px;
+  }
+  .buttonBlue,
+  .buttonNonColor,
+  .buttonWhite {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .clamped-text {
     display: -webkit-box;
     -webkit-line-clamp: 5;
@@ -1094,7 +1130,6 @@ footer {
   }
 
   .read-more-btn {
-    margin-top: 10px;
     font-size: 16px;
     font-weight: 400;
     color: rgba(38, 38, 38, 1);
@@ -1130,16 +1165,19 @@ footer {
 
   .accordion {
     margin: 0 auto;
-    padding-bottom: 40px;
+    margin-bottom: 40px;
+    max-height: 265px;
   }
 
   .whiteBlockService h3,
   .blueBlockService h3 {
     font-size: 18px;
+    padding-bottom: 12px;
   }
   .whiteBlockService p,
   .blueBlockService p {
     font-size: 15px;
+    padding-bottom: 24px;
   }
   .wrapperServices,
   .containerServicesBlocks {
@@ -1157,6 +1195,7 @@ footer {
 
   .bottomBlockMargin {
     margin-top: 0;
+    padding-bottom: 24px;
   }
 
   .buttonBlockMargin {
