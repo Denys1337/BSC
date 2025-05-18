@@ -264,6 +264,9 @@ footer {
   font-family: "Source Serif 4";
   font-size: 18px;
   font-weight: 400;
+}
+
+.slide p {
   width: 87%;
 }
 
@@ -738,7 +741,7 @@ footer {
 }
 
 .swiper {
-  padding-top: 20px;
+  padding-top: 0px;
 }
 
 .swiper-slide {
@@ -768,6 +771,19 @@ footer {
 
   .sectionWrapper p {
     width: 100%;
+  }
+
+  .slide {
+    padding: 10px;
+  }
+
+  .slide h4 {
+    text-align: center;
+  }
+
+  .slide p {
+    width: 100%;
+    text-align: center;
   }
 }
 
