@@ -72,15 +72,31 @@ const events = {
     {
       time: "09:00-10:00",
       title: "Lorem ipsum dolor sit amet",
+      link: "https://google.com",
       desc: "Lorem ipsum",
     },
-    { time: "11:00-15:00", title: "Інша подія", desc: "Опис події" },
+    {
+      time: "11:00-15:00",
+      title: "Інша подія",
+      link: "https://google.com",
+      desc: "Опис події",
+    },
   ],
   "2025-05-13": [
-    { time: "14:00-15:00", title: "Зустріч з партнерами", desc: "Офіс" },
+    {
+      time: "14:00-15:00",
+      title: "Зустріч з партнерами",
+      link: "https://google.com",
+      desc: "Офіс",
+    },
   ],
   "2025-05-22": [
-    { time: "10:00-11:30", title: "Онлайн вебінар", desc: "Zoom" },
+    {
+      time: "10:00-11:30",
+      title: "Онлайн вебінар",
+      link: "https://google.com",
+      desc: "Zoom",
+    },
   ],
 };
 
@@ -224,7 +240,7 @@ function renderEvents(dateKey) {
     evDiv.className = "event";
     evDiv.innerHTML = `
       <div class="event-time"><img src="images/clock.svg"/> ${ev.time}</div>
-      <div class="event-title"><a href="#">${ev.title}</a></div>
+      <div class="event-title"><a href="${ev.link}">${ev.title}</a></div>
       <div class="event-desc">${ev.desc}</div>
     `;
     eventsContainer.appendChild(evDiv);
@@ -399,3 +415,16 @@ if (!isMobile) {
   innerScroll.addEventListener("scroll", onInnerScroll);
   window.addEventListener("wheel", onWheel, { passive: false });
 }
+
+// active до головного меню
+document.querySelectorAll(".nav-list a").forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    document
+      .querySelectorAll(".nav-list a")
+      .forEach((el) => el.classList.remove("active"));
+
+    this.classList.add("active");
+  });
+});

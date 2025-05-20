@@ -27,11 +27,16 @@ span {
   margin-block-end: 0em;
 }
 
+.aboutPagePadding {
+  padding-top: 40px !important;
+}
+
 .header {
   background: white;
   padding: 32px 16px;
   width: 100%;
   box-sizing: border-box;
+  border-bottom: 1px solid rgba(2, 25, 57, 1);
 }
 
 .container {
@@ -764,6 +769,163 @@ footer {
   background: rgba(2, 25, 57, 1);
 }
 
+.wrapperWork {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrapperWork .blockImage,
+.wrapperWork .blockContent {
+  border: 1px solid rgba(217, 217, 217, 1);
+  border-radius: 20px;
+}
+.wrapperWork .blockImage {
+  padding: 60px 108px;
+  max-width: 790px;
+  min-width: 340px;
+  height: 848px;
+  box-sizing: border-box;
+}
+
+.wrapperWork .blockImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0% center;
+  border-radius: 20px;
+}
+
+.wrapperWork .blockContent {
+  padding: 44px 0;
+  max-width: 790px;
+  min-width: 340px;
+  box-sizing: border-box;
+}
+
+.stepsWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.step {
+  border-bottom: 1px solid rgba(217, 217, 217, 1);
+  padding: 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.stepsWrapper .step:last-child {
+  border: none;
+}
+
+.stepHeader {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.stepHeader h3,
+.stepHeader p {
+  font-family: "Source Serif 4";
+  color: rgba(2, 25, 57, 1);
+}
+
+.stepHeader span {
+  font-family: "Source Serif 4";
+  color: rgba(38, 38, 38, 1);
+}
+
+.stepHeader h3 {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.step p,
+.stepHeader span {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.wrapperTeam {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 100px;
+  justify-content: center;
+}
+
+.teammate {
+  position: relative;
+  width: 345px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.teammate img {
+  width: 100%;
+  height: 100%;
+}
+.teammateContent {
+  position: absolute;
+  padding: 4px 0;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  width: 100%;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 16px;
+  bottom: 60px;
+  margin: 0 25px;
+  text-align: center;
+  max-width: 295px;
+}
+
+.teammateContent h4,
+.teammateContent p {
+  color: rgba(38, 38, 38, 1);
+  font-family: "Source Serif 4";
+}
+
+.teammateContent h4 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.teammateContent p {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.desktop-slider {
+  display: block;
+}
+.mobile-slider {
+  display: none;
+}
+
+@media (max-width: 1470px) {
+  .wrapperWork {
+    align-items: start;
+  }
+
+  .wrapperWork .blockImage {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-slider {
+    display: none;
+  }
+  .mobile-slider {
+    display: block;
+  }
+}
+
 @media (max-width: 768px) {
   .slide {
     flex: 0 0 100%;
@@ -1018,6 +1180,36 @@ footer {
   bottom: -5px !important;
 }
 
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding-top: 40px;
+}
+
+.breadcrumbsPadding {
+  padding-top: 0 !important;
+}
+
+.breadcrumbs a {
+  color: rgba(38, 38, 38, 1);
+  font-size: 16px;
+  font-family: "Source Serif 4";
+  text-decoration: none;
+}
+
+.breadcrumbs img {
+  width: 14px;
+  height: 14px;
+}
+
+.breadcrumbs p {
+  color: rgba(2, 25, 57, 1);
+  font-size: 16px;
+  font-family: "Source Serif 4";
+  font-weight: 700;
+}
+
 @media (max-width: 768px) {
   .slide-grid {
     display: none;
@@ -1158,6 +1350,70 @@ footer {
 }
 
 @media (max-width: 1075px) {
+  .wrapperWork {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .wrapperWork .blockImage {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .wrapperWork .blockImage img {
+    border-radius: 10px;
+  }
+
+  .wrapperWork .blockContent {
+    padding: 8px 0;
+  }
+
+  .wrapperWork .blockContent .step {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .wrapperWork .blockContent .step h3 {
+    font-size: 18px;
+  }
+
+  .wrapperWork .blockContent .step span,
+  .wrapperWork .blockContent .step p {
+    font-size: 15px;
+  }
+
+  .breadcrumbs {
+    display: none;
+  }
+
+  .wrapperTeam {
+    gap: 16px;
+    padding-bottom: 40px;
+  }
+
+  .teammate {
+    width: 163px;
+    border-radius: 12px;
+  }
+
+  .teammateContent {
+    padding: 2px 0;
+    gap: 2px;
+    border-radius: 8px;
+    bottom: 16px;
+    margin: 0 11px;
+    max-width: 143px;
+  }
+
+  .teammateContent h4 {
+    font-size: 12px;
+  }
+
+  .teammateContent p {
+    font-size: 10px;
+  }
+
   .LeftImageMargin {
     margin-right: 16px;
   }
@@ -1492,5 +1748,9 @@ footer {
 
   .swiper {
     padding-top: 0px;
+  }
+
+  .aboutPagePadding {
+    padding-top: 24px !important;
   }
 }
