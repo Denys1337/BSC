@@ -78,215 +78,166 @@
         </div>
       </div>
     </header>
-    <!-- breadcrumbs  -->
-    <section class="sectionWrapper breadcrumbsPadding">
-      <div class="container containerSection">
-        <div class="breadcrumbs ">
-          <a href="#">Головна</a>
-          <img src="images/arrow.svg" alt="">
-          <p>Про BSC</p>
+     <!-- breadcrumbs  -->
+     <section class="sectionWrapper breadcrumbsPadding">
+        <div class="container containerSection">
+          <div class="breadcrumbs ">
+            <a href="#">Головна</a>
+            <img src="images/arrow.svg" alt="">
+            <p>Події та заходи</p>
+          </div>
         </div>
-      </div>
-  </section>
-    <!-- Про Business Support Center -->
+    </section>
+    <!-- Події та заходи -->
     <section class="sectionWrapper aboutPagePadding">
-      <div class="container containerSection">
-        <h2 class="MinPadding">Про Business Support Center</h2>
-        <div class="contentAbout">
-          <div class="text-container">
-            <p class="clamped-text">
-              Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum
-              augue elementum vulputate. Vehicula sed sit eget egestas
-              vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor
-              sit amet consectetur. Quis diam id est fermentum augue elementum
-              vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui
-              elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur.
-              Quis diam id est fermentum augue elementum vulputate. Vehicula sed
-              sit eget egestas vestibulum. Ornare dui elit eu morbi donec id.
-              Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum
-              augue elementum vulputate. Vehicula sed sit eget egestas
-              vestibulum. Ornare dui elit eu morbi donec id quis diam id est
-              fermentum augue.
-            </p>
-            <button class="read-more-btn">Читати далі</button>
-          </div>
-          <div class="WrapperForImageAbout">
-            <img src="images/about1.svg" class="LeftImageMargin" alt="Business Support Center" />
-            <img src="images/about2.svg" alt="Business Support Center" />
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Принцип роботи -->
-    <section class="sectionWrapper">
         <div class="container containerSection">
-          <h2>Принцип роботи</h2>
-          <div class="wrapperWork">
-            <div class="blockImage"><img src="images/work.svg"/></div>
-            <div class="blockContent">
-                <div class="stepsWrapper">
-                    <div class="step">
-                        <div class="stepHeader">
-                            <span>01</span>
-                            <h3>Назва кроку</h3>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum.</p>
-                    </div>
-                    <div class="step">
-                        <div class="stepHeader">
-                            <span>02</span>
-                            <h3>Назва кроку</h3>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum.</p>
-                    </div>
-                    <div class="step">
-                        <div class="stepHeader">
-                            <span>03</span>
-                            <h3>Назва кроку</h3>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum.</p>
-                    </div>
-                    <div class="step">
-                        <div class="stepHeader">
-                            <span>04</span>
-                            <h3>Назва кроку</h3>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum.</p>
-                    </div>
-                    <div class="step">
-                        <div class="stepHeader">
-                            <span>05</span>
-                            <h3>Назва кроку</h3>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum.</p>
-                    </div>
+          <h2>Події та заходи</h2>
+          <button class="toggleFiltersBtn"><img src="images/filter.svg" alt="filter">Фільтри</button>
+          <div class="filterWrapper">
+            <div class="filterSelectWrapper">          
+            <div class="filter-group" data-filter="date">
+                <button class="dropdown-toggle">За датою  <img src="images/arrowLang.svg" alt="arrow"></button>
+                <div class="dropdown-menu">
+                  <label><input type="checkbox" value="На тиждень" /> На тиждень</label
+                  >
+                  <label
+                    ><input type="checkbox" value="На два тижні" /> На два тижні</label
+                  >
                 </div>
-            </div> 
+              </div>
+          
+              <div class="filter-group" data-filter="duration">
+                <button class="dropdown-toggle">Тривалість <img src="images/arrowLang.svg" alt="arrow"></button>
+                <div class="dropdown-menu">
+                  <label><input type="checkbox" value="Одноденні" /> Одноденні</label
+                  >
+                  <label><input type="checkbox" value="Багатоденні" /> Багатоденні</label>
+                </div>
+              </div>
+          
+              <div class="filter-group" data-filter="location">
+                <button class="dropdown-toggle">Майданчик <img src="images/arrowLang.svg" alt="arrow"></button>
+                <div class="dropdown-menu">
+                  <label><input type="checkbox" value="Київ" /> Київ</label>
+                  <label><input type="checkbox" value="Львів" /> Львів</label>
+                </div>
+              </div>
+            </div>
+            <div class="wrapperItemsSelected">
+              <div class="selected-filters"></div>
+              <button id="clear-filters" class="clearFilters">Очистити всі <img src="images/closeButton.svg" alt="close"></button>
+            </div>
+          </div>
+          <div class="cards-section">
+            <div class="cards-grid">
+              <div class="card">
+                <div class="card-date">20 Червня 2025</div>
+                <div class="card-time">12:00-13:00</div>
+                <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                <div class="card-buttons">
+                  <button class="btn-outline">Детальний опис</button>
+                  <button class="btn-fill" id="openModal">Зареєструватись</button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-date">4 Листопада 2025</div>
+                <div class="card-time">15:30-17:00</div>
+                <h4>Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametametLorem ipsum dolor sit ametametLorem ipsum dolor sit ametametLorem ipsum dolor sit amet</h4>
+                <div class="card-buttons">
+                  <button class="btn-outline">Детальний опис</button>
+                  <button class="btn-fill" id="openModal">Зареєструватись</button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-date">20 Червня 2025</div>
+                <div class="card-time">12:00-13:00</div>
+                <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                <div class="card-buttons">
+                  <button class="btn-outline">Детальний опис</button>
+                  <button class="btn-fill" id="openModal">Зареєструватись</button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-date">20 Червня 2025</div>
+                <div class="card-time">12:00-13:00</div>
+                <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                <div class="card-buttons">
+                  <button class="btn-outline">Детальний опис</button>
+                  <button class="btn-fill" id="openModal">Зареєструватись</button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-date">20 Червня 2025</div>
+                <div class="card-time">12:00-13:00</div>
+                <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                <div class="card-buttons">
+                  <button class="btn-outline">Детальний опис</button>
+                  <button class="btn-fill" id="openModal">Зареєструватись</button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-date">20 Червня 2025</div>
+                <div class="card-time">12:00-13:00</div>
+                <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                <div class="card-buttons">
+                  <button class="btn-outline">Детальний опис</button>
+                  <button class="btn-fill" id="openModal">Зареєструватись</button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-date">20 Червня 2025</div>
+                <div class="card-time">12:00-13:00</div>
+                <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                <div class="card-buttons">
+                  <button class="btn-outline">Детальний опис</button>
+                  <button class="btn-fill" id="openModal">Зареєструватись</button>
+                </div>
+              </div>
+          
+            </div>
+          </div>
+          
+          <div class="contentActionWrapper">
+
           </div>
         </div>
-      </section>
-    <!-- Послуги -->
-    <section class="sectionWrapper">
-      <div class="container containerSection">
-        <h2>Послуги</h2>
-        <div class="containerServicesBlocks">
-          <div class="wrapperServices">
-            <div class="whiteBlockService">
-              <h3>Консультації для бізнесу</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur. Quis diam id est
-                fermentum augue elementum vulputate. Vehicula sed sit eget
-                egestas vestibulum. Ornare dui elit eu morbi donec id.
-              </p>
-              <a href="#" class="buttonBlue marginButtonForClampText">Lorem ipsum</a>
-            </div>
-            <div class="blueBlockService">
-              <h3>Навчальні програми</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur. Quis diam id est
-                fermentum augue elementum vulputate. Vehicula sed sit eget
-                egestas vestibulum. Ornare dui elit eu morbi donec id.
-              </p>
-              <ul>
-                <li>Lorem ipsum dolor</li>
-                <li>Lorem ipsum dolor</li>
-                <li>Lorem ipsum dolor</li>
-              </ul>
-              <a href="#" class="buttonWhite">Lorem ipsum</a>
-            </div>
-          </div>
-          <div class="wrapperServices reverseBlock">
-            <div class="blueBlockService bottomBlockMargin">
-              <h3>Навчальні програми</h3>
-              <div class="wrapperTextBlock"><p>
-                Lorem ipsum dolor sit amet consectetur. Quis diam id est
-                fermentum augue elementum vulputate. Vehicula sed sit eget
-                egestas vestibulum. Ornare dui elit eu morbi donec id.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur. Quis diam id est
-                fermentum augue elementum vulputate.
-              </p>
-            </div>
-              <a href="#" class="buttonWhite buttonBlockMargin">Lorem ipsum</a>
-            </div>
-            <div class="whiteBlockService">
-              <h3>Консультації для бізнесу</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur. Quis diam id est
-                fermentum augue elementum vulputate. Vehicula sed sit eget
-                egestas vestibulum. Ornare dui elit eu morbi donec id.
-              </p>
-              <a href="#" class="buttonBlue marginButtonForClampText">Lorem ipsum</a>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
-    <!-- Наша команда -->
-    <section class="sectionWrapper">
-        <div class="container containerSection">
-          <h2>Наша команда</h2>
-          <div class="wrapperTeam">
-            <div class="teammate">
-                <img src="images/teammate.jpg"/>
-                <div class="teammateContent">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum dolor </p>
-                </div>
-            </div>
-            <div class="teammate">
-                <img src="images/teammate.jpg"/>
-                <div class="teammateContent">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum dolor </p>
-                </div>
-            </div>
-            <div class="teammate">
-                <img src="images/teammate.jpg"/>
-                <div class="teammateContent">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum dolor </p>
-                </div>
-            </div>
-            <div class="teammate">
-                <img src="images/teammate.jpg"/>
-                <div class="teammateContent">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum dolor </p>
-                </div>
-            </div>
-            <div class="teammate">
-                <img src="images/teammate.jpg"/>
-                <div class="teammateContent">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum dolor </p>
-                </div>
-            </div>
-            <div class="teammate">
-                <img src="images/teammate.jpg"/>
-                <div class="teammateContent">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum dolor </p>
-                </div>
-            </div>
-            <div class="teammate">
-                <img src="images/teammate.jpg"/>
-                <div class="teammateContent">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum dolor </p>
-                </div>
-            </div>
-            <div class="teammate">
-                <img src="images/teammate.jpg"/>
-                <div class="teammateContent">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum dolor </p>
-                </div>
+    <div class="modal" id="popupModal">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="closeModal">&times;</button>
+        <h2>Зареєструватись</h2>
+        <form>
+          <input type="text" placeholder="Ім'я та прізвище" required />
+          <input type="tel" placeholder="+380XXXXXXXXX" required />
+          <input type="text" placeholder="Компанія і посада" />
+    
+          <!-- Тип підприємця -->
+          <div class="custom-select">
+            <button type="button" class="select-toggle">Тип підприємця<img src="images/arrowLang.svg"/></button>
+            <div class="select-options">
+              <label><input type="checkbox" /> ФОП</label>
+              <label><input type="checkbox" /> ТОВ</label>
+              <label><input type="checkbox" /> Майбутній підприємець</label>
             </div>
           </div>
-        </div>
-      </section>
+    
+          <!-- Категорія -->
+          <div class="custom-select">
+            <button type="button" class="select-toggle">Категорія<img src="images/arrowLang.svg"/></button>
+            <div class="select-options">
+              <label><input type="checkbox" /> Жінка</label>
+              <label><input type="checkbox" /> Молодь</label>
+              <label><input type="checkbox" /> Ветеран</label>
+              <label><input type="checkbox" /> ВПО</label>
+            </div>
+          </div>
+    
+          <button type="submit" class="submitBtn">Відправити</button>
+          <p class="link-bottom">Форма відправлена</p>
+        </form>
+      </div>
+    </div>
     <!-- footer -->
     <footer>
       <div class="container footerWrapper">
@@ -319,5 +270,138 @@
       </div>
     </footer>
     <script src="script.js"></script>
+    <script>
+      const toggleBtn = document.querySelector('.toggleFiltersBtn');
+      const filterWrapper = document.querySelector('.filterWrapper');
+    
+      toggleBtn.addEventListener('click', () => {
+        filterWrapper.classList.toggle('active');
+      });
+    </script>
+    <script>
+        const selectedFilters = [];
+
+        document.querySelectorAll(".dropdown-toggle").forEach((button) => {
+          button.addEventListener("click", () => {
+            const group = button.closest(".filter-group");
+            group.classList.toggle("active");
+          });
+        });
+
+        // Handle checkbox changes
+        document
+          .querySelectorAll(".dropdown-menu input[type='checkbox']")
+          .forEach((checkbox) => {
+            checkbox.addEventListener("change", function () {
+              const value = this.value;
+              const group = this.closest(".filter-group").dataset.filter;
+
+              if (this.checked) {
+                selectedFilters.push({ group, value });
+              } else {
+                const index = selectedFilters.findIndex(
+                  (f) => f.group === group && f.value === value
+                );
+                if (index !== -1) selectedFilters.splice(index, 1);
+              }
+
+              renderSelectedFilters();
+            });
+          });
+
+        // Render chips
+        function renderSelectedFilters() {
+          const container = document.querySelector(".selected-filters");
+          container.innerHTML = "";
+
+          selectedFilters.forEach((filter) => {
+            const chip = document.createElement("div");
+            chip.className = "filter-chip";
+            chip.innerHTML = `${filter.value} <span data-group="${filter.group}" data-value="${filter.value}"><img src="images/deleteIcon.svg"/></span>`;
+            container.appendChild(chip);
+          });
+        }
+
+        document
+          .querySelector(".selected-filters")
+          .addEventListener("click", function (e) {
+            if (e.target.tagName === "SPAN") {
+              const group = e.target.dataset.group;
+              const value = e.target.dataset.value;
+
+              const index = selectedFilters.findIndex(
+                (f) => f.group === group && f.value === value
+              );
+              if (index !== -1) selectedFilters.splice(index, 1);
+
+              // Uncheck the checkbox
+              document
+                .querySelectorAll(
+                  `.filter-group[data-filter="${group}"] input[value="${value}"]`
+                )
+                .forEach((input) => (input.checked = false));
+
+              renderSelectedFilters();
+            }
+          });
+
+        // Clear all
+        document.getElementById("clear-filters").addEventListener("click", () => {
+          selectedFilters.length = 0;
+
+          document
+            .querySelectorAll(".dropdown-menu input[type='checkbox']")
+            .forEach((input) => (input.checked = false));
+
+          renderSelectedFilters();
+        });
+
+        document.addEventListener("click", function (e) {
+          document.querySelectorAll(".filter-group").forEach((group) => {
+            if (!group.contains(e.target)) {
+              group.classList.remove("active");
+            }
+          });
+        });
+    </script>
+    <script>
+      const modal = document.getElementById("popupModal");
+      const openBtn = document.getElementById("openModal");
+      const closeBtn = document.querySelector(".closeModal");
+      const overlay = document.querySelector(".modal-overlay");
+    
+      openBtn.addEventListener("click", () => {
+        modal.classList.add("open");
+      });
+    
+      closeBtn.addEventListener("click", () => {
+        modal.classList.remove("open");
+      });
+    
+      overlay.addEventListener("click", () => {
+        modal.classList.remove("open");
+      });
+    
+      document.querySelectorAll(".select-toggle").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const parent = btn.closest(".custom-select");
+    parent.classList.toggle("active");
+
+    document.querySelectorAll(".custom-select").forEach((el) => {
+      if (el !== parent) el.classList.remove("active");
+    });
+  });
+});
+
+    
+      document.addEventListener("click", function (e) {
+        document.querySelectorAll(".custom-select").forEach((select) => {
+          if (!select.contains(e.target)) {
+            select.classList.remove("active");
+          }
+        });
+      });
+    </script>
+    
   </body>
 </html>

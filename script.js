@@ -19,35 +19,46 @@ toggle.addEventListener("click", () => {
   }
 });
 
-const sliderWrapper = document.getElementById("sliderWrapper");
-const prevBtn = document.querySelector(".prev-btn");
-const nextBtn = document.querySelector(".next-btn");
-let currentIndex = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".slider-track");
+  const slides = document.querySelectorAll(".slide");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
 
-function updateSlider() {
-  const slideWidth = document.querySelector(".slide").offsetWidth;
-  sliderWrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-}
+  let currentIndex = 0;
 
-nextBtn.addEventListener("click", () => {
-  const slideCount = document.querySelectorAll(".slide").length;
-  const visibleSlides = window.innerWidth <= 768 ? 1 : 2;
-  const maxIndex = slideCount - visibleSlides;
-  if (currentIndex < maxIndex) {
-    currentIndex++;
-    updateSlider();
+  function getSlidesPerView() {
+    return window.innerWidth >= 769 ? 2 : 1;
   }
-});
 
-prevBtn.addEventListener("click", () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    updateSlider();
+  function updateSliderPosition() {
+    const slideWidth = slides[0].offsetWidth + 16;
+    const offset = currentIndex * slideWidth;
+    track.style.transform = `translateX(-${offset}px)`;
   }
-});
 
-window.addEventListener("resize", updateSlider);
-window.addEventListener("load", updateSlider);
+  nextBtn.addEventListener("click", () => {
+    const maxIndex = slides.length - getSlidesPerView();
+    if (currentIndex < maxIndex) {
+      currentIndex++;
+      updateSliderPosition();
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSliderPosition();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    currentIndex = 0;
+    updateSliderPosition();
+  });
+
+  updateSliderPosition();
+});
 
 const items = document.querySelectorAll(".accordion-item");
 
@@ -428,3 +439,5 @@ document.querySelectorAll(".nav-list a").forEach((link) => {
     this.classList.add("active");
   });
 });
+
+// події та заходи фільтра
