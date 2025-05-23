@@ -1912,6 +1912,16 @@ form {
   margin-bottom: 100px;
 }
 
+.text-content {
+  max-height: none;
+  overflow: visible;
+  transition: max-height 0.3s ease;
+}
+
+.text-content ul {
+  padding-left: 18px;
+}
+
 @media (max-width: 1075px) {
   .bunnerAction img {
     height: 500px;
@@ -2259,7 +2269,7 @@ form {
     width: 100%;
   }
 
-  .clamped-text {
+  /* .clamped-text {
     display: -webkit-box;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
@@ -2271,7 +2281,7 @@ form {
   .clamped-text.expanded {
     -webkit-line-clamp: unset;
     max-height: none;
-  }
+  } */
 
   .contentAbout {
     gap: 16px;
@@ -2573,7 +2583,30 @@ form {
   .aboutPagePadding {
     padding-top: 24px !important;
   }
+
+  .text-content {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .text-content.expanded {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    display: block;
+  }
+
+  .read-more-btn {
+    display: inline-block;
+  }
 }
+
+/* @media (min-width: 1076px) {
+  .read-more-btn {
+    display: none;
+  }
+} */
 
 @media (max-width: 552px) {
   .teammate {
