@@ -2756,7 +2756,7 @@ form {
 .popup-content img,
 .popup-content video {
   max-width: 90vw;
-  max-height: 90vh;
+  max-height: 75vh;
   width: 100%;
   height: auto;
   display: block;
