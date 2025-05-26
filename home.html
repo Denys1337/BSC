@@ -126,24 +126,16 @@
         <h2 class="MinPadding">Про Business Support Center</h2>
         <div class="contentAbout">
           <div class="text-container">
-            <p class="clamped-text">
-              Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum
-              augue elementum vulputate. Vehicula sed sit eget egestas
-              vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor
-              sit amet consectetur. Quis diam id est fermentum augue elementum
-              vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui
-              elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur.
-              Quis diam id est fermentum augue elementum vulputate. Vehicula sed
-              sit eget egestas vestibulum. Ornare dui elit eu morbi donec id.
-              Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum
-              augue elementum vulputate. Vehicula sed sit eget egestas
-              vestibulum. Ornare dui elit eu morbi donec id quis diam id est
-              fermentum augue.
-            </p>
-            <ul>
-              skfjksf
-            </ul>
-            <p>skjfskhdghkjhskjgdhjsdhgksj</p>
+            <div class="text-content">
+              <p class="clamped-text">
+                Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate
+              </p>
+              <ul>
+                <li>skfjksf</li>
+              </ul>
+              <p>skjfskhdghkjhskjgdhjsdhgksjLorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputateLorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputateLorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate</p>
+            </div>
+          
             <button class="read-more-btn">Читати далі</button>
           </div>
           <div class="WrapperForImageAbout">
@@ -561,5 +553,19 @@ const mobileSlider = new Swiper(".mobile-slider", {
 
 
     </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.querySelector('.read-more-btn');
+    const content = document.querySelector('.text-content');
+
+    btn.addEventListener('click', () => {
+      content.classList.toggle('expanded');
+      btn.textContent = content.classList.contains('expanded')
+        ? 'Згорнути'
+        : 'Читати далі';
+    });
+  });
+</script>
   </body>
 </html>

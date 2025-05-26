@@ -141,9 +141,9 @@
           <div class="custom-select">
             <button type="button" class="select-toggle">Тип підприємця<img src="images/arrowLang.svg"/></button>
             <div class="select-options">
-              <label><input type="checkbox" /> ФОП</label>
-              <label><input type="checkbox" /> ТОВ</label>
-              <label><input type="checkbox" /> Майбутній підприємець</label>
+              <label><input type="checkbox" value="ФОП"/> ФОП</label>
+              <label><input type="checkbox" value="ТОВ"/> ТОВ</label>
+              <label><input type="checkbox" value="Майбутній підприємець"/> Майбутній підприємець</label>
             </div>
           </div>
     
@@ -151,10 +151,10 @@
           <div class="custom-select">
             <button type="button" class="select-toggle">Категорія<img src="images/arrowLang.svg"/></button>
             <div class="select-options">
-              <label><input type="checkbox" /> Жінка</label>
-              <label><input type="checkbox" /> Молодь</label>
-              <label><input type="checkbox" /> Ветеран</label>
-              <label><input type="checkbox" /> ВПО</label>
+              <label><input type="checkbox" value="Жінка"/> Жінка</label>
+              <label><input type="checkbox" value="Молодь"/> Молодь</label>
+              <label><input type="checkbox" value="Ветеран"/> Ветеран</label>
+              <label><input type="checkbox" value="ВПО"/> ВПО</label>
             </div>
           </div>
     
@@ -213,7 +213,7 @@
         modal.classList.remove("open");
       });
     
-      document.querySelectorAll(".select-toggle").forEach((btn) => {
+document.querySelectorAll(".select-toggle").forEach((btn) => {
   btn.addEventListener("click", () => {
     const parent = btn.closest(".custom-select");
     parent.classList.toggle("active");
@@ -224,14 +224,36 @@
   });
 });
 
-    
-      document.addEventListener("click", function (e) {
-        document.querySelectorAll(".custom-select").forEach((select) => {
-          if (!select.contains(e.target)) {
-            select.classList.remove("active");
-          }
-        });
+document.addEventListener("click", function (e) {
+  document.querySelectorAll(".custom-select").forEach((select) => {
+    if (!select.contains(e.target)) {
+      select.classList.remove("active");
+    }
+  });
+});
+
+document.querySelectorAll(".custom-select").forEach((select) => {
+  const checkboxes = select.querySelectorAll("input[type='checkbox']");
+  const toggle = select.querySelector(".select-toggle");
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) cb.checked = false;
       });
+
+      if (checkbox.checked) {
+        toggle.innerText = checkbox.value;
+        select.classList.remove("active");
+      } else {
+        toggle.innerText = "Виберіть";
+      }
+    });
+  });
+});
+
+
+
     </script>
     
   </body>

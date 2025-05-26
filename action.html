@@ -197,9 +197,6 @@
             </div>
           </div>
           
-          <div class="contentActionWrapper">
-
-          </div>
         </div>
     </section>
     <div class="modal" id="popupModal">
@@ -216,9 +213,9 @@
           <div class="custom-select">
             <button type="button" class="select-toggle">Тип підприємця<img src="images/arrowLang.svg"/></button>
             <div class="select-options">
-              <label><input type="checkbox" /> ФОП</label>
-              <label><input type="checkbox" /> ТОВ</label>
-              <label><input type="checkbox" /> Майбутній підприємець</label>
+              <label><input type="checkbox" value="ФОП"/> ФОП</label>
+              <label><input type="checkbox" value="ТОВ"/> ТОВ</label>
+              <label><input type="checkbox" value="Майбутній підприємець"/> Майбутній підприємець</label>
             </div>
           </div>
     
@@ -226,10 +223,10 @@
           <div class="custom-select">
             <button type="button" class="select-toggle">Категорія<img src="images/arrowLang.svg"/></button>
             <div class="select-options">
-              <label><input type="checkbox" /> Жінка</label>
-              <label><input type="checkbox" /> Молодь</label>
-              <label><input type="checkbox" /> Ветеран</label>
-              <label><input type="checkbox" /> ВПО</label>
+              <label><input type="checkbox" value="Жінка"/> Жінка</label>
+              <label><input type="checkbox" value="Молодь"/> Молодь</label>
+              <label><input type="checkbox" value="Ветеран"/> Ветеран</label>
+              <label><input type="checkbox" value="ВПО"/> ВПО</label>
             </div>
           </div>
     
@@ -279,90 +276,107 @@
       });
     </script>
     <script>
-        const selectedFilters = [];
+      const selectedFilters = [];
 
-        document.querySelectorAll(".dropdown-toggle").forEach((button) => {
-          button.addEventListener("click", () => {
-            const group = button.closest(".filter-group");
-            group.classList.toggle("active");
-          });
-        });
+document.querySelectorAll(".dropdown-toggle").forEach((button) => {
+  button.addEventListener("click", () => {
+    const group = button.closest(".filter-group");
+    group.classList.toggle("active");
+  });
+});
 
-        // Handle checkbox changes
-        document
-          .querySelectorAll(".dropdown-menu input[type='checkbox']")
-          .forEach((checkbox) => {
-            checkbox.addEventListener("change", function () {
-              const value = this.value;
-              const group = this.closest(".filter-group").dataset.filter;
+document
+  .querySelectorAll(".dropdown-menu input[type='checkbox']")
+  .forEach((checkbox) => {
+    checkbox.addEventListener("change", function () {
+      const value = this.value;
+      const group = this.closest(".filter-group").dataset.filter;
+      const groupElement = this.closest(".filter-group");
 
-              if (this.checked) {
-                selectedFilters.push({ group, value });
-              } else {
-                const index = selectedFilters.findIndex(
-                  (f) => f.group === group && f.value === value
-                );
-                if (index !== -1) selectedFilters.splice(index, 1);
-              }
+      if (this.checked) {
+        selectedFilters.push({ group, value });
+      } else {
+        const index = selectedFilters.findIndex(
+          (f) => f.group === group && f.value === value
+        );
+        if (index !== -1) selectedFilters.splice(index, 1);
+      }
 
-              renderSelectedFilters();
-            });
-          });
+      groupElement.classList.remove("active");  
 
-        // Render chips
-        function renderSelectedFilters() {
-          const container = document.querySelector(".selected-filters");
-          container.innerHTML = "";
+      renderSelectedFilters();
+    });
+  });
 
-          selectedFilters.forEach((filter) => {
-            const chip = document.createElement("div");
-            chip.className = "filter-chip";
-            chip.innerHTML = `${filter.value} <span data-group="${filter.group}" data-value="${filter.value}"><img src="images/deleteIcon.svg"/></span>`;
-            container.appendChild(chip);
-          });
-        }
+// Render chips
+function renderSelectedFilters() {
+  const container = document.querySelector(".selected-filters");
+  container.innerHTML = "";
 
-        document
-          .querySelector(".selected-filters")
-          .addEventListener("click", function (e) {
-            if (e.target.tagName === "SPAN") {
-              const group = e.target.dataset.group;
-              const value = e.target.dataset.value;
+  selectedFilters.forEach((filter) => {
+    const chip = document.createElement("div");
+    chip.className = "filter-chip";
+    chip.innerHTML = `${filter.value} <span data-group="${filter.group}" data-value="${filter.value}"><img src="images/deleteIcon.svg" alt="delete"/></span>`;
+    container.appendChild(chip);
+  });
 
-              const index = selectedFilters.findIndex(
-                (f) => f.group === group && f.value === value
-              );
-              if (index !== -1) selectedFilters.splice(index, 1);
+  toggleClearButton();
+}
 
-              // Uncheck the checkbox
-              document
-                .querySelectorAll(
-                  `.filter-group[data-filter="${group}"] input[value="${value}"]`
-                )
-                .forEach((input) => (input.checked = false));
+// Remove chip
+document.querySelector(".selected-filters").addEventListener("click", function (e) {
+  const target = e.target.closest("span");
+  if (target) {
+    const group = target.dataset.group;
+    const value = target.dataset.value;
 
-              renderSelectedFilters();
-            }
-          });
+    const index = selectedFilters.findIndex(
+      (f) => f.group === group && f.value === value
+    );
+    if (index !== -1) selectedFilters.splice(index, 1);
 
-        // Clear all
-        document.getElementById("clear-filters").addEventListener("click", () => {
-          selectedFilters.length = 0;
+    // Uncheck the checkbox
+    document
+      .querySelectorAll(
+        `.filter-group[data-filter="${group}"] input[value="${value}"]`
+      )
+      .forEach((input) => (input.checked = false));
 
-          document
-            .querySelectorAll(".dropdown-menu input[type='checkbox']")
-            .forEach((input) => (input.checked = false));
+    renderSelectedFilters();
+  }
+});
 
-          renderSelectedFilters();
-        });
+// Clear all
+document.getElementById("clear-filters").addEventListener("click", () => {
+  selectedFilters.length = 0;
 
-        document.addEventListener("click", function (e) {
-          document.querySelectorAll(".filter-group").forEach((group) => {
-            if (!group.contains(e.target)) {
-              group.classList.remove("active");
-            }
-          });
-        });
+  document
+    .querySelectorAll(".dropdown-menu input[type='checkbox']")
+    .forEach((input) => (input.checked = false));
+
+  renderSelectedFilters();
+});
+
+// Close dropdowns on outside click
+document.addEventListener("click", function (e) {
+  document.querySelectorAll(".filter-group").forEach((group) => {
+    if (!group.contains(e.target)) {
+      group.classList.remove("active");
+    }
+  });
+});
+
+function toggleClearButton() {
+  const clearBtn = document.getElementById("clear-filters");
+  const wrapperFilter = document.querySelector(".filterWrapper");
+  if (selectedFilters.length > 0) {
+    clearBtn.style.display = "inline-block";
+    wrapperFilter.style.gap = "20px"
+  } else {
+    clearBtn.style.display = "none";
+  }
+}
+
     </script>
     <script>
       const modal = document.getElementById("popupModal");
@@ -382,7 +396,7 @@
         modal.classList.remove("open");
       });
     
-      document.querySelectorAll(".select-toggle").forEach((btn) => {
+document.querySelectorAll(".select-toggle").forEach((btn) => {
   btn.addEventListener("click", () => {
     const parent = btn.closest(".custom-select");
     parent.classList.toggle("active");
@@ -393,14 +407,36 @@
   });
 });
 
-    
-      document.addEventListener("click", function (e) {
-        document.querySelectorAll(".custom-select").forEach((select) => {
-          if (!select.contains(e.target)) {
-            select.classList.remove("active");
-          }
-        });
+document.addEventListener("click", function (e) {
+  document.querySelectorAll(".custom-select").forEach((select) => {
+    if (!select.contains(e.target)) {
+      select.classList.remove("active");
+    }
+  });
+});
+
+document.querySelectorAll(".custom-select").forEach((select) => {
+  const checkboxes = select.querySelectorAll("input[type='checkbox']");
+  const toggle = select.querySelector(".select-toggle");
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) cb.checked = false;
       });
+
+      if (checkbox.checked) {
+        toggle.innerText = checkbox.value;
+        select.classList.remove("active");
+      } else {
+        toggle.innerText = "Виберіть";
+      }
+    });
+  });
+});
+
+
+
     </script>
     
   </body>
