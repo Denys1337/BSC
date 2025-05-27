@@ -1951,6 +1951,8 @@ form {
   padding: 40px;
   border-radius: 20px;
   border: 1px solid rgba(217, 217, 217, 1);
+  min-height: 520px;
+  width: 100%;
 }
 
 .contentContact {
@@ -2054,14 +2056,14 @@ form {
   outline: none;
   border: 1px solid rgba(217, 217, 217, 1);
   max-width: 345px;
-  width: 100%;
-  min-width: 311px;
+  width: calc(100% - 10px);
+  min-width: 200px;
 }
 
 .wrapperMap {
   min-width: 303px;
   max-width: 630px;
-  width: 630px;
+  width: 100%;
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
@@ -2080,7 +2082,7 @@ form {
   min-width: 16px;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1250px) {
   .containerContact {
     flex-direction: column;
     width: 100%;

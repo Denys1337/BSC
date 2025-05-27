@@ -205,13 +205,13 @@
         <button class="closeModal">&times;</button>
         <h2>Зареєструватись</h2>
         <form>
-          <input type="text" placeholder="Ім'я та прізвище" required />
-          <input type="tel" placeholder="+380XXXXXXXXX" required />
-          <input type="text" placeholder="Компанія і посада" />
+          <input type="text" id="fullname" placeholder="Ім'я та прізвище" required />
+          <input type="tel" id="phone" placeholder="+380XXXXXXXXX" required />
+          <input type="text" id="company" placeholder="Компанія і посада" required />
     
           <!-- Тип підприємця -->
           <div class="custom-select">
-            <button type="button" class="select-toggle">Тип підприємця<img src="images/arrowLang.svg"/></button>
+            <button type="button" id="typeOwner" class="select-toggle">Тип підприємця<img src="images/arrowLang.svg"/></button>
             <div class="select-options">
               <label><input type="checkbox" value="ФОП"/> ФОП</label>
               <label><input type="checkbox" value="ТОВ"/> ТОВ</label>
@@ -221,7 +221,7 @@
     
           <!-- Категорія -->
           <div class="custom-select">
-            <button type="button" class="select-toggle">Категорія<img src="images/arrowLang.svg"/></button>
+            <button type="button" id="categoryPeople" class="select-toggle">Категорія<img src="images/arrowLang.svg"/></button>
             <div class="select-options">
               <label><input type="checkbox" value="Жінка"/> Жінка</label>
               <label><input type="checkbox" value="Молодь"/> Молодь</label>
@@ -231,7 +231,7 @@
           </div>
           <!-- Дата -->
           <div class="custom-select">
-            <button type="button" class="select-toggle">Дата<img src="images/arrowLang.svg"/></button>
+            <button type="button" id="dataAction" class="select-toggle">Дата<img src="images/arrowLang.svg"/></button>
             <div class="select-options">
               <label><input type="checkbox" value="20.06.2025"/> 20 Червня 2025</label>
               <label><input type="checkbox" value="21.06.2025"/> 21 Червня 2025</label>
@@ -239,7 +239,7 @@
           </div>
     
           <button type="submit" class="submitBtn">Відправити</button>
-          <p class="link-bottom">Форма відправлена</p>
+          <p class="link-bottom" style="display: none;">Форма відправлена</p>
         </form>
       </div>
     </div>
@@ -275,6 +275,71 @@
       </div>
     </footer>
     <script src="script.js"></script>
+    <script>
+      document.querySelector(".formContainer").addEventListener("submit", function (e) {
+        e.preventDefault();
+    
+        const inputs = document.querySelectorAll(".formContainer input");
+        const textarea = document.querySelector(".formContainer textarea");
+
+        const categoryPeopleValue = document.querySelector('#categoryPeople');
+        const typeOwnerValue = document.querySelector('#typeOwner');
+        const dataActionValue = document.querySelector('#dataAction');
+        
+        if(categoryPeopleValue && typeOwnerValue && dataActionValue) {
+          categoryPeopleValue.innerText = "Категорія";
+          typeOwnerValue.innerText = "Тип підприємця";
+          dataActionValue.innerText = "Дата";
+        }
+    
+        inputs.forEach((input) => {
+          if (input.type === "checkbox" || input.type === "radio") {
+            input.checked = false;
+          } else {
+            input.value = "";
+          }
+        });
+    
+        if (textarea) {
+          textarea.value = "";
+        }
+    
+        const linkBottom = document.querySelector(".link-bottom");
+        linkBottom.style.display = "block";
+        setTimeout(() => {
+          linkBottom.style.display = "none";
+        }, 5000);
+      });
+    </script>
+    
+    <script>
+  const nameInput = document.getElementById("fullname");
+  const companyInput = document.getElementById("company");
+  const phoneInput = document.getElementById("phone");
+
+  const onlyLettersRegex = /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ]+$/;
+
+  const onlyDigitsRegex = /^\d+$/;
+
+  function allowOnlyLetters(event) {
+    const key = event.key;
+    if (!onlyLettersRegex.test(key) && key !== "Backspace" && key !== " " && key.length === 1) {
+      event.preventDefault();
+    }
+  }
+
+  function allowOnlyDigits(event) {
+    const key = event.key;
+    if (!onlyDigitsRegex.test(key) && key !== "Backspace") {
+      event.preventDefault();
+    }
+  }
+
+  nameInput.addEventListener("keypress", allowOnlyLetters);
+  companyInput.addEventListener("keypress", allowOnlyLetters);
+  phoneInput.addEventListener("keypress", allowOnlyDigits);
+      
+    </script>
     <script>
       const toggleBtn = document.querySelector('.toggleFiltersBtn');
       const filterWrapper = document.querySelector('.filterWrapper');
