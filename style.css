@@ -2069,6 +2069,17 @@ form {
   border-radius: 12px;
 }
 
+.contactForm .select-options {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contactForm .select-options label input {
+  width: 16px !important;
+  min-width: 16px;
+}
+
 @media (max-width: 1500px) {
   .containerContact {
     flex-direction: column;

@@ -201,6 +201,54 @@
         </div>
       </div>
     </footer>
-    <script src="script.js"></script>  
+    <script src="script.js"></script> 
+    <script>
+      document.querySelectorAll(".select-toggle").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const parent = btn.closest(".custom-select");
+    parent.classList.toggle("active");
+
+    document.querySelectorAll(".custom-select").forEach((el) => {
+      if (el !== parent) el.classList.remove("active");
+    });
+  });
+});
+
+document.addEventListener("click", function (e) {
+  document.querySelectorAll(".custom-select").forEach((select) => {
+    if (!select.contains(e.target)) {
+      select.classList.remove("active");
+    }
+  });
+});
+      document.querySelectorAll(".custom-select").forEach((select) => {
+  const checkboxes = select.querySelectorAll("input[type='checkbox']");
+  const toggle = select.querySelector(".select-toggle");
+
+  checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", () => {
+    const isMultiple = select.dataset.multiple === "true";
+
+    if (!isMultiple) {
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) cb.checked = false;
+      });
+
+      if (checkbox.checked) {
+        toggle.innerText = checkbox.value;
+        select.classList.remove("active");
+      } else {
+        toggle.innerText = "Виберіть";
+      }
+    } else {
+      const selected = Array.from(checkboxes)
+        .filter((cb) => cb.checked)
+        .map((cb) => cb.value);
+      toggle.innerText = selected.length > 0 ? selected.join(", ") : "Виберіть";
+    }
+  });
+});
+});
+    </script> 
   </body>
 </html>
