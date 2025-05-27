@@ -99,18 +99,34 @@
           <h2>Lorem ipsum dolor sit amet consectetur</h2>
           <div class="containerContentAction">
             <div class="headerContentAction">
-              <div class="info">
-                <div class="info-item">
-                  <img src="images/calendar.svg" alt="calendar" />
-                  <span>20 Червня 2025</span>
+              <div class="infoWrapperItems">
+                <div class="info">
+                  <div class="info-item">
+                    <img src="images/calendar.svg" alt="calendar" />
+                    <span>20 Червня 2025</span>
+                  </div>
+                  <div class="info-item">
+                    <img src="images/time.svg" alt="clock" />
+                    <span>12:00</span>
+                  </div>
+                  <div class="info-item">
+                    <img src="images/location.svg" alt="location" />
+                    <span>Вінниця, ТРЦ Мегамолл</span>
+                  </div>
                 </div>
-                <div class="info-item">
-                  <img src="images/time.svg" alt="clock" />
-                  <span>12:00</span>
-                </div>
-                <div class="info-item">
-                  <img src="images/location.svg" alt="location" />
-                  <span>Вінниця, ТРЦ Мегамолл</span>
+                <div class="info">
+                  <div class="info-item">
+                    <img src="images/calendar.svg" alt="calendar" />
+                    <span>21 Червня 2025</span>
+                  </div>
+                  <div class="info-item">
+                    <img src="images/time.svg" alt="clock" />
+                    <span>12:00</span>
+                  </div>
+                  <div class="info-item">
+                    <img src="images/location.svg" alt="location" />
+                    <span>Вінниця, ТРЦ Мегамолл</span>
+                  </div>
                 </div>
               </div>
               <a href="#" class="buttonAction" id="openModal">Зареєструватись</a>
@@ -122,7 +138,7 @@
             <div class="descriptionAction">
               Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate.
             </div>
-            <a href="#" class="buttonActionMobile" id="openModal">Зареєструватись</a>
+            <a href="#" class="buttonActionMobile" id="openModalMobile">Зареєструватись</a>
           </div>
 
         </div>
@@ -155,6 +171,14 @@
               <label><input type="checkbox" value="Молодь"/> Молодь</label>
               <label><input type="checkbox" value="Ветеран"/> Ветеран</label>
               <label><input type="checkbox" value="ВПО"/> ВПО</label>
+            </div>
+          </div>
+          <!-- Дата -->
+          <div class="custom-select" data-multiple="true">
+            <button type="button" class="select-toggle">Дата<img src="images/arrowLang.svg"/></button>
+            <div class="select-options">
+              <label><input type="checkbox" value="20.06.2025"/> 20 Червня 2025</label>
+              <label><input type="checkbox" value="21.06.2025"/> 21 Червня 2025</label>
             </div>
           </div>
     
@@ -200,7 +224,14 @@
       const openBtn = document.getElementById("openModal");
       const closeBtn = document.querySelector(".closeModal");
       const overlay = document.querySelector(".modal-overlay");
-    
+      
+      if(document.getElementById("openModalMobile")) {
+        const openBtnMobile = document.getElementById("openModalMobile");
+        openModalMobile.addEventListener("click", () => {
+          modal.classList.add("open");
+        });
+      }
+
       openBtn.addEventListener("click", () => {
         modal.classList.add("open");
       });
@@ -237,7 +268,10 @@ document.querySelectorAll(".custom-select").forEach((select) => {
   const toggle = select.querySelector(".select-toggle");
 
   checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener("change", () => {
+  checkbox.addEventListener("change", () => {
+    const isMultiple = select.dataset.multiple === "true";
+
+    if (!isMultiple) {
       checkboxes.forEach((cb) => {
         if (cb !== checkbox) cb.checked = false;
       });
@@ -248,8 +282,15 @@ document.querySelectorAll(".custom-select").forEach((select) => {
       } else {
         toggle.innerText = "Виберіть";
       }
-    });
+    } else {
+      const selected = Array.from(checkboxes)
+        .filter((cb) => cb.checked)
+        .map((cb) => cb.value);
+      toggle.innerText = selected.length > 0 ? selected.join(", ") : "Виберіть";
+    }
   });
+});
+
 });
 
 

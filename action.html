@@ -131,7 +131,7 @@
           <div class="cards-section">
             <div class="cards-grid">
               <div class="card">
-                <div class="card-date">20 Червня 2025</div>
+                <div class="card-date">20,21 Червня 2025</div>
                 <div class="card-time">12:00-13:00</div>
                 <h4>Lorem ipsum dolor sit amet consectetur</h4>
                 <div class="card-buttons">
@@ -140,7 +140,7 @@
                 </div>
               </div>
               <div class="card">
-                <div class="card-date">4 Листопада 2025</div>
+                <div class="card-date">4,5 Листопада 2025</div>
                 <div class="card-time">15:30-17:00</div>
                 <h4>Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametametLorem ipsum dolor sit ametametLorem ipsum dolor sit ametametLorem ipsum dolor sit amet</h4>
                 <div class="card-buttons">
@@ -149,7 +149,7 @@
                 </div>
               </div>
               <div class="card">
-                <div class="card-date">20 Червня 2025</div>
+                <div class="card-date">20,21 Червня 2025</div>
                 <div class="card-time">12:00-13:00</div>
                 <h4>Lorem ipsum dolor sit amet consectetur</h4>
                 <div class="card-buttons">
@@ -158,7 +158,7 @@
                 </div>
               </div>
               <div class="card">
-                <div class="card-date">20 Червня 2025</div>
+                <div class="card-date">20,21 Червня 2025</div>
                 <div class="card-time">12:00-13:00</div>
                 <h4>Lorem ipsum dolor sit amet consectetur</h4>
                 <div class="card-buttons">
@@ -227,6 +227,14 @@
               <label><input type="checkbox" value="Молодь"/> Молодь</label>
               <label><input type="checkbox" value="Ветеран"/> Ветеран</label>
               <label><input type="checkbox" value="ВПО"/> ВПО</label>
+            </div>
+          </div>
+          <!-- Дата -->
+          <div class="custom-select">
+            <button type="button" class="select-toggle">Дата<img src="images/arrowLang.svg"/></button>
+            <div class="select-options">
+              <label><input type="checkbox" value="20.06.2025"/> 20 Червня 2025</label>
+              <label><input type="checkbox" value="21.06.2025"/> 21 Червня 2025</label>
             </div>
           </div>
     
@@ -383,6 +391,13 @@ function toggleClearButton() {
       const openBtn = document.getElementById("openModal");
       const closeBtn = document.querySelector(".closeModal");
       const overlay = document.querySelector(".modal-overlay");
+
+      if(document.getElementById("openModalMobile")) {
+        const openBtnMobile = document.getElementById("openModalMobile");
+        openModalMobile.addEventListener("click", () => {
+          modal.classList.add("open");
+        });
+      }
     
       openBtn.addEventListener("click", () => {
         modal.classList.add("open");
@@ -420,7 +435,10 @@ document.querySelectorAll(".custom-select").forEach((select) => {
   const toggle = select.querySelector(".select-toggle");
 
   checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener("change", () => {
+  checkbox.addEventListener("change", () => {
+    const isMultiple = select.dataset.multiple === "true";
+
+    if (!isMultiple) {
       checkboxes.forEach((cb) => {
         if (cb !== checkbox) cb.checked = false;
       });
@@ -431,8 +449,14 @@ document.querySelectorAll(".custom-select").forEach((select) => {
       } else {
         toggle.innerText = "Виберіть";
       }
-    });
+    } else {
+      const selected = Array.from(checkboxes)
+        .filter((cb) => cb.checked)
+        .map((cb) => cb.value);
+      toggle.innerText = selected.length > 0 ? selected.join(", ") : "Виберіть";
+    }
   });
+});
 });
 
 

@@ -1851,6 +1851,12 @@ form {
   margin-bottom: 40px;
 }
 
+.headerContentAction .infoWrapperItems {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .headerContentAction .info {
   display: flex;
   align-items: center;
@@ -1864,6 +1870,9 @@ form {
   display: flex;
   align-items: center;
   gap: 12px;
+  font-size: 18px;
+  font-family: "Source Serif 4";
+  font-weight: 700;
 }
 
 .headerContentAction .info-item img {
@@ -1927,7 +1936,227 @@ form {
   display: none;
 }
 
+.containerContact {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.contactForm,
+.contentContact {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(217, 217, 217, 1);
+}
+
+.contentContact {
+  gap: 20px;
+}
+
+.wrapperContentContact {
+  display: flex;
+  gap: 100px;
+}
+
+.columnContact {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.columnContactItem {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.columnContactItem span {
+  font-size: 18px;
+  font-family: "Source Serif 4";
+  color: rgba(102, 102, 102, 1);
+  font-weight: 400;
+}
+
+.columnContactItem p {
+  font-size: 18px;
+  font-family: "Source Serif 4";
+  color: rgba(2, 25, 57, 1);
+  font-weight: 700;
+}
+
+.columnContactItem .socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.columnContactItem .socialIcons img {
+  width: 20px;
+  height: 20px;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactForm h3 {
+  font-size: 24px;
+  font-weight: 400;
+  color: rgba(2, 25, 57, 1);
+  font-family: "Source Serif 4";
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formContainer textarea {
+  width: 100%;
+  height: 136px;
+  outline: none;
+  border: 1px solid rgba(217, 217, 217, 1);
+  padding: 12px 20px;
+  box-sizing: border-box;
+}
+
+.wrapperInput {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.wrapperInput .custom-select {
+  margin-bottom: 0;
+}
+
+.formContainer input {
+  padding: 12px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid rgba(217, 217, 217, 1);
+}
+
+.formContainer .wrapperInput input {
+  padding: 12px 20px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid rgba(217, 217, 217, 1);
+  max-width: 345px;
+  width: 100%;
+  min-width: 311px;
+}
+
+.wrapperMap {
+  min-width: 303px;
+  max-width: 630px;
+  width: 630px;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+@media (max-width: 1500px) {
+  .containerContact {
+    flex-direction: column;
+    width: 100%;
+  }
+  .contactForm,
+  .contentContact {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .formContainer .wrapperInput input {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .wrapperMap {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 1075px) {
+  .containerContact {
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .contactForm {
+    padding: 16px;
+  }
+
+  .contentContact {
+    padding: 20px;
+  }
+
+  .contentContact {
+    gap: 20px;
+  }
+
+  .columnContact {
+    gap: 12px;
+  }
+
+  .columnContactItem {
+    gap: 8px;
+  }
+
+  .columnContactItem span {
+    font-size: 16px;
+  }
+
+  .columnContactItem p {
+    font-size: 16px;
+  }
+
+  .columnContactItem img {
+    width: 17px;
+    height: 17px;
+  }
+
+  .contactForm {
+    border-radius: 12px;
+  }
+
+  .contactForm h3 {
+    font-size: 18px;
+    padding-bottom: 16px;
+  }
+
+  .wrapperInput {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .formContainer textarea {
+    height: 91px;
+  }
+
+  .formContainer .link-bottom {
+    margin-top: 0;
+  }
+
+  .wrapperContentContact {
+    gap: 12px;
+    flex-direction: column;
+  }
+
   .bunnerAction img {
     height: 500px;
     object-fit: cover;
@@ -1952,8 +2181,19 @@ form {
     font-size: 16px;
   }
 
+  .headerContentAction .infoWrapperItems {
+    flex-direction: row;
+    gap: 16;
+  }
+
   .headerContentAction .info-item {
     gap: 8px;
+    font-size: 16px;
+  }
+
+  .headerContentAction .info:nth-child(odd) {
+    border-right: 1px solid rgba(217, 217, 217, 1);
+    padding-right: 19px;
   }
 
   .headerContentAction .info-item img {

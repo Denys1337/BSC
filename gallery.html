@@ -84,90 +84,25 @@
           <div class="breadcrumbs ">
             <a href="#">Головна</a>
             <img src="images/arrow.svg" alt="">
-            <p>Контакти</p>
+            <p>Галерея</p>
           </div>
         </div>
     </section>
     <!-- Галерея -->
     <section class="sectionWrapper aboutPagePadding">
         <div class="container containerSection">
-          <h2>Контакти</h2>
-          <div class="containerContact">
-            <div class="contentContact">
-                <div class="wrapperContentContact">
-                    <div class="columnContact">
-                        <div class="columnContactItem">
-                            <span>Телефон</span>
-                            <p>+380937458745</p>
-                        </div>
-                        <div class="columnContactItem">
-                            <span>E-mail</span>
-                            <p>bpc.support@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="columnContact">
-                        <div class="columnContactItem">
-                            <span>Адреса</span>
-                            <p>м. Вінниця вул. Соборна 53</p>
-                        </div>
-                        <div class="columnContactItem">
-                            <span>Соціальні мережі</span>
-                            <div class="socialIcons">
-                                <a href="#"><img src="images/facebookBlack.svg" alt="facebook"></a> 
-                                <a href="#"><img src="images/instagramBlack.svg" alt="instagram"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wrapperMap">
-                    <iframe
-                      src="https://www.google.com/maps?q=вінниця,+соборна+53&output=embed"
-                      style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
-                      allowfullscreen=""
-                      loading="lazy"
-                      referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                  </div>
+          <h2>Галерея</h2>
+          <div class="containerGallery">
+            <div class="gridGallery" id="cardContainer">
+              <!-- Cards will be inserted here -->
             </div>
-            <div class="contactForm">
-                <h3>Форма зворотнього зв’язку</h3>
-                <form class="formContainer">
-                    <div class="wrapperInput">
-                        <input type="text" placeholder="Ім'я та прізвище" required />
-                        <input type="tel" placeholder="+380XXXXXXXXX" required />
-                    </div>
-                    <input type="text" placeholder="Компанія і посада" />
-              
-                    <div class="wrapperInput">
-                    <!-- Тип підприємця -->
-                    <div class="custom-select">
-                      <button type="button" class="select-toggle">Тип підприємця<img src="images/arrowLang.svg"/></button>
-                      <div class="select-options">
-                        <label><input type="checkbox" value="ФОП"/> ФОП</label>
-                        <label><input type="checkbox" value="ТОВ"/> ТОВ</label>
-                        <label><input type="checkbox" value="Майбутній підприємець"/> Майбутній підприємець</label>
-                      </div>
-                    </div>
-              
-                    <!-- Категорія -->
-                    <div class="custom-select">
-                      <button type="button" class="select-toggle">Категорія<img src="images/arrowLang.svg"/></button>
-                      <div class="select-options">
-                        <label><input type="checkbox" value="Жінка"/> Жінка</label>
-                        <label><input type="checkbox" value="Молодь"/> Молодь</label>
-                        <label><input type="checkbox" value="Ветеран"/> Ветеран</label>
-                        <label><input type="checkbox" value="ВПО"/> ВПО</label>
-                      </div>
-                    </div>
-                </div>
-                <textarea placeholder="Повідомлення"></textarea>
-              
-                    <button type="submit" class="submitBtn">Відправити</button>
-                    <p class="link-bottom">Форма відправлена</p>
-                  </form>
-            </div>
+            <div class="pagination" id="pagination"></div>
           </div>
-
+        
+          <div class="popup" id="popup">
+            <span class="close" id="popupClose"><img src="images/closeButton.svg"/></span>
+            <div class="popup-content" id="popupContent"></div>
+          </div>
         </div>
     </section>
     <!-- footer -->
@@ -202,5 +137,96 @@
       </div>
     </footer>
     <script src="script.js"></script>  
+    <script>
+        const data = [
+          { type: 'image', src: 'images/about2.svg', title: 'Назва події' },
+          { type: 'image', src: 'images/about2.svg', title: 'Назва події' },
+          { type: 'video', src: 'https://www.w3schools.com/html/mov_bbb.mp4', title: 'Назва події' },
+          { type: 'image', src: 'images/about2.svg', title: 'Назва події' },
+          { type: 'image', src: 'images/about2.svg', title: 'Назва події' },
+          { type: 'image', src: 'images/about2.svg', title: 'Назва події' },
+          { type: 'video', src: 'https://www.w3schools.com/html/mov_bbb.mp4', title: 'Назва події' },
+          { type: 'image', src: 'images/about2.svg', title: 'Назва події' }
+        ];
+    
+        const itemsPerPage = 30;
+        let currentPage = 1;
+    
+        function renderCards() {
+          const start = (currentPage - 1) * itemsPerPage;
+          const end = start + itemsPerPage;
+          const currentItems = data.slice(start, end);
+          const container = document.getElementById("cardContainer");
+          container.innerHTML = "";
+    
+          currentItems.forEach(item => {
+            const card = document.createElement("div");
+            card.className = "cardGallery";
+    
+            const media = item.type === 'image'
+            ? `<img src="${item.src}" alt="${item.title}" />`
+            : `
+              <div class="video-wrapper">
+                <video src="${item.src}" muted></video>
+                <button class="video-play-btn" aria-label="Play video">▶</button>
+              </div>
+            `;
+    
+            card.innerHTML = `
+              ${media}
+              <div class="expand-icon"><img src="images/openGallery.svg"/></div>
+              <div class="title">${item.title}</div>
+            `;
+    
+            card.querySelector(".expand-icon").addEventListener("click", () => {
+              showPopup(item);
+            });
+            if(card.querySelector(".video-play-btn")) {
+            card.querySelector(".video-play-btn").addEventListener("click", () => {
+              showPopup(item);
+            });
+          }
+    
+            container.appendChild(card);
+          });
+        }
+    
+        function renderPagination() {
+          const totalPages = Math.ceil(data.length / itemsPerPage);
+          const pagination = document.getElementById("pagination");
+          pagination.innerHTML = "";
+    
+          for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement("button");
+            btn.innerText = i;
+            btn.classList.toggle("active", i === currentPage);
+            btn.addEventListener("click", () => {
+              currentPage = i;
+              renderCards();
+              renderPagination();
+            });
+            pagination.appendChild(btn);
+          }
+        }
+    
+        function showPopup(item) {
+          const popup = document.getElementById("popup");
+          const content = document.getElementById("popupContent");
+    
+          content.innerHTML = item.type === 'image'
+            ? `<h3>${item.title}</h3><img src="${item.src}" alt="popup" />`
+            : `<h3>${item.title}</h3><video src="${item.src}" controls autoplay></video>`;
+    
+          popup.style.display = "flex";
+        }
+    
+        document.getElementById("popupClose").addEventListener("click", () => {
+          document.getElementById("popup").style.display = "none";
+          document.getElementById("popupContent").innerHTML = "";
+        });
+    
+        renderCards();
+        renderPagination();
+      </script>  
   </body>
 </html>
