@@ -129,72 +129,7 @@
             </div>
           </div>
           <div class="cards-section">
-            <div class="cards-grid">
-              <div class="card">
-                <div class="card-date">20,21 Червня 2025</div>
-                <div class="card-time">12:00-13:00</div>
-                <h4>Lorem ipsum dolor sit amet consectetur</h4>
-                <div class="card-buttons">
-                  <a href="#" class="btn-outline">Детальний опис</a>
-                  <button class="btn-fill" id="openModal">Зареєструватись</button>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-date">4,5 Листопада 2025</div>
-                <div class="card-time">15:30-17:00</div>
-                <h4>Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametametLorem ipsum dolor sit ametametLorem ipsum dolor sit ametametLorem ipsum dolor sit amet</h4>
-                <div class="card-buttons">
-                  <a href="#" class="btn-outline">Детальний опис</a>
-                  <button class="btn-fill" id="openModal">Зареєструватись</button>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-date">20,21 Червня 2025</div>
-                <div class="card-time">12:00-13:00</div>
-                <h4>Lorem ipsum dolor sit amet consectetur</h4>
-                <div class="card-buttons">
-                  <a href="#" class="btn-outline">Детальний опис</a>
-                  <button class="btn-fill" id="openModal">Зареєструватись</button>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-date">20,21 Червня 2025</div>
-                <div class="card-time">12:00-13:00</div>
-                <h4>Lorem ipsum dolor sit amet consectetur</h4>
-                <div class="card-buttons">
-                  <a href="#" class="btn-outline">Детальний опис</a>
-                  <button class="btn-fill" id="openModal">Зареєструватись</button>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-date">20 Червня 2025</div>
-                <div class="card-time">12:00-13:00</div>
-                <h4>Lorem ipsum dolor sit amet consectetur</h4>
-                <div class="card-buttons">
-                  <a href="#" class="btn-outline">Детальний опис</a>
-                  <button class="btn-fill" id="openModal">Зареєструватись</button>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-date">20 Червня 2025</div>
-                <div class="card-time">12:00-13:00</div>
-                <h4>Lorem ipsum dolor sit amet consectetur</h4>
-                <div class="card-buttons">
-                  <a href="#" class="btn-outline">Детальний опис</a>
-                  <button class="btn-fill" id="openModal">Зареєструватись</button>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-date">20 Червня 2025</div>
-                <div class="card-time">12:00-13:00</div>
-                <h4>Lorem ipsum dolor sit amet consectetur</h4>
-                <div class="card-buttons">
-                  <a href="#" class="btn-outline">Детальний опис</a>
-                  <button class="btn-fill" id="openModal">Зареєструватись</button>
-                </div>
-              </div>
-          
-            </div>
+            <div class="cards-grid"></div>
           </div>
           
         </div>
@@ -276,11 +211,223 @@
     </footer>
     <script src="script.js"></script>
     <script>
-      document.querySelector(".formContainer").addEventListener("submit", function (e) {
+      const eventsData = {
+        "236": [
+          {
+            time: "09:00-10:00",
+            title: "Lorem ipsum dolor sit amet",
+            link: "https://google.com",
+            date_sort: "2025-06-20",
+            date: "20 Червня 2025",
+            city: "Київ",
+          },
+          {
+            time: "10:00-12:00",
+            title: "Lorem ipsum dolor sit amet",
+            link: "https://google.com",
+            date_sort: "2025-06-21",
+            date: "21 Червня 2025",
+            city: "Львів",
+          },
+        ],
+        "237": [
+          {
+            time: "09:00-10:00",
+            title: "Lorem ipsum dolor sit amet",
+            link: "https://google.com",
+            date_sort: "2025-06-20",
+            date: "20 Червня 2025",
+            city: "Львів",
+          },
+        ],
+      };
+      
+      const selectedFiltersData = [];
+      
+      function getAllEvents() {
+        return Object.values(eventsData).flat();
+      }
+      
+      function getDateAfterDays(days) {
+        const date = new Date();
+        date.setDate(date.getDate() + days);
+        return date;
+      }
+      
+      function getFilteredEvents() {
+        const allEvents = getAllEvents();
+      
+        if (selectedFiltersData.length === 0) {
+          return allEvents; // якщо немає фільтрів — повертаємо всі події
+        }
+      
+        // Групуємо фільтри по групам
+        const groupedFilters = selectedFiltersData.reduce((acc, { group, value }) => {
+          acc[group] = acc[group] || [];
+          acc[group].push(value);
+          return acc;
+        }, {});
+      
+        return allEvents.filter((event) => {
+          for (const group in groupedFilters) {
+            const values = groupedFilters[group];
+      
+            if (group === "location") {
+              if (!values.includes(event.city)) return false;
+            }
+      
+            if (group === "date") {
+              const eventDate = new Date(event.date_sort);
+              let dateMatch = false;
+      
+              for (const val of values) {
+                if (val === "На тиждень" && eventDate <= getDateAfterDays(7)) dateMatch = true;
+                if (val === "На два тижні" && eventDate <= getDateAfterDays(14)) dateMatch = true;
+              }
+      
+              if (!dateMatch) return false;
+            }
+      
+            if (group === "duration") {
+              const isMultiDay = event.date.includes(",") || event.date.match(/\d{2}\s\w+\s\d{4}.*\d{2}/);
+              let match = false;
+      
+              for (const val of values) {
+                if (val === "Одноденні" && !isMultiDay) match = true;
+                if (val === "Багатоденні" && isMultiDay) match = true;
+              }
+      
+              if (!match) return false;
+            }
+          }
+      
+          return true;
+        });
+      }
+      
+      function renderEvents() {
+        const container = document.querySelector(".cards-grid");
+        container.innerHTML = "";
+      
+        const filtered = getFilteredEvents();
+      
+        if (filtered.length === 0) {
+          container.innerHTML = "<p>Нічого не знайдено за вибраними фільтрами.</p>";
+          return;
+        }
+      
+        filtered.forEach((event) => {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `
+            <div class="card-date">${event.date}</div>
+            <div class="card-time">${event.time}</div>
+            <h4>${event.title}</h4>
+            <div class="card-buttons">
+              <a href="${event.link}" class="btn-outline">Детальний опис</a>
+              <button class="btn-fill" id="openModal">Зареєструватись</button>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+
+        console.log("🟡 selectedFiltersData:", selectedFiltersData);
+console.log("🟢 rendering:", getFilteredEvents());
+      }
+      
+      function renderSelectedFilters() {
+        const container = document.querySelector(".selected-filters");
+        container.innerHTML = "";
+      
+        selectedFiltersData.forEach((filter) => {
+          const chip = document.createElement("div");
+          chip.className = "filter-chip";
+          chip.innerHTML = `${filter.value} <span data-group="${filter.group}" data-value="${filter.value}"><img src="images/deleteIcon.svg" alt="delete"/></span>`;
+          container.appendChild(chip);
+        });
+      
+        toggleClearButton();
+        renderEvents();
+      }
+      
+      document.querySelectorAll(".dropdown-toggle").forEach((button) => {
+        button.addEventListener("click", () => {
+          const group = button.closest(".filter-group");
+          group.classList.toggle("active"); 
+        });
+      });
+      
+      document.querySelectorAll(".dropdown-menu input[type='checkbox']").forEach((checkbox) => {
+        checkbox.addEventListener("change", function () {
+          const value = this.value;
+          const group = this.closest(".filter-group").dataset.filter;
+          const groupElement = this.closest(".filter-group");
+      
+          if (this.checked) {
+            selectedFiltersData.push({ group, value });
+          } else {
+            const index = selectedFiltersData.findIndex((f) => f.group === group && f.value === value);
+            if (index !== -1) selectedFiltersData.splice(index, 1);
+          }
+      
+          groupElement.classList.remove("active");
+          renderSelectedFilters();
+        });
+      });
+      
+      document.querySelector(".selected-filters").addEventListener("click", function (e) {
+        const target = e.target.closest("span");
+        if (target) {
+          const group = target.dataset.group;
+          const value = target.dataset.value;
+          const index = selectedFiltersData.findIndex((f) => f.group === group && f.value === value);
+          if (index !== -1) selectedFiltersData.splice(index, 1);
+      
+          document.querySelectorAll(`.filter-group[data-filter="${group}"] input[value="${value}"]`).forEach((input) => (input.checked = false));
+      
+          renderSelectedFilters();
+        }
+      });
+      
+      document.getElementById("clear-filters").addEventListener("click", () => {
+        selectedFiltersData.length = 0;
+        document.querySelectorAll(".dropdown-menu input[type='checkbox']").forEach((input) => (input.checked = false));
+        renderSelectedFilters();
+      });
+      
+      document.addEventListener("click", function (e) {
+        document.querySelectorAll(".filter-group").forEach((group) => {
+          if (!group.contains(e.target)) {
+            group.classList.remove("active");
+          }
+        });
+      });
+      
+      function toggleClearButton() {
+        const clearBtn = document.getElementById("clear-filters");
+        const wrapperFilter = document.querySelector(".filterWrapper");
+        if (selectedFiltersData.length > 0) {
+          clearBtn.style.display = "inline-block";
+          wrapperFilter.style.gap = "20px";
+        } else {
+          clearBtn.style.display = "none";
+        }
+      }
+      
+      // Initial render
+      renderEvents();
+      
+          </script>
+
+
+
+
+    <script>
+      document.querySelector(".modal").addEventListener("submit", function (e) {
         e.preventDefault();
     
-        const inputs = document.querySelectorAll(".formContainer input");
-        const textarea = document.querySelector(".formContainer textarea");
+        const inputs = document.querySelectorAll(".modal input");
+        const textarea = document.querySelector(".modal textarea");
 
         const categoryPeopleValue = document.querySelector('#categoryPeople');
         const typeOwnerValue = document.querySelector('#typeOwner');
@@ -353,7 +500,7 @@
 
 document.querySelectorAll(".dropdown-toggle").forEach((button) => {
   button.addEventListener("click", () => {
-    const group = button.closest(".filter-group");
+    const group = button.closest(".filter-group:not(.active)");
     group.classList.toggle("active");
   });
 });
@@ -385,6 +532,8 @@ document
 function renderSelectedFilters() {
   const container = document.querySelector(".selected-filters");
   container.innerHTML = "";
+
+  console.log("selectedFiltersData:", selectedFiltersData);
 
   selectedFilters.forEach((filter) => {
     const chip = document.createElement("div");
@@ -453,7 +602,7 @@ function toggleClearButton() {
     </script>
     <script>
       const modal = document.getElementById("popupModal");
-      const openBtn = document.getElementById("openModal");
+      const openBtns = document.querySelectorAll("#openModal");
       const closeBtn = document.querySelector(".closeModal");
       const overlay = document.querySelector(".modal-overlay");
 
@@ -464,9 +613,15 @@ function toggleClearButton() {
         });
       }
     
-      openBtn.addEventListener("click", () => {
-        modal.classList.add("open");
-      });
+      
+        openBtns.forEach((btn) => {
+          if(btn) {
+             btn.addEventListener('click', () => {
+               modal.classList.add('open');
+             });
+          }
+        });
+    
     
       closeBtn.addEventListener("click", () => {
         modal.classList.remove("open");

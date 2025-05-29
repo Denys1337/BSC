@@ -84,118 +84,92 @@
           <div class="breadcrumbs ">
             <a href="#">Головна</a>
             <img src="images/arrow.svg" alt="">
-            <p>Вакансії</p>
+            <p>Контакти</p>
           </div>
         </div>
     </section>
     <!-- Галерея -->
     <section class="sectionWrapper aboutPagePadding">
         <div class="container containerSection">
-          <div class="headerVacancy">
-            <h2>Вакансії</h2>
-            <a href="#" class="buttonExpert" id="openModal">Стати експертом центру</a>
-          </div>
-          
-            <div class="containerVacancy">
-
-                <div class="cardVacancy">
-                <h3>Менеджер email-маркетингу</h3>
-                <div class="tagsVacancy">
-                    <span class="tag">На офісі</span>
-                    <span class="tag">м. Київ</span>
-                    <span class="tag">Без досвіду</span>
-                </div>
-                </div>
-
-                <div class="cardVacancy">
-                <h3>Менеджер маркетингу</h3>
-                <div class="tagsVacancy">
-                    <span class="tag">На офісі</span>
-                    <span class="tag">м. Київ</span>
-                    <span class="tag">Без досвіду</span>
-                </div>
-                </div>
-
-                <div class="cardVacancy">
-                    <h3>Менеджер маркетингу</h3>
-                    <div class="tagsVacancy">
-                        <span class="tag">На офісі</span>
-                        <span class="tag">м. Київ</span>
-                        <span class="tag">Без досвіду</span>
-                    </div>
-                    </div>
-    
-
-                    <div class="cardVacancy">
-                        <h3>Менеджер маркетингу</h3>
-                        <div class="tagsVacancy">
-                            <span class="tag">На офісі</span>
-                            <span class="tag">м. Київ</span>
-                            <span class="tag">Без досвіду</span>
+          <h2>Контакти</h2>
+          <div class="containerContact">
+            <div class="contentContact">
+                <div class="wrapperContentContact">
+                    <div class="columnContact">
+                        <div class="columnContactItem">
+                            <span>Телефон</span>
+                            <p>+380937458745</p>
                         </div>
+                        <div class="columnContactItem">
+                            <span>E-mail</span>
+                            <p>bpc.support@gmail.com</p>
                         </div>
-        
-
-                        <div class="cardVacancy">
-                            <h3>Менеджер маркетингу</h3>
-                            <div class="tagsVacancy">
-                                <span class="tag">На офісі</span>
-                                <span class="tag">м. Київ</span>
-                                <span class="tag">Без досвіду</span>
+                    </div>
+                    <div class="columnContact">
+                        <div class="columnContactItem">
+                            <span>Адреса</span>
+                            <p>м. Вінниця вул. Соборна 53</p>
+                        </div>
+                        <div class="columnContactItem">
+                            <span>Соціальні мережі</span>
+                            <div class="socialIcons">
+                                <a href="#"><img src="images/facebookBlack.svg" alt="facebook"></a> 
+                                <a href="#"><img src="images/instagramBlack.svg" alt="instagram"></a>
                             </div>
-                            </div>
-            
-
-                            <div class="cardVacancy">
-                                <h3>Менеджер маркетингу</h3>
-                                <div class="tagsVacancy">
-                                    <span class="tag">На офісі</span>
-                                    <span class="tag">м. Київ</span>
-                                    <span class="tag">Без досвіду</span>
-                                </div>
-                                </div>
-                
-
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapperMap">
+                    <iframe
+                      src="https://www.google.com/maps?q=вінниця,+соборна+53&output=embed"
+                      style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                  </div>
             </div>
+            <div class="contactForm">
+                <h3>Форма зворотнього зв’язку</h3>
+                <form class="formContainer">
+                    <div class="wrapperInput">
+                      <input type="text" id="fullname" placeholder="Ім'я та прізвище" required />
+                      <input type="tel" id="phone" placeholder="+380XXXXXXXXX" required />
+                    </div>
+                    <input type="text" id="company" placeholder="Компанія і посада" />
+              
+                    <div class="wrapperInput">
+                    <!-- Тип підприємця -->
+                    <div class="custom-select">
+                      <button type="button" id="typeOwner" class="select-toggle">Тип підприємця<img src="images/arrowLang.svg"/></button>
+                      <div class="select-options">
+                        <label><input type="checkbox" value="ФОП"/> ФОП</label>
+                        <label><input type="checkbox" value="ТОВ"/> ТОВ</label>
+                        <label><input type="checkbox" value="Майбутній підприємець"/> Майбутній підприємець</label>
+                      </div>
+                    </div>
+              
+                    <!-- Категорія -->
+                    <div class="custom-select">
+                      <button type="button" id="categoryPeople" class="select-toggle">Категорія<img src="images/arrowLang.svg"/></button>
+                      <div class="select-options">
+                        <label><input type="checkbox" value="Жінка"/> Жінка</label>
+                        <label><input type="checkbox" value="Молодь"/> Молодь</label>
+                        <label><input type="checkbox" value="Ветеран"/> Ветеран</label>
+                        <label><input type="checkbox" value="ВПО"/> ВПО</label>
+                      </div>
+                    </div>
+                </div>
+                <textarea placeholder="Повідомлення"></textarea>
+              
+                    <button type="submit" class="submitBtn">Відправити</button>
+                    <p class="link-bottom" style="display: none;">Форма відправлена</p>
+                  </form>
+            </div>
+          </div>
 
         </div>
     </section>
-    <div class="modal" id="popupModal">
-      <div class="modal-overlay"></div>
-      <div class="modal-content expertModalContent">
-        <button class="closeModal">&times;</button>
-        <h2>Форма для експертів</h2>
-        <form>
-          <div class="wrapeerInputExpert">
-            <input type="text" id="fullname" placeholder="ПІБ" required />
-            <input type="tel" id="phone" placeholder="+380XXXXXXXXX" required />
-          </div>
-          <div class="wrapeerInputExpert">
-            <input type="text" id="company" placeholder="Компанія" required />
-            <input type="text" id="vacancy" placeholder="Посада" required />
-          </div>
-          <div class="wrapeerInputExpert">
-            <div class="custom-select">
-              <button type="button" id="expertSelect" class="select-toggle">Експертність<img src="images/arrowLang.svg"/></button>
-              <div class="select-options">
-                <label><input type="checkbox" value="Маркетинг"/> Маркетинг</label>
-                <label><input type="checkbox" value="Стратегія"/> Стратегія</label>
-                <label><input type="checkbox" value="Право"/> Право</label>
-              </div>
-            </div>
-            <input type="text" id="experience" placeholder="Досвід" required />
-          </div>
-          <textarea name="regalii" placeholder="Регалії"></textarea>
-          <label class="resume-upload">
-            <input type="file" hidden />
-            <img src="images/uploadFileIcon.svg" class="iconUpload" alt="">
-            <span>Прикріпити резюме</span>
-          </label>
-          <button type="submit" class="submitBtn">Відправити</button>
-          <p class="link-bottom" style="display: none;">Форма відправлена</p>
-        </form>
-      </div>
-    </div>
     <!-- footer -->
     <footer>
       <div class="container footerWrapper">
@@ -235,10 +209,12 @@
         const inputs = document.querySelectorAll(".formContainer input");
         const textarea = document.querySelector(".formContainer textarea");
 
-        const expertSelect = document.querySelector('#expertSelect');
+        const categoryPeopleValue = document.querySelector('#categoryPeople');
+        const typeOwnerValue = document.querySelector('#typeOwner');
         
-        if(expertSelect) {
-          expertSelect.innerText = "Експертність";
+        if(categoryPeopleValue && typeOwnerValue) {
+          categoryPeopleValue.innerText = "Категорія";
+          typeOwnerValue.innerText = "Тип підприємця";
         }
     
         inputs.forEach((input) => {
@@ -265,8 +241,6 @@
   const nameInput = document.getElementById("fullname");
   const companyInput = document.getElementById("company");
   const phoneInput = document.getElementById("phone");
-  const vacancyInput = document.getElementById("vacancy");
-  const experienceInput = document.getElementById("experience");
 
   const onlyLettersRegex = /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ]+$/;
 
@@ -288,36 +262,12 @@
 
   nameInput.addEventListener("keypress", allowOnlyLetters);
   companyInput.addEventListener("keypress", allowOnlyLetters);
-  vacancyInput.addEventListener("keypress", allowOnlyLetters);
   phoneInput.addEventListener("keypress", allowOnlyDigits);
       
     </script>
+    
     <script>
-      const modal = document.getElementById("popupModal");
-      const openBtn = document.getElementById("openModal");
-      const closeBtn = document.querySelector(".closeModal");
-      const overlay = document.querySelector(".modal-overlay");
-      
-      if(document.getElementById("openModalMobile")) {
-        const openBtnMobile = document.getElementById("openModalMobile");
-        openModalMobile.addEventListener("click", () => {
-          modal.classList.add("open");
-        });
-      }
-
-      openBtn.addEventListener("click", () => {
-        modal.classList.add("open");
-      });
-    
-      closeBtn.addEventListener("click", () => {
-        modal.classList.remove("open");
-      });
-    
-      overlay.addEventListener("click", () => {
-        modal.classList.remove("open");
-      });
-    
-document.querySelectorAll(".select-toggle").forEach((btn) => {
+      document.querySelectorAll(".select-toggle").forEach((btn) => {
   btn.addEventListener("click", () => {
     const parent = btn.closest(".custom-select");
     parent.classList.toggle("active");
@@ -335,8 +285,7 @@ document.addEventListener("click", function (e) {
     }
   });
 });
-
-document.querySelectorAll(".custom-select").forEach((select) => {
+      document.querySelectorAll(".custom-select").forEach((select) => {
   const checkboxes = select.querySelectorAll("input[type='checkbox']");
   const toggle = select.querySelector(".select-toggle");
 
@@ -363,11 +312,7 @@ document.querySelectorAll(".custom-select").forEach((select) => {
     }
   });
 });
-
 });
-
-
-
-    </script>
+    </script> 
   </body>
 </html>
