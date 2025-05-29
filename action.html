@@ -139,7 +139,9 @@
       <div class="modal-content">
         <button class="closeModal">&times;</button>
         <h2>Зареєструватись</h2>
-        <form>
+        <form class="actionForm">
+          <input type="text" name="website" style="display:none">
+          <input type="hidden" name="form_time" value="<?php echo time(); ?>">
           <input type="text" id="fullname" placeholder="Ім'я та прізвище" required />
           <input type="tel" id="phone" placeholder="+380XXXXXXXXX" required />
           <input type="text" id="company" placeholder="Компанія і посада" required />
@@ -422,42 +424,80 @@ console.log("🟢 rendering:", getFilteredEvents());
 
 
 
-    <script>
-      document.querySelector(".modal").addEventListener("submit", function (e) {
-        e.preventDefault();
-    
-        const inputs = document.querySelectorAll(".modal input");
-        const textarea = document.querySelector(".modal textarea");
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".actionForm").addEventListener("submit", function (e) {
+      e.preventDefault();
 
-        const categoryPeopleValue = document.querySelector('#categoryPeople');
-        const typeOwnerValue = document.querySelector('#typeOwner');
-        const dataActionValue = document.querySelector('#dataAction');
-        
-        if(categoryPeopleValue && typeOwnerValue && dataActionValue) {
-          categoryPeopleValue.innerText = "Категорія";
-          typeOwnerValue.innerText = "Тип підприємця";
-          dataActionValue.innerText = "Дата";
-        }
-    
-        inputs.forEach((input) => {
-          if (input.type === "checkbox" || input.type === "radio") {
-            input.checked = false;
+      const fullname = document.getElementById("fullname").value;
+      const phone = document.getElementById("phone").value;
+      const company = document.getElementById("company").value;
+      const type = document.getElementById("typeOwner").textContent;
+      const category = document.getElementById("categoryPeople").textContent;
+      const date = document.getElementById("dataAction").textContent;
+      // const message = document.getElementById("message").value;
+      const website = document.querySelector('input[name="website"]').value;
+      const form_time = document.querySelector('input[name="form_time"]').value;
+
+      fetch('<?php echo admin_url("admin-ajax.php"); ?>', {
+        method: "POST",
+        body: new URLSearchParams({
+          action: "save_contact_form",
+          nonce: '<?php echo wp_create_nonce("save_test_nonce"); ?>',
+          title: 'Контакти',
+          name: fullname,
+          phone: phone,
+          company: company,
+          type: type,
+          category: category,
+          date: date,
+          website: website,
+          form_time: form_time
+        })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            // Очистка полів
+            const inputs = document.querySelectorAll(".oneActionForm input");
+            const textarea = document.querySelector(".oneActionForm textarea");
+
+            const categoryPeopleValue = document.querySelector('#categoryPeople');
+            const typeOwnerValue = document.querySelector('#typeOwner');
+            const dataActionValue = document.querySelector('#dataAction');
+
+            if (categoryPeopleValue && typeOwnerValue && dataActionValue) {
+              categoryPeopleValue.innerText = "Категорія";
+              typeOwnerValue.innerText = "Тип підприємця";
+              dataActionValue.innerText = "Дата";
+            }
+
+            inputs.forEach((input) => {
+              if (input.type === "checkbox" || input.type === "radio") {
+                input.checked = false;
+              } else {
+                input.value = "";
+              }
+            });
+
+            if (textarea) {
+              textarea.value = "";
+            }
+
+            const linkBottom = document.querySelector(".link-bottom");
+            linkBottom.style.display = "block";
+
+            setTimeout(() => {
+              linkBottom.style.display = "none";
+            }, 5000);
           } else {
-            input.value = "";
+            alert("Error: " + data.data);
           }
         });
-    
-        if (textarea) {
-          textarea.value = "";
-        }
-    
-        const linkBottom = document.querySelector(".link-bottom");
-        linkBottom.style.display = "block";
-        setTimeout(() => {
-          linkBottom.style.display = "none";
-        }, 5000);
-      });
-    </script>
+    });
+  });
+</script>
+
     
     <script>
   const nameInput = document.getElementById("fullname");

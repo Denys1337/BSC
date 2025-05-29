@@ -369,6 +369,7 @@ footer {
 .text {
   display: flex;
   flex-direction: column;
+  min-width: 365px;
 }
 
 .text img {
@@ -1900,7 +1901,7 @@ form {
 
 .buttonAction:hover,
 .buttonActionMobile:hover {
-  background-color: none;
+  background: none;
   color: rgba(2, 25, 57, 1);
   border: 1px solid rgba(2, 25, 57, 1);
 }
@@ -2080,6 +2081,7 @@ form {
   position: absolute;
   width: 100%;
   box-sizing: border-box;
+  z-index: 999;
 }
 
 .contactForm .select-options label input {
@@ -2255,6 +2257,13 @@ form {
     object-fit: cover;
   }
 
+  .mobile-top img {
+    width: 100%;
+    height: 343px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
   .mobile-bottom {
     display: flex;
     gap: 10px;
@@ -2360,6 +2369,7 @@ form {
   .text {
     display: flex;
     flex-direction: column;
+    min-width: auto;
   }
 
   .text img {
@@ -3337,6 +3347,7 @@ form {
   .buttonExpert {
     width: 100%;
     text-align: center;
+    margin-bottom: 16px;
   }
 
   .cardVacancy {
@@ -3360,4 +3371,193 @@ form {
     grid-template-columns: repeat(auto-fit, minmax(343px, 1fr));
     margin-bottom: 40px;
   }
+}
+
+
+
+
+.job-layout {
+  display: flex;
+  gap: 20px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+
+.main-job {
+  flex: 1 1 60%;
+  background: #fff;
+  border: 1px solid rgba(217, 217, 217, 1);
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.other-jobs {
+  flex: 1 1 35%;
+  background: #fff;
+  border: 1px solid rgba(217, 217, 217, 1);
+  border-radius: 20px;
+  padding: 40px;
+  height: max-content;
+}
+
+.main-job .job-title {
+  font-size: 32px ;
+  font-family: 'Prata';
+  font-weight: 400;
+  color: rgba(2, 25, 57, 1);
+  padding-bottom: 0;
+}
+
+.contentWacancyWrapper p {
+  font-family: 'Source Serif 4';
+  font-weight: 400;
+  font-size: 18px;
+  color: rgba(38, 38, 38, 1);
+}
+
+.contentWacancyWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contentWacancyWrapper ul {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+
+.section-title {
+  font-size: 18px;
+  font-family: 'Source Serif 4';
+  font-weight: 700;
+  color: rgba(2, 25, 57, 1);
+}
+
+.section-title-other {
+  font-size: 24px;
+  font-family: 'Prata';
+  font-weight: 400;
+  color: rgba(2, 25, 57, 1);
+  padding-bottom: 20px;
+}
+
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.job-tags span {
+  padding: 4px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 18px;
+  color: rgba(38, 38, 38, 1);
+  border: 1px solid rgba(217, 217, 217, 1)
+}
+
+.email {
+  margin-top: 20px;
+}
+
+.email a {
+  font-family: 'Source Serif 4';
+  color: rgba(2, 25, 57, 1);
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.jobCardWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.job-card {
+  border: 1px solid rgba(217, 217, 217, 1);
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.job-card h4 {
+  margin-bottom: 20px;
+  font-family: 'Source Serif 4';
+  font-weight: 700;
+  font-size: 24px;
+  color: rgba(2, 25, 57, 1);
+}
+
+
+@media (max-width: 1075px) {
+  .job-layout {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .main-job {
+    padding: 16px;
+    border-radius: 12px;
+    gap: 16px;
+  }
+
+  .main-job .job-title {
+    font-size: 22px;
+  }
+
+  .job-tags {
+    gap: 8px;
+  }
+
+  .job-tags span {
+    padding: 4px 12px;
+    font-size: 14px;
+  }
+
+  .section-title {
+    font-size: 16px;
+  }
+
+  .contentWacancyWrapper {
+    gap: 8px;
+  }
+
+  .contentWacancyWrapper ul {
+    gap: 8px;
+  }
+
+  .email {
+    display: none;
+  }
+
+  .section-title-other {
+    font-size: 20px;
+    padding-bottom: 16px;
+  }
+
+  .other-jobs {
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .jobCardWrapper {
+    gap: 16px;
+  }
+
+  .job-card {
+    padding: 16px;
+  }
+
+  .job-card h4{
+    font-size: 18px;
+  }
+
 }

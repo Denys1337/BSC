@@ -143,6 +143,8 @@
                     <div class="custom-select">
                       <button type="button" id="typeOwner" class="select-toggle">Тип підприємця<img src="images/arrowLang.svg"/></button>
                       <div class="select-options">
+                        <input type="text" name="website" style="display:none">
+                        <input type="hidden" name="form_time" value="<?php echo time(); ?>">
                         <label><input type="checkbox" value="ФОП"/> ФОП</label>
                         <label><input type="checkbox" value="ТОВ"/> ТОВ</label>
                         <label><input type="checkbox" value="Майбутній підприємець"/> Майбутній підприємець</label>
@@ -160,7 +162,7 @@
                       </div>
                     </div>
                 </div>
-                <textarea placeholder="Повідомлення"></textarea>
+                <textarea id="message" placeholder="Повідомлення"></textarea>
               
                     <button type="submit" class="submitBtn">Відправити</button>
                     <p class="link-bottom" style="display: none;">Форма відправлена</p>
@@ -203,37 +205,81 @@
     </footer>
     <script src="script.js"></script>
     <script>
-      document.querySelector(".formContainer").addEventListener("submit", function (e) {
-        e.preventDefault();
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".formContainer").addEventListener("submit", function (e) {
+          e.preventDefault();
     
-        const inputs = document.querySelectorAll(".formContainer input");
-        const textarea = document.querySelector(".formContainer textarea");
-
-        const categoryPeopleValue = document.querySelector('#categoryPeople');
-        const typeOwnerValue = document.querySelector('#typeOwner');
-        
-        if(categoryPeopleValue && typeOwnerValue) {
-          categoryPeopleValue.innerText = "Категорія";
-          typeOwnerValue.innerText = "Тип підприємця";
-        }
+          const fullname = document.getElementById("fullname").value;
+          const phone = document.getElementById("phone").value;
+          const company = document.getElementById("company").value;
+          const type = document.getElementById("typeOwner").textContent;
+          const category = document.getElementById("categoryPeople").textContent;
+          const message = document.getElementById("message").value;
     
-        inputs.forEach((input) => {
-          if (input.type === "checkbox" || input.type === "radio") {
-            input.checked = false;
-          } else {
-            input.value = "";
-          }
+          const website = document.querySelector('input[name="website"]').value;
+          const form_time = document.querySelector('input[name="form_time"]').value;
+    
+          fetch('<?php echo admin_url("admin-ajax.php"); ?>', {
+            method: "POST",
+            body: new URLSearchParams({
+              action: "save_contact_form",
+              nonce: '<?php echo wp_create_nonce("save_test_nonce"); ?>',
+              title: 'Контакти',
+              name: fullname,
+              phone: phone,
+              company: company,
+              type: type,
+              category: category,
+              message: message,
+              website: website,
+              form_time: form_time
+            })
+          })
+            .then(res => res.json())
+            .then(data => {
+              if (data.success) {
+                // Очистити значення полів
+                const inputs = document.querySelectorAll(".formContainer input");
+                const textarea = document.querySelector(".formContainer textarea");
+                
+    
+                const categoryPeopleValue = document.querySelector('#categoryPeople');
+                const typeOwnerValue = document.querySelector('#typeOwner');
+    
+                if (categoryPeopleValue && typeOwnerValue) {
+                  categoryPeopleValue.innerText = "Категорія";
+                  typeOwnerValue.innerText = "Тип підприємця";
+                }
+    
+                inputs.forEach((input) => {
+                  if (input.type === "checkbox" || input.type === "radio") {
+                    input.checked = false;
+                  } else {
+                    input.value = "";
+                  }
+                });
+    
+                if (textarea) {
+                  textarea.value = "";
+                }
+    
+                // Показати повідомлення
+                const linkBottom = document.querySelector(".link-bottom");
+                linkBottom.style.display = "block";
+    
+                // Сховати повідомлення через 5 секунд і закрити попап
+                setTimeout(() => {
+                  linkBottom.style.display = "none";
+                  const modal = document.getElementById("popupModal");
+                  if (modal) {
+                    modal.classList.remove("open");
+                  }
+                }, 5000);
+              } else {
+                alert("Error: " + data.data);
+              }
+            });
         });
-    
-        if (textarea) {
-          textarea.value = "";
-        }
-    
-        const linkBottom = document.querySelector(".link-bottom");
-        linkBottom.style.display = "block";
-        setTimeout(() => {
-          linkBottom.style.display = "none";
-        }, 5000);
       });
     </script>
     
