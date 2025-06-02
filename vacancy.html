@@ -177,6 +177,8 @@
         <button class="closeModal">&times;</button>
         <h2>Форма для експертів</h2>
         <form class="formVacancy">
+          <input type="text" name="website" style="display:none">
+          <input type="hidden" name="form_time" value="<?php echo time(); ?>">
           <div class="wrapeerInputExpert">
             <input type="text" id="fullname" placeholder="ПІБ" required />
             <input type="tel" id="phone" placeholder="+380XXXXXXXXX" required />
@@ -196,7 +198,7 @@
             </div>
             <input type="text" id="experience" placeholder="Досвід" required />
           </div>
-          <textarea name="regalii" placeholder="Регалії"></textarea>
+          <textarea name="regalii" id="regalii" placeholder="Регалії"></textarea>
           <label class="resume-upload">
             <input type="file" hidden />
             <img src="images/uploadFileIcon.svg" class="iconUpload" alt="">
@@ -319,41 +321,87 @@ document.querySelectorAll(".custom-select").forEach((select) => {
 
     </script>
     <script>
-      document.querySelector(".formVacancy").addEventListener("submit", function (e) {
-        e.preventDefault();
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector(".formVacancy");
+        const submitBtn = document.querySelector(".submitBtn");
     
-        const inputs = document.querySelectorAll(".formContainer input");
-        const textarea = document.querySelector(".formContainer textarea");
-
-        const expertSelect = document.querySelector('#expertSelect');
-        
-        if(expertSelect) {
-          expertSelect.innerText = "Експертність";
+        if (form && submitBtn) {
+          form.addEventListener("submit", handleSubmit);
+          submitBtn.addEventListener("click", handleSubmit);
         }
     
-        inputs.forEach((input) => {
-          if (input.type === "checkbox" || input.type === "radio") {
-            input.checked = false;
-          } else {
-            input.value = "";
-          }
-        });
+        function handleSubmit(e) {
+          e.preventDefault();
     
-        if (textarea) {
-          textarea.value = "";
+          const fullname = document.getElementById("fullname")?.value || "";
+          const phone = document.getElementById("phone")?.value || "";
+          const company = document.getElementById("company")?.value || "";
+          const vacancy = document.getElementById("vacancy")?.value || "";
+          const expert = document.getElementById("expertSelect")?.textContent || "";
+          const message = document.getElementById("regalii")?.value || "";
+          const website = document.querySelector('input[name="website"]')?.value || "";
+          const form_time = document.querySelector('input[name="form_time"]')?.value || "";
+    
+          fetch('<?php echo admin_url("admin-ajax.php"); ?>', {
+            method: "POST",
+            body: new URLSearchParams({
+              action: "save_contact_form",
+              nonce: '<?php echo wp_create_nonce("save_test_nonce"); ?>',
+              title: 'Форма для експертів',
+              name: fullname,
+              phone: phone,
+              company: company,
+              vacancy: vacancy,
+              expert: expert,
+              message: message,
+              website: website,
+              form_time: form_time
+            })
+          })
+            .then(res => res.json())
+            .then(data => {
+              if (data.success) {
+                const inputs = document.querySelectorAll(".formVacancy input");
+                const textarea = document.querySelector(".formVacancy textarea");
+                const expertSelect = document.querySelector('#expertSelect');
+    
+                if (expertSelect) {
+                  expertSelect.innerText = "Експертність";
+                }
+    
+                inputs.forEach((input) => {
+                  if (input.type === "checkbox" || input.type === "radio") {
+                    input.checked = false;
+                  } else {
+                    input.value = "";
+                  }
+                });
+    
+                if (textarea) {
+                  textarea.value = "";
+                }
+    
+                const linkBottom = document.querySelector(".link-bottom");
+                if (linkBottom) {
+                  linkBottom.style.display = "block";
+                  setTimeout(() => {
+                    linkBottom.style.display = "none";
+                    const modal = document.getElementById("popupModal");
+                    if (modal) {
+                      modal.classList.remove("open");
+                    }
+                  }, 5000);
+                }
+    
+                alert("Save!");
+              } else {
+                alert("Error: " + data.data);
+              }
+            });
         }
-    
-        const linkBottom = document.querySelector(".link-bottom");
-        linkBottom.style.display = "block";
-        setTimeout(() => {
-          linkBottom.style.display = "none";
-          const modal = document.getElementById("popupModal");
-          if (modal) {
-            modal.classList.remove("open");
-          }
-        }, 5000);
       });
     </script>
+    
     
     <script>
   const nameInput = document.getElementById("fullname");
