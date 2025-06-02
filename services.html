@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSC Header</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prata&family=Source+Serif+4:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <img src="images/Logo.svg" alt="BSC Logo" />
+        </div>
+        <div class="nav-wrapper">
+          <nav class="nav" id="nav">
+            <div class="closeButton">
+              <img src="images/closeButton.svg" />
+            </div>
+            <div id="languageToggle" class="toggle-wrapper">
+              <div class="toggle-option ukr">
+                <span>Укр</span>
+                <div class="dot"></div>
+              </div>
+              <div class="toggle-option eng">
+                <span>Eng</span>
+                <div class="dot"></div>
+              </div>
+            </div>
+            <ul class="nav-list">
+              <li><a href="#" class="active">Головна</a></li>
+              <li><a href="#">Про BSC</a></li>
+              <li><a href="#">Послуги</a></li>
+              <li><a href="#">Події та заходи</a></li>
+              <li><a href="#">Партнери</a></li>
+              <li><a href="#">Галерея</a></li>
+              <li><a href="#">Вакансії</a></li>
+              <li><a href="#">Контакти</a></li>
+            </ul>
+          </nav>
+
+          <div class="language-select" id="langSelect">
+            <div class="selected-lang">
+              <span id="currentLang">UK</span>
+              <span class="arrow"><img src="images/arrowLang.svg" /></span>
+            </div>
+            <div class="language-options">
+              <span id="otherLang">EN</span>
+            </div>
+          </div>
+
+          <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+     <!-- breadcrumbs  -->
+     <section class="sectionWrapper breadcrumbsPadding">
+        <div class="container containerSection">
+          <div class="breadcrumbs ">
+            <a href="#">Головна</a>
+            <img src="images/arrow.svg" alt="">
+            <p>Послуги</p>
+          </div>
+        </div>
+    </section>
+    <!-- Послуги -->
+    <section class="sectionWrapper aboutPagePadding">
+        <div class="container containerSection">
+          <h2>Послуги</h2>
+          <div class="containerServices">
+            <div class="tabs-container">
+                <button class="tab active" data-tab="tab1">Навчальні програми</button>
+                <button class="tab" data-tab="tab2">Інформаційна підтримка</button>
+                <button class="tab" data-tab="tab3">Консультації для бізнесу</button>
+                <button class="tab" data-tab="tab4">Простір для подій</button>
+              </div>
+              
+              <div class="tab-contents">
+                <div class="tab-content active" id="tab1">
+                  <div class="descriptionWrapperService">
+                    <div class="descriptionService collapsedService">
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id quis diam id est fermentum augue.
+                      </p>
+                    </div>
+                    <button class="toggleBtnService">Читати далі</button>
+                  </div>
+                    
+                      <h3>Анонси</h3>
+                    
+                      <div class="gridService">
+                        <!-- Card -->
+                        <a href="#">
+                          <div class="cardService">
+                              <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                              <div class="cardContentService">
+                                <div class="wrapperServicedata">
+                                  <div class="tagsService">
+                                    <span>20 Червня 2025</span>
+                                    <span>13:30–17:00</span>
+                                  </div>
+                                  <div class="dateService">10 травня 2025</div>
+                                </div>
+                                <div class="titleService">Назва заходу</div>
+                                <div class="dateServiceMobile">10 травня 2025</div>
+                              </div>
+                            </div>
+                        </a>  
+                    
+                        <!-- Клоновані картки -->
+                        <a href="#">
+                          <div class="cardService">
+                              <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                              <div class="cardContentService">
+                                <div class="wrapperServicedata">
+                                  <div class="tagsService">
+                                    <span>20 Червня 2025</span>
+                                    <span>13:30–17:00</span>
+                                  </div>
+                                  <div class="dateService">10 травня 2025</div>
+                                </div>
+                                <div class="titleService">Назва заходу</div>
+                                <div class="dateServiceMobile">10 травня 2025</div>
+                              </div>
+                            </div>
+                        </a>  
+                    
+                        <a href="#">
+                          <div class="cardService">
+                              <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                              <div class="cardContentService">
+                                <div class="wrapperServicedata">
+                                  <div class="tagsService">
+                                    <span>20 Червня 2025</span>
+                                    <span>13:30–17:00</span>
+                                  </div>
+                                  <div class="dateService">10 травня 2025</div>
+                                </div>
+                                <div class="titleService">Назва заходу</div>
+                                <div class="dateServiceMobile">10 травня 2025</div>
+                              </div>
+                            </div>
+                        </a>  
+                    
+                        <a href="#">
+                          <div class="cardService">
+                              <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                              <div class="cardContentService">
+                                <div class="wrapperServicedata">
+                                  <div class="tagsService">
+                                    <span>20 Червня 2025</span>
+                                    <span>13:30–17:00</span>
+                                  </div>
+                                  <div class="dateService">10 травня 2025</div>
+                                </div>
+                                <div class="titleService">Назва заходу</div>
+                                <div class="dateServiceMobile">10 травня 2025</div>
+                              </div>
+                            </div>
+                        </a>   
+                    
+                        <a href="#">
+                          <div class="cardService">
+                              <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                              <div class="cardContentService">
+                                <div class="wrapperServicedata">
+                                  <div class="tagsService">
+                                    <span>20 Червня 2025</span>
+                                    <span>13:30–17:00</span>
+                                  </div>
+                                  <div class="dateService">10 травня 2025</div>
+                                </div>
+                                <div class="titleService">Назва заходу</div>
+                                <div class="dateServiceMobile">10 травня 2025</div>
+                              </div>
+                            </div>
+                        </a>  
+                    
+                        <a href="#">
+                          <div class="cardService">
+                              <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                              <div class="cardContentService">
+                                <div class="wrapperServicedata">
+                                  <div class="tagsService">
+                                    <span>20 Червня 2025</span>
+                                    <span>13:30–17:00</span>
+                                  </div>
+                                  <div class="dateService">10 травня 2025</div>
+                                </div>
+                                <div class="titleService">Назва заходу</div>
+                                <div class="dateServiceMobile">10 травня 2025</div>
+                              </div>
+                            </div>
+                        </a>   
+                      <a href="#">
+                        <div class="cardService">
+                            <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                            <div class="cardContentService">
+                              <div class="wrapperServicedata">
+                                <div class="tagsService">
+                                  <span>20 Червня 2025</span>
+                                  <span>13:30–17:00</span>
+                                </div>
+                                <div class="dateService">10 травня 2025</div>
+                              </div>
+                              <div class="titleService">Назва заходу</div>
+                              <div class="dateServiceMobile">10 травня 2025</div>
+                            </div>
+                          </div>
+                      </a>  
+                      </div>
+                     <div class="paginationService" id="paginationService"></div>
+                </div>
+                <div class="tab-content" id="tab2">
+                  <div class="descriptionWrapperService">
+                    <div class="InfoSupport collapsedServiceSupport">
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id quis diam id est fermentum augue.
+                      </p>
+                    </div>
+                    <button class="toggleBtnServiceSupport">Читати далі</button>
+                  </div>
+                    
+                      <h3>Анонси</h3>
+                    
+                      <div class="gridService">
+                        <!-- Card -->
+                        <a href="#">
+                          <div class="cardServiceInfo">
+                              <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                              <div class="cardContentService">
+                                <div class="wrapperServicedata">
+                                  <div class="tagsService">
+                                    <span>20 Червня 2025</span>
+                                    <span>13:30–17:00</span>
+                                  </div>
+                                  <div class="dateService">10 травня 2025</div>
+                                </div>
+                                <div class="titleService">Назва заходу</div>
+                                <div class="dateServiceMobile">10 травня 2025</div>
+                              </div>
+                            </div>
+                        </a>  
+                    
+                        <!-- Клоновані картки -->
+                        <a href="#">
+                          <div class="cardServiceInfo">
+                              <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                              <div class="cardContentService">
+                                <div class="wrapperServicedata">
+                                  <div class="tagsService">
+                                    <span>20 Червня 2025</span>
+                                    <span>13:30–17:00</span>
+                                  </div>
+                                  <div class="dateService">10 травня 2025</div>
+                                </div>
+                                <div class="titleService">Назва заходу</div>
+                                <div class="dateServiceMobile">10 травня 2025</div>
+                              </div>
+                            </div>
+                        </a>  
+                    
+                        <a href="#">
+                          <div class="cardServiceInfo">
+                              <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                              <div class="cardContentService">
+                                <div class="wrapperServicedata">
+                                  <div class="tagsService">
+                                    <span>20 Червня 2025</span>
+                                    <span>13:30–17:00</span>
+                                  </div>
+                                  <div class="dateService">10 травня 2025</div>
+                                </div>
+                                <div class="titleService">Назва заходу</div>
+                                <div class="dateServiceMobile">10 травня 2025</div>
+                              </div>
+                            </div>
+                        </a>  
+                    
+                        <a href="#">
+                          <div class="cardServiceInfo">
+                              <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                              <div class="cardContentService">
+                                <div class="wrapperServicedata">
+                                  <div class="tagsService">
+                                    <span>20 Червня 2025</span>
+                                    <span>13:30–17:00</span>
+                                  </div>
+                                  <div class="dateService">10 травня 2025</div>
+                                </div>
+                                <div class="titleService">Назва заходу</div>
+                                <div class="dateServiceMobile">10 травня 2025</div>
+                              </div>
+                            </div>
+                        </a>   
+                    
+                        <a href="#">
+                          <div class="cardServiceInfo">
+                              <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                              <div class="cardContentService">
+                                <div class="wrapperServicedata">
+                                  <div class="tagsService">
+                                    <span>20 Червня 2025</span>
+                                    <span>13:30–17:00</span>
+                                  </div>
+                                  <div class="dateService">10 травня 2025</div>
+                                </div>
+                                <div class="titleService">Назва заходу</div>
+                                <div class="dateServiceMobile">10 травня 2025</div>
+                              </div>
+                            </div>
+                        </a>  
+                    
+                        <a href="#">
+                          <div class="cardServiceInfo">
+                              <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                              <div class="cardContentService">
+                                <div class="wrapperServicedata">
+                                  <div class="tagsService">
+                                    <span>20 Червня 2025</span>
+                                    <span>13:30–17:00</span>
+                                  </div>
+                                  <div class="dateService">10 травня 2025</div>
+                                </div>
+                                <div class="titleService">Назва заходу</div>
+                                <div class="dateServiceMobile">10 травня 2025</div>
+                              </div>
+                            </div>
+                        </a>   
+                      <a href="#">
+                        <div class="cardServiceInfo">
+                            <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                            <div class="cardContentService">
+                              <div class="wrapperServicedata">
+                                <div class="tagsService">
+                                  <span>20 Червня 2025</span>
+                                  <span>13:30–17:00</span>
+                                </div>
+                                <div class="dateService">10 травня 2025</div>
+                              </div>
+                              <div class="titleService">Назва заходу</div>
+                              <div class="dateServiceMobile">10 травня 2025</div>
+                            </div>
+                          </div>
+                      </a>  
+                      </div>
+                     <div class="paginationServiceInfo" id="paginationServiceInfo"></div>
+                     <div class="wrapperQuestionButton">
+                        <button class="questionButton">Сформувати запитання до BSC</button>
+                     </div>
+                </div>
+                <div class="tab-content" id="tab3">
+                 <div class="consultationContainer">
+                  <div class="consultationContentContainer">
+                    <div class="consultationInfo collapsedServiceInfo">                    
+                      <p>Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id quis diam id est fermentum augue.
+                      Напрямки консультацій:
+                      
+                    </p>
+                    <p>Напрямки консультацій:</p>
+                    <ul>
+                      <li>Стратегія</li>
+                      <li>Маркетинг</li>
+                      <li>Право</li>
+                      <li>Бухоблік</li>
+                      <li>Управління людським капіталом</li>
+                      <li>Продажі</li>
+                      <li>Фандрейзинг</li>
+                    </ul>
+                  </div>
+                  <button class="toggleBtnServiceInfo">Читати далі</button>
+                  </div>
+                  <div class="serviceForm">
+                    <h3>Зареєструватися на консультацію</h3>
+                    <form class="formContainer">
+                        <div class="wrapperInput">
+                          <input type="text" id="fullname" placeholder="Ім'я та прізвище" required />
+                          <input type="tel" id="phone" placeholder="+380XXXXXXXXX" required />
+                        </div>
+                        <div class="wrapperInput"> 
+                          <input type="text" id="company" placeholder="Компанія і посада" />
+                          <div class="custom-select">
+                            <button type="button" id="consultationWay" class="select-toggle">Напрямки консультацій<img src="images/arrowLang.svg"/></button>
+                            <div class="select-options">
+                              <input type="text" name="website" style="display:none">
+                              <input type="hidden" name="form_time" value="<?php echo time(); ?>">
+                              <label><input type="checkbox" value="Стратегія"/> Стратегія</label>
+                              <label><input type="checkbox" value="Маркетинг"/> Маркетинг</label>
+                              <label><input type="checkbox" value="Право"/> Право</label>
+                              <label><input type="checkbox" value="Бухоблік"/> Бухоблік</label>
+                              <label><input type="checkbox" value="Управління людським капіталом"/> Управління людським капіталом</label>
+                              <label><input type="checkbox" value="Продажі"/> Продажі</label>
+                              <label><input type="checkbox" value="Фандрейзинг"/> Фандрейзинг</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="wrapperInput">
+                        <!-- Тип підприємця -->
+                        <div class="custom-select">
+                          <button type="button" id="typeOwner" class="select-toggle">Тип підприємця<img src="images/arrowLang.svg"/></button>
+                          <div class="select-options">
+                            <input type="text" name="website" style="display:none">
+                            <input type="hidden" name="form_time" value="<?php echo time(); ?>">
+                            <label><input type="checkbox" value="ФОП"/> ФОП</label>
+                            <label><input type="checkbox" value="ТОВ"/> ТОВ</label>
+                            <label><input type="checkbox" value="Майбутній підприємець"/> Майбутній підприємець</label>
+                          </div>
+                        </div>
+                  
+                        <!-- Категорія -->
+                        <div class="custom-select">
+                          <button type="button" id="categoryPeople" class="select-toggle">Категорія<img src="images/arrowLang.svg"/></button>
+                          <div class="select-options">
+                            <label><input type="checkbox" value="Жінка"/> Жінка</label>
+                            <label><input type="checkbox" value="Молодь"/> Молодь</label>
+                            <label><input type="checkbox" value="Ветеран"/> Ветеран</label>
+                            <label><input type="checkbox" value="ВПО"/> ВПО</label>
+                          </div>
+                        </div>
+                    </div>
+                    <textarea id="message" placeholder="Запит"></textarea>
+                  
+                        <button type="submit" class="submitBtn">Відправити</button>
+                        <p class="link-bottom" style="display: none;">Форма відправлена</p>
+                      </form>
+                </div>
+                 </div>
+                </div>
+                <div class="tab-content" id="tab4">
+                  <div class="consultationContentContainer">
+                    <div class="wrapperServiceActionContent serviceAction collapsedServiceAction">                    
+                      <p>Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id quis diam id est fermentum augue.
+                      
+                    </p>
+                    <p>Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id quis diam id est fermentum augue.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id quis diam id est fermentum augue.</p>
+                    <ul>
+                      <li>Стратегія</li>
+                      <li>Маркетинг</li>
+                      <li>Право</li>
+                      <li>Бухоблік</li>
+                      <li>Управління людським капіталом</li>
+                      <li>Продажі</li>
+                      <li>Фандрейзинг</li>
+                    </ul>
+                  </div>
+                  <button class="toggleBtnServiceAction">Читати далі</button>
+                  </div>
+                  <div class="buttonActionService">
+                  <a href="#">Найближчі події</a>
+                  </div>
+                </div>
+              </div>              
+        </div>
+    </section>
+    <!-- footer -->
+    <footer>
+      <div class="container footerWrapper">
+        <div class="footer-left">
+          <div class="logo">
+            <img src="images/LogoFooter.svg" alt="BSC Logo" />
+          </div>
+          <nav class="footer-nav">
+            <a href="#">Про BSC</a>
+            <a href="#">Послуги</a>
+            <a href="#">Події та заходи</a>
+            <a href="#">Партнери</a>
+            <a href="#">Галерея</a>
+            <a href="#">Вакансії</a>
+          </nav>
+        </div>
+
+        <div class="footer-right">
+          <div>
+            <h4>Контакти</h4>
+            <p>+380937458745</p>
+            <p>bpc.support@gmail.com</p>
+            <p>м. Вінниця, вул. Соборна 53</p>
+          </div>
+          <div class="social-icons">
+            <a href="#"><img src="images/facebook.svg"/></i></a>
+            <a href="#"><img src="images/insta.svg"/></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="copyright">
+      <p>Сайт було створено в межах проєкту «Трансформаційне відновлення задля безпеки людей в Україні», який фінансує уряд Японії та впроваджує Програма розвитку ООН (ПРООН) в Україні.</p>
+    </div>
+    <script src="script.js"></script> 
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".formContainer").addEventListener("submit", function (e) {
+          e.preventDefault();
+    
+          const fullname = document.getElementById("fullname").value;
+          const phone = document.getElementById("phone").value;
+          const company = document.getElementById("company").value;
+          const type = document.getElementById("typeOwner").textContent;
+          const category = document.getElementById("categoryPeople").textContent;
+          const consultationWay = document.getElementById("consultationWay").textContent;
+          const message = document.getElementById("message").value;
+    
+          const website = document.querySelector('input[name="website"]').value;
+          const form_time = document.querySelector('input[name="form_time"]').value;
+    
+          fetch('<?php echo admin_url("admin-ajax.php"); ?>', {
+            method: "POST",
+            body: new URLSearchParams({
+              action: "save_contact_form",
+              nonce: '<?php echo wp_create_nonce("save_test_nonce"); ?>',
+              title: 'Послуги',
+              name: fullname,
+              phone: phone,
+              company: company,
+              type: type,
+              category: category,
+              consultation: consultationWay,
+              message: message,
+              website: website,
+              form_time: form_time
+            })
+          })
+            .then(res => res.json())
+            .then(data => {
+              if (data.success) {
+                const inputs = document.querySelectorAll(".serviceForm input");
+                const textarea = document.querySelector(".serviceForm textarea");
+                
+    
+                const categoryPeopleValue = document.querySelector('#categoryPeople');
+                const typeOwnerValue = document.querySelector('#typeOwner');
+                const consultationWay = document.querySelector('#consultationWay');
+    
+                if (categoryPeopleValue && typeOwnerValue && consultationWay) {
+                  categoryPeopleValue.innerText = "Категорія";
+                  typeOwnerValue.innerText = "Тип підприємця";
+                  consultationWay.innerText = "Напрямки консультацій";
+                }
+    
+                inputs.forEach((input) => {
+                  if (input.type === "checkbox" || input.type === "radio") {
+                    input.checked = false;
+                  } else {
+                    input.value = "";
+                  }
+                });
+    
+                if (textarea) {
+                  textarea.value = "";
+                }
+    
+                // Показати повідомлення
+                const linkBottom = document.querySelector(".link-bottom");
+                linkBottom.style.display = "block";
+    
+                // Сховати повідомлення через 5 секунд і закрити попап
+                setTimeout(() => {
+                  linkBottom.style.display = "none";
+                }, 5000);
+              } else {
+                alert("Error: " + data.data);
+              }
+            });
+        });
+      });
+    </script> 
+    <script>
+      const nameInput = document.getElementById("fullname");
+      const companyInput = document.getElementById("company");
+      const phoneInput = document.getElementById("phone");
+    
+      const onlyLettersRegex = /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ]+$/;
+    
+      const onlyDigitsRegex = /^\d+$/;
+    
+      function allowOnlyLetters(event) {
+        const key = event.key;
+        if (!onlyLettersRegex.test(key) && key !== "Backspace" && key !== " " && key.length === 1) {
+          event.preventDefault();
+        }
+      }
+    
+      function allowOnlyDigits(event) {
+        const key = event.key;
+        if (!onlyDigitsRegex.test(key) && key !== "Backspace") {
+          event.preventDefault();
+        }
+      }
+    
+      nameInput.addEventListener("keypress", allowOnlyLetters);
+      companyInput.addEventListener("keypress", allowOnlyLetters);
+      phoneInput.addEventListener("keypress", allowOnlyDigits);
+          
+        </script> 
+    <script>
+        const tabs = document.querySelectorAll(".tab");
+        const contents = document.querySelectorAll(".tab-content");
+      
+        tabs.forEach(tab => {
+          tab.addEventListener("click", () => {
+            const target = tab.getAttribute("data-tab");
+      
+            tabs.forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
+      
+            contents.forEach(content => {
+              content.classList.remove("active");
+              if (content.id === target) {
+                content.classList.add("active");
+              }
+            });
+          });
+        });
+      </script>
+       <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const cards = document.querySelectorAll(".cardService");
+          const cardsPerPage = 6;
+          const totalPages = Math.ceil(cards.length / cardsPerPage);
+          const pagination = document.getElementById("paginationService");
+    
+          function showPage(page) {
+            const start = (page - 1) * cardsPerPage;
+            const end = start + cardsPerPage;
+    
+            cards.forEach((card, index) => {
+              card.style.display = (index >= start && index < end) ? "flex" : "none";
+            });
+    
+            document.querySelectorAll(".paginationService button").forEach((btn, idx) => {
+              btn.classList.toggle("active", idx === page - 1);
+            });
+          }
+    
+          function createPagination() {
+            for (let i = 1; i <= totalPages; i++) {
+              const button = document.createElement("button");
+              button.textContent = i;
+              button.addEventListener("click", () => showPage(i));
+              pagination.appendChild(button);
+            }
+          }
+    
+          createPagination();
+          showPage(1);
+        });
+      </script>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const cards = document.querySelectorAll(".cardServiceInfo");
+          const cardsPerPage = 6;
+          const totalPages = Math.ceil(cards.length / cardsPerPage);
+          const pagination = document.getElementById("paginationServiceInfo");
+    
+          function showPage(page) {
+            const start = (page - 1) * cardsPerPage;
+            const end = start + cardsPerPage;
+    
+            cards.forEach((card, index) => {
+              card.style.display = (index >= start && index < end) ? "flex" : "none";
+            });
+    
+            document.querySelectorAll(".paginationServiceInfo button").forEach((btn, idx) => {
+              btn.classList.toggle("active", idx === page - 1);
+            });
+          }
+    
+          function createPagination() {
+            for (let i = 1; i <= totalPages; i++) {
+              const button = document.createElement("button");
+              button.textContent = i;
+              button.addEventListener("click", () => showPage(i));
+              pagination.appendChild(button);
+            }
+          }
+    
+          createPagination();
+          showPage(1);
+        });
+      </script>
+      <script>
+        document.querySelectorAll(".select-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const parent = btn.closest(".custom-select");
+      parent.classList.toggle("active");
+  
+      document.querySelectorAll(".custom-select").forEach((el) => {
+        if (el !== parent) el.classList.remove("active");
+      });
+    });
+  });
+  
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll(".custom-select").forEach((select) => {
+      if (!select.contains(e.target)) {
+        select.classList.remove("active");
+      }
+    });
+  });
+        document.querySelectorAll(".custom-select").forEach((select) => {
+    const checkboxes = select.querySelectorAll("input[type='checkbox']");
+    const toggle = select.querySelector(".select-toggle");
+  
+    checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      const isMultiple = select.dataset.multiple === "true";
+  
+      if (!isMultiple) {
+        checkboxes.forEach((cb) => {
+          if (cb !== checkbox) cb.checked = false;
+        });
+  
+        if (checkbox.checked) {
+          toggle.innerText = checkbox.value;
+          select.classList.remove("active");
+        } else {
+          toggle.innerText = "Виберіть";
+        }
+      } else {
+        const selected = Array.from(checkboxes)
+          .filter((cb) => cb.checked)
+          .map((cb) => cb.value);
+        toggle.innerText = selected.length > 0 ? selected.join(", ") : "Виберіть";
+      }
+    });
+  });
+  });
+      </script> 
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const toggleBtn = document.querySelector(".toggleBtnService");
+          const description = document.querySelector(".descriptionService");
+      
+          toggleBtn.addEventListener("click", function () {
+            description.classList.toggle("collapsedService");
+            if (description.classList.contains("collapsedService")) {
+              toggleBtn.textContent = "Читати далі";
+            } else {
+              toggleBtn.textContent = "Згорнути";
+            }
+          });
+        });
+      </script>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const toggleBtn = document.querySelector(".toggleBtnServiceInfo");
+          const description = document.querySelector(".consultationInfo");
+      
+          toggleBtn.addEventListener("click", function () {
+            description.classList.toggle("collapsedServiceInfo");
+            if (description.classList.contains("collapsedServiceInfo")) {
+              toggleBtn.textContent = "Читати далі";
+            } else {
+              toggleBtn.textContent = "Згорнути";
+            }
+          });
+        });
+      </script>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const toggleBtn = document.querySelector(".toggleBtnServiceSupport");
+          const description = document.querySelector(".InfoSupport");
+      
+          toggleBtn.addEventListener("click", function () {
+            description.classList.toggle("collapsedServiceSupport");
+            if (description.classList.contains("collapsedServiceSupport")) {
+              toggleBtn.textContent = "Читати далі";
+            } else {
+              toggleBtn.textContent = "Згорнути";
+            }
+          });
+        });
+      </script>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const toggleBtn = document.querySelector(".toggleBtnServiceAction");
+          const description = document.querySelector(".serviceAction");
+      
+          toggleBtn.addEventListener("click", function () {
+            description.classList.toggle("collapsedServiceAction");
+            if (description.classList.contains("collapsedServiceAction")) {
+              toggleBtn.textContent = "Читати далі";
+            } else {
+              toggleBtn.textContent = "Згорнути";
+            }
+          });
+        });
+      </script>
+  </body>
+</html>
