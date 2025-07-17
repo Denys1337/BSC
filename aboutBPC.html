@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSC Header</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prata&family=Source+Serif+4:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <img src="images/Logo.svg" alt="BSC Logo" />
+        </div>
+        <div class="nav-wrapper">
+          <nav class="nav" id="nav">
+            <div class="closeButton">
+              <img src="images/closeButton.svg" />
+            </div>
+            <div id="languageToggle" class="toggle-wrapper">
+              <div class="toggle-option ukr">
+                <span>Укр</span>
+                <div class="dot"></div>
+              </div>
+              <div class="toggle-option eng">
+                <span>Eng</span>
+                <div class="dot"></div>
+              </div>
+            </div>
+            <ul class="nav-list">
+              <li><a href="#" class="active">Головна</a></li>
+              <li><a href="#">Про BSC</a></li>
+              <li><a href="#">Послуги</a></li>
+              <li><a href="#">Події та заходи</a></li>
+              <li><a href="#">Партнери</a></li>
+              <li><a href="#">Галерея</a></li>
+              <li><a href="#">Вакансії</a></li>
+              <li><a href="#">Контакти</a></li>
+            </ul>
+          </nav>
+
+          <div class="language-select" id="langSelect">
+            <div class="selected-lang">
+              <span id="currentLang">UK</span>
+              <span class="arrow"><img src="images/arrowLang.svg" /></span>
+            </div>
+            <div class="language-options">
+              <span id="otherLang">EN</span>
+            </div>
+          </div>
+
+          <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- breadcrumbs  -->
+    <section class="sectionWrapper breadcrumbsPadding">
+      <div class="container containerSection">
+        <div class="breadcrumbs ">
+          <a href="#">Головна</a>
+          <img src="images/arrow.svg" alt="">
+          <p>Про BPC</p>
+        </div>
+      </div>
+  </section>
+    <!-- Про BPC -->
+   <section class="sectionWrapper aboutPagePadding">
+      <div class="container containerSection">
+        <h2 class="MinPadding"><a href="#">Про Business People Club</a></h2>
+        <div class="contentAbout">
+          <div class="text-container-bpc">
+            <p>Business People Club— це:</p>
+            <ol>
+                <li>Можливості<span>заявити про себе і свій бізнес</span></li>
+                <li>Співпраця.<span>У тому числі, з європейськими компаніями у міжнародних проєктах, спрямованих на розвиток та підтримку малого і середнього бізнесу</span></li>
+                <li>Розвиток.<span> Особистісне зростання та розвиток бізнесу, за підтримки кращих національних та світових експертів та менторів</span></li>
+            </ol>
+            <p>Місія Клубу -<span>Розвиток малого та середнього підприємництва. Створення унікальної екосистеми бізнес-середовища. Підвищення культури ведення бізнесу в Україні.</span></p>
+          </div>
+          <div class="WrapperForImageAbout">
+            <img src="images/about1.svg" class="LeftImageMargin" alt="Business Support Center" />
+            <img src="images/about2.svg" alt="Business Support Center" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Принцип роботи -->
+    <section class="sectionWrapper">
+        <div class="container containerSection">
+          <h2>Цінності Клубу</h2>
+          <div class="wrapperWork">
+            <div class="blockImageClub"><img src="images/club.png"/></div>
+            <div class="blockContentClub">
+                <div class="stepsWrapper">
+                    <div class="step clubStep">
+                        <div class="stepHeader">
+                            <span>01</span>
+                            <h3>Назва кроку</h3>
+                        </div>
+                       
+                    </div>
+                    <div class="step clubStep">
+                        <div class="stepHeader">
+                            <span>02</span>
+                            <h3>Назва кроку</h3>
+                        </div>
+                    </div>
+                    <div class="step clubStep">
+                        <div class="stepHeader">
+                            <span>03</span>
+                            <h3>Назва кроку</h3>
+                        </div>
+                    </div>
+                    <div class="step clubStep">
+                        <div class="stepHeader">
+                            <span>04</span>
+                            <h3>Назва кроку</h3>
+                        </div>
+                    </div>
+                    <div class="step clubStep">
+                        <div class="stepHeader">
+                            <span>05</span>
+                            <h3>Назва кроку</h3>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+          </div>
+        </div>
+      </section>
+    <!-- Структура Клубу -->
+    <section class="sectionWrapper">
+      <div class="container containerSection">
+        <h2>Структура Клубу</h2>
+        <div class="shemaBPC">
+          <img src="images/desktopShema.png" class="desktopShema"/>
+          <img src="images/mobileShema.png" class="mobileShema"/>
+        </div>
+      </div>
+    </section>
+    <!-- Наша команда -->
+    <section class="sectionWrapper">
+        <div class="container containerSection">
+          <h2>Наша команда</h2>
+          <div class="wrapperTeam clubTeam">
+            <div class="teammate">
+                <img src="images/teammate.jpg"/>
+                <div class="teammateContent">
+                    <h4>Lorem ipsum</h4>
+                    <p>Lorem ipsum dolor </p>
+                </div>
+            </div>
+            <div class="teammate">
+                <img src="images/teammate.jpg"/>
+                <div class="teammateContent">
+                    <h4>Lorem ipsum</h4>
+                    <p>Lorem ipsum dolor </p>
+                </div>
+            </div>
+            <div class="teammate">
+                <img src="images/teammate.jpg"/>
+                <div class="teammateContent">
+                    <h4>Lorem ipsum</h4>
+                    <p>Lorem ipsum dolor </p>
+                </div>
+            </div>
+            <div class="teammate">
+                <img src="images/teammate.jpg"/>
+                <div class="teammateContent">
+                    <h4>Lorem ipsum</h4>
+                    <p>Lorem ipsum dolor </p>
+                </div>
+            </div>
+            <div class="teammate">
+                <img src="images/teammate.jpg"/>
+                <div class="teammateContent">
+                    <h4>Lorem ipsum</h4>
+                    <p>Lorem ipsum dolor </p>
+                </div>
+            </div>
+            <div class="teammate">
+                <img src="images/teammate.jpg"/>
+                <div class="teammateContent">
+                    <h4>Lorem ipsum</h4>
+                    <p>Lorem ipsum dolor </p>
+                </div>
+            </div>
+            <div class="teammate">
+                <img src="images/teammate.jpg"/>
+                <div class="teammateContent">
+                    <h4>Lorem ipsum</h4>
+                    <p>Lorem ipsum dolor </p>
+                </div>
+            </div>
+            <div class="teammate">
+                <img src="images/teammate.jpg"/>
+                <div class="teammateContent">
+                    <h4>Lorem ipsum</h4>
+                    <p>Lorem ipsum dolor </p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Бажаєте стати резидентом Клубу? -->
+      <section class="sectionWrapper">
+      <div class="container containerSection">
+        <h2>Бажаєте стати резидентом Клубу?</h2>
+        <div class="BecomeMember">
+        <div class="club-steps clubStepsAbout">
+            <div class="step resedentStep">
+                <div class="step-number">1</div>
+                <img src="images/writeForm.svg" alt="icon1" class="step-icon" />
+                <p class="step-text">Заповніть заявку на сайті Клубу</p>
+            </div>
+            <div class="step resedentStep">
+                <div class="step-number">2</div>
+                <img src="images/residents.svg" alt="icon2" class="step-icon" />
+                <p class="step-text">Отримайте 2 рекомендації резидентів Клубу</p>
+            </div>
+            <div class="step resedentStep">
+                <div class="step-number">3</div>
+                <img src="images/money.svg" alt="icon4" class="step-icon" />
+                <p class="step-text">Складіть вступний внесок</p>
+            </div>
+            </div>
+    </div>
+        </div>
+      </div>
+    </section>
+          <!-- Вимоги до резидентів Клубу -->
+      <section class="sectionWrapper">
+      <div class="container containerSection">
+        <h2>Вимоги до резидентів Клубу</h2>
+        <!-- Умови вступу -->
+        <div class="conditions-grid">
+            <div class="condition-item"><svg xmlns="http://www.w3.org/2000/svg" class="condition-icon" width="18" height="18" viewBox="0 0 512 512" fill="#021939">
+  <path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.248-22.627 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.627 0L100.686 260.686c-6.248 6.248-6.248 16.379 0 22.627l112 112c6.248 6.249 16.379 6.249 22.628.001z"/>
+</svg>
+Гарна ділова репутація</div>
+            <div class="condition-item"><svg xmlns="http://www.w3.org/2000/svg" class="condition-icon" width="18" height="18" viewBox="0 0 512 512" fill="#021939">
+  <path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.248-22.627 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.627 0L100.686 260.686c-6.248 6.248-6.248 16.379 0 22.627l112 112c6.248 6.249 16.379 6.249 22.628.001z"/>
+</svg>
+</i>Дотримання етичного кодексу</div>
+            <div class="condition-item"><svg xmlns="http://www.w3.org/2000/svg" class="condition-icon" width="18" height="18" viewBox="0 0 512 512" fill="#021939">
+  <path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.248-22.627 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.627 0L100.686 260.686c-6.248 6.248-6.248 16.379 0 22.627l112 112c6.248 6.249 16.379 6.249 22.628.001z"/>
+</svg>
+</i>Сплата щорічного внеску</div>
+            <div class="condition-item"><svg xmlns="http://www.w3.org/2000/svg" class="condition-icon" width="18" height="18" viewBox="0 0 512 512" fill="#021939">
+  <path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.248-22.627 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.627 0L100.686 260.686c-6.248 6.248-6.248 16.379 0 22.627l112 112c6.248 6.249 16.379 6.249 22.628.001z"/>
+</svg>
+</i>Бажання розвивати власний бізнес</div>
+        </div>
+
+        <!-- Інформаційний блок -->
+        <div class="info-box">
+            <div class="info-left">
+            Ми раді усім новим учасникам, які бажають розвивати свій бізнес разом із нами, адже <strong>Business People Club</strong> – це:
+            </div>
+            <div class="info-right">
+            <ul>
+                <li><svg class="diamond-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#001633" style="vertical-align: middle;">
+  <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="none" stroke="#001633" stroke-width="2"/>
+</svg>
+Різні напрямки бізнесу в Клубі</li>
+                <li><svg class="diamond-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#001633" style="vertical-align: middle;">
+  <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="none" stroke="#001633" stroke-width="2"/>
+</svg>
+Нетворкінг, знижки на заходи Клубу</li>
+                <li><svg class="diamond-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#001633" style="vertical-align: middle;">
+  <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="none" stroke="#001633" stroke-width="2"/>
+</svg>
+Контакти, доступ до бази учасників Клубу</li>
+                <li><svg class="diamond-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#001633" style="vertical-align: middle;">
+  <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="none" stroke="#001633" stroke-width="2"/>
+</svg>
+Розміщення лого і сайту компаній на сайті Клубу</li>
+                <li><svg class="diamond-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#001633" style="vertical-align: middle;">
+  <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="none" stroke="#001633" stroke-width="2"/>
+</svg>
+Безкоштовна (або за пільговою ціною) участь в заходах партнерів Клубу</li>
+                <li><svg class="diamond-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#001633" style="vertical-align: middle;">
+  <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="none" stroke="#001633" stroke-width="2"/>
+</svg>
+Участь в закритих заходах Клубу (виїзди на підприємства, бізнес бранчі)</li>
+                <li><svg class="diamond-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#001633" style="vertical-align: middle;">
+  <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="none" stroke="#001633" stroke-width="2"/>
+</svg>
+Участь в закритих заходах Клубу (виїзди на підприємства, бізнес бранчі)</li>
+                <li><svg class="diamond-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#001633" style="vertical-align: middle;">
+  <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="none" stroke="#001633" stroke-width="2"/>
+</svg>
+Участь в закритих заходах Клубу (виїзди на підприємства, бізнес бранчі)</li>
+                <li><svg class="diamond-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#001633" style="vertical-align: middle;">
+  <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="none" stroke="#001633" stroke-width="2"/>
+</svg>
+Участь в закритих заходах Клубу (виїзди на підприємства, бізнес бранчі)</li>
+                <li><svg class="diamond-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#001633" style="vertical-align: middle;">
+  <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="none" stroke="#001633" stroke-width="2"/>
+</svg>
+Участь в закритих заходах Клубу (виїзди на підприємства, бізнес бранчі)</li>
+            </ul>
+            </div>
+        </div>
+        </div>
+      </div>
+      <div class="contactForm clubForm">
+                <h3>Будь ласка, заповніть заяву, і ми розглянемо її найближчим часом</h3>
+                <form class="formContainer">
+                  <input type="text" name="website" style="display:none">
+                  <input type="hidden" name="form_time" value="<?php echo time(); ?>">
+                    <div class="wrapperInput">
+                      <input type="text" id="fullname" placeholder="ПІБ" required />
+                      <input type="text" id="borthday" placeholder="Дата народження" required/>
+                    </div>
+                    <div class="wrapperInput">
+                      <input type="text" id="familyStatus" placeholder="Сімейний статус" required />
+                      <input type="text" id="business" placeholder="Основний бізнес, посада" required/>
+                    </div>
+                    <div class="wrapperInput">
+                      <input type="text" id="site" placeholder="Сайт" required />
+                      <input type="text" id="secondBusiness" placeholder="Додатковий бізнес, посада" required/>
+                    </div>
+                    <div class="wrapperInput">
+                      <input type="email" id="email" placeholder="E-mail" required />
+                      <input type="tel" id="telephone" placeholder="Номер телефону" required/>
+                    </div>
+                    <div class="wrapperInput">
+                      <input type="text" id="lifeCredo" placeholder="Життєве кредо(девіз)" required />
+                      <input type="text" id="hobbi" placeholder="Захоплення, хоббі" required/>
+                    </div>
+                    <div class="wrapperInput">
+                      <input type="text" id="recomendation" placeholder="Хто з учасників Клубу вас рекомендує?" required />
+                      <div class="codexClub">
+                        <input type="checkbox" id="codex" required/>
+                        <p>Ознайомився/лась з<span> кодексом Клубу</span></p></div>
+                    </div>
+              
+                    <button type="submit" class="submitBtn">Відправити</button>
+                    <p class="link-bottom" style="display: none;">Форма відправлена</p>
+                  </form>
+            </div>
+    </section>
+
+    <script>
+      const phoneInput = document.getElementById("telephone");    
+      const onlyDigitsRegex = /^\d+$/;
+      function allowOnlyDigits(event) {
+        const key = event.key;
+        if (!onlyDigitsRegex.test(key) && key !== "Backspace") {
+          event.preventDefault();
+        }
+      }
+      phoneInput.addEventListener("keypress", allowOnlyDigits);
+        </script> 
+    
+    <!-- footer -->
+    <footer>
+      <div class="container footerWrapper">
+        <div class="footer-left">
+          <div class="logo">
+            <img src="images/LogoFooter.svg" alt="BSC Logo" />
+          </div>
+          <nav class="footer-nav">
+            <a href="#">Про BSC</a>
+            <a href="#">Послуги</a>
+            <a href="#">Події та заходи</a>
+            <a href="#">Партнери</a>
+            <a href="#">Галерея</a>
+            <a href="#">Вакансії</a>
+          </nav>
+        </div>
+
+        <div class="footer-right">
+          <div>
+            <h4>Контакти</h4>
+            <p>+380937458745</p>
+            <p>bpc.support@gmail.com</p>
+            <p>м. Вінниця, вул. Соборна 53</p>
+          </div>
+          <div class="social-icons">
+            <a href="#"><img src="images/facebook.svg"/></i></a>
+            <a href="#"><img src="images/insta.svg"/></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".formContainer").addEventListener("submit", function (e) {
+          e.preventDefault();
+    
+          const fullname = document.getElementById("fullname").value;
+          const borthday = document.getElementById("borthday").value;
+          const familyStatus = document.getElementById("familyStatus").value;
+          const business = document.getElementById("business").value;
+          const site = document.getElementById("site").value;
+          const secondBusiness = document.getElementById("secondBusiness").value;
+          const email = document.getElementById("email").value;
+          const telephone = document.getElementById("telephone").value;
+          const lifeCredo = document.getElementById("lifeCredo").value;
+          const hobbi = document.getElementById("hobbi").value;
+           const codex = document.getElementById("codex").value;
+    
+          const website = document.querySelector('input[name="website"]').value;
+          const form_time = document.querySelector('input[name="form_time"]').value;
+    
+          fetch('<?php echo admin_url("admin-ajax.php"); ?>', {
+            method: "POST",
+            body: new URLSearchParams({
+              action: "save_club_form",
+              nonce: '<?php echo wp_create_nonce("save_test_nonce"); ?>',
+              title: 'Контакти',
+              name: fullname,
+              borthday: borthday,
+              familyStatus: familyStatus,
+              business: business,
+              site: site,
+              secondBusiness: secondBusiness,
+              email: email,
+              telephone: telephone,
+              lifeCredo: lifeCredo,
+              hobbi: hobbi,
+              codex: codex,
+              website: website,
+              form_time: form_time
+            })
+          })
+            .then(res => res.json())
+            .then(data => {
+              if (data.success) {
+                const inputs = document.querySelectorAll(".formContainer input");                
+    
+                inputs.forEach((input) => {
+                  if (input.type === "checkbox" || input.type === "checkbox") {
+                    input.checked = false;
+                  } else {
+                    input.value = "";
+                  }
+                });
+    
+    
+                const linkBottom = document.querySelector(".link-bottom");
+                linkBottom.style.display = "block";
+    
+                setTimeout(() => {
+                  linkBottom.style.display = "none";
+                }, 5000);
+              } else {
+                alert("Error: " + data.data);
+              }
+            });
+        });
+      });
+    </script>
+    
+  </body>
+</html>

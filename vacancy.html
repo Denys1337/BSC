@@ -162,6 +162,7 @@
                                     <span class="tag">На офісі</span>
                                     <span class="tag">м. Київ</span>
                                     <span class="tag">Без досвіду</span>
+                                    <span class="tag">Без досвіду</span>
                                 </div>
                                 </div>
                             </a>
@@ -241,6 +242,20 @@
       </div>
     </footer>
     <script src="script.js"></script>
+    
+<script>
+  const label = document.querySelector('.resume-upload');
+  const fileInput = label.querySelector('input[type="file"]');
+  const span = label.querySelector('span');
+
+  fileInput.addEventListener('change', function () {
+    if (fileInput.files.length > 0) {
+      span.textContent = fileInput.files[0].name;
+    } else {
+      span.textContent = 'Прикріпити резюме';
+    }
+  });
+</script>
     <script>
       const modal = document.getElementById("popupModal");
       const openBtn = document.getElementById("openModal");
@@ -332,6 +347,13 @@ document.querySelectorAll(".custom-select").forEach((select) => {
     
         function handleSubmit(e) {
           e.preventDefault();
+
+           const isExpertChecked = Array.from(expertCheckboxes).some(cb => cb.checked);
+          if (!isExpertChecked) {
+            alert("Будь ласка, оберіть експертність.");
+            expertSelect.focus();
+            return;
+          }
     
           const fullname = document.getElementById("fullname")?.value || "";
           const phone = document.getElementById("phone")?.value || "";
@@ -364,6 +386,11 @@ document.querySelectorAll(".custom-select").forEach((select) => {
                 const inputs = document.querySelectorAll(".formVacancy input");
                 const textarea = document.querySelector(".formVacancy textarea");
                 const expertSelect = document.querySelector('#expertSelect');
+                const resumeUpload = document.querySelector('.resume-upload span');
+
+                if(resumeUpload) {
+                  resumeUpload.innerText = "Прикріпити резюме";
+                }
     
                 if (expertSelect) {
                   expertSelect.innerText = "Експертність";

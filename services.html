@@ -107,6 +107,13 @@
                       <p>
                         Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id quis diam id est fermentum augue.
                       </p>
+                      <ol>
+                        <li>skjfskhdghkjhskjgdhjsdhgksjLorem</li>
+                        <li>skjfskhdghkjhskjgdhjsdhgksjLorem</li>
+                        <li>skjfskhdghkjhskjgdhjsdhgksjLorem</li>
+                        <li>skjfskhdghkjhskjgdhjsdhgksjLorem</li>
+                        <li>skjfskhdghkjhskjgdhjsdhgksjLorem</li>
+                      </ol>
                     </div>
                     <button class="toggleBtnService">Читати далі</button>
                   </div>
@@ -242,6 +249,13 @@
                       <p>
                         Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id. Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id quis diam id est fermentum augue.
                       </p>
+                      <ul>
+                        <li>skjfskhdghkjhskjgdhjsdhgksjLorem</li>
+                        <li>skjfskhdghkjhskjgdhjsdhgksjLorem</li>
+                        <li>skjfskhdghkjhskjgdhjsdhgksjLorem</li>
+                        <li>skjfskhdghkjhskjgdhjsdhgksjLorem</li>
+                        <li>skjfskhdghkjhskjgdhjsdhgksjLorem</li>
+                      </ul>
                     </div>
                     <button class="toggleBtnServiceSupport">Читати далі</button>
                   </div>
@@ -321,7 +335,7 @@
                     
                         <a href="#">
                           <div class="cardServiceInfo">
-                              <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                              <img class="cardImageService" src="images/logo.svg" alt="Event">
                               <div class="cardContentService">
                                 <div class="wrapperServicedata">
                                   <div class="tagsService">
@@ -371,7 +385,7 @@
                       </div>
                      <div class="paginationServiceInfo" id="paginationServiceInfo"></div>
                      <div class="wrapperQuestionButton">
-                        <button class="questionButton">Сформувати запитання до BSC</button>
+                        <button class="questionButton"><a href="#">Сформувати запитання до BSC</a></button>
                      </div>
                 </div>
                 <div class="tab-content" id="tab3">
@@ -517,6 +531,35 @@
       document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".formContainer").addEventListener("submit", function (e) {
           e.preventDefault();
+
+          const requiredCustomSelects = [
+              { id: "consultationWay", label: "Напрямки консультацій" },
+              { id: "typeOwner", label: "Тип підприємця" },
+              { id: "categoryPeople", label: "Категорія" },
+            ];
+
+            let isValid = true;
+            let emptyFields = [];
+
+            requiredCustomSelects.forEach(selectInfo => {
+              const button = document.getElementById(selectInfo.id);
+              const parentSelect = button.closest(".custom-select");
+              const checkboxes = parentSelect.querySelectorAll("input[type='checkbox']");
+              const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+              if (!anyChecked) {
+                isValid = false;
+                emptyFields.push(selectInfo.label);
+                button.classList.add("error");
+              } else {
+                button.classList.remove("error");
+              }
+            });
+
+            if (!isValid) {
+              alert("Будь ласка, заповніть поля:\n\n" + emptyFields.join("\n"));
+              return;
+            } 
     
           const fullname = document.getElementById("fullname").value;
           const phone = document.getElementById("phone").value;

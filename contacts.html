@@ -208,7 +208,18 @@
       document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".formContainer").addEventListener("submit", function (e) {
           e.preventDefault();
-    
+
+          const typeCheckboxes = document.querySelectorAll('#typeOwner ~ .select-options input[type="checkbox"]');
+          const categoryCheckboxes = document.querySelectorAll('#categoryPeople ~ .select-options input[type="checkbox"]');
+
+          const isTypeValid = Array.from(typeCheckboxes).some(cb => cb.checked);
+          const isCategoryValid = Array.from(categoryCheckboxes).some(cb => cb.checked);
+
+          if (!isTypeValid || !isCategoryValid) {
+            alert("Будь ласка, оберіть значення у полях 'Тип підприємця' та 'Категорія'.");
+            return;
+          }
+            
           const fullname = document.getElementById("fullname").value;
           const phone = document.getElementById("phone").value;
           const company = document.getElementById("company").value;

@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSC Header</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prata&family=Source+Serif+4:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+      <div class="container">
+        <div class="logo logoBPC">
+          <a href="/"><img src="images/LogoBPC.png" alt="BPC Logo" /></a>
+        </div>
+        <div class="nav-wrapper">
+          <nav class="nav" id="nav">
+            <div class="closeButton">
+              <img src="images/closeButton.svg" />
+            </div>
+            <div id="languageToggle" class="toggle-wrapper">
+              <div class="toggle-option ukr">
+                <span>Укр</span>
+                <div class="dot"></div>
+              </div>
+              <div class="toggle-option eng">
+                <span>Eng</span>
+                <div class="dot"></div>
+              </div>
+            </div>
+            <ul class="nav-list">
+              <li><a href="#" class="active">Головна</a></li>
+              <li><a href="#">Про BPC</a></li>
+              <li><a href="#">Резиденти</a></li>
+              <li><a href="#">Події та заходи</a></li>
+              <li><a href="#">Мережа ЦІПБ</a></li>
+              <li><a href="#">Галерея</a></li>
+              <li><a href="#">Новини</a></li>
+            </ul>
+          </nav>
+
+          <div class="language-select" id="langSelect">
+            <div class="selected-lang">
+              <span id="currentLang">UK</span>
+              <span class="arrow"><img src="images/arrowLang.svg" /></span>
+            </div>
+            <div class="language-options">
+              <span id="otherLang">EN</span>
+            </div>
+          </div>
+
+          <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Банер -->
+    <section class="bunnerSection">
+      <div class="container containerSection">
+        <div class="mentor-compare">
+          <div class="text left-text">
+            <h2>Business People Club</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum
+              augue elementum vulputate. Vehicula sed sit eget egestas
+              vestibulum. Ornare dui elit eu morbi donec id.
+            </p>
+            <a href="#" class="buttonWhite">Lorem ipsum</a>
+            <img src="images/bunnerImg.svg" alt="Right" />
+          </div>
+
+          <div class="comparison-container" id="comparisonContainer">
+            <img
+              src="images/bunnerImg.svg"
+              alt="Right"
+              class="comparison-image"
+            />
+            <div class="comparison-resize" id="comparisonResize">
+              <img src="images/about1.svg" alt="Left" />
+            </div>
+            <div class="comparison-divider" id="comparisonDivider">
+              <div class="circle">Перетягни</div>
+            </div>
+          </div>
+
+          <div class="text right-text">
+            <h2>Business Support Center</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum
+              augue elementum vulputate. Vehicula sed sit eget egestas
+              vestibulum. Ornare dui elit eu morbi donec id.
+            </p>
+            <a href="#" class="buttonNonColor">Lorem ipsum</a>
+            <img src="images/about1.svg" alt="Left" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Про BPC -->
+    <section class="sectionWrapper">
+      <div class="container containerSection">
+        <h2 class="MinPadding"><a href="#">Про Business People Club</a></h2>
+        <div class="contentAbout">
+          <div class="text-container-bpc">
+            <p>Business People Club— це:</p>
+            <ol>
+                <li>Можливості<span>заявити про себе і свій бізнес</span></li>
+                <li>Співпраця.<span>У тому числі, з європейськими компаніями у міжнародних проєктах, спрямованих на розвиток та підтримку малого і середнього бізнесу</span></li>
+                <li>Розвиток.<span> Особистісне зростання та розвиток бізнесу, за підтримки кращих національних та світових експертів та менторів</span></li>
+            </ol>
+            <p>Місія Клубу -<span>Розвиток малого та середнього підприємництва. Створення унікальної екосистеми бізнес-середовища. Підвищення культури ведення бізнесу в Україні.</span></p>
+          </div>
+          <div class="WrapperForImageAbout">
+            <img src="images/about1.svg" class="LeftImageMargin" alt="Business Support Center" />
+            <img src="images/about2.svg" alt="Business Support Center" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Що отримують учасники Business People Club? -->
+    <section class="sectionWrapper">
+      <div class="container containerSection">
+        <h2>Що отримують учасники Business People Club?</h2>
+        <div class="containerServicesBlocks">
+            <div class="features-grid">
+                <div class="row row-top">
+                    <div class="feature-card">
+                        <div class="feature-card-header">
+                            <img src="images/consultation.svg"/>
+                            <h3>Консультації для бізнесу</h3>
+                        </div>
+                        <p>50+ бізнес-івентів та зустрічей у різних форматах та на різних локаціях, візити в компанії, розбір кейсів</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card-header">
+                            <img src="images/international.svg"/>
+                            <h3>Міжнародне співробітництво</h3>
+                        </div>
+                        <p>BPC працює у міжнародних проєктах, спрямованих на розвиток та підтримку МСП в Україні</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card-header">
+                            <img src="images/telegramChat.svg"/>
+                            <h3>Telegram-чат</h3>
+                        </div>
+                        <p>Доступ до закритого чату резидентів Клубу</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card-header">
+                            <img src="images/support24.svg"/>
+                            <h3>Підтримка BPC-team</h3>
+                        </div>
+                        <p>Команда менеджерів Клубу на зв'язку 24/7. Допоможуть знайти потрібні контакти для вирішення завдань у бізнесі і не тільки</p>
+                    </div>
+                </div>
+
+                <div class="row row-bottom">
+                    <div class="feature-card">
+                        <div class="feature-card-header">
+                            <img src="images/help.svg"/>
+                            <h3>Швидка Бізнес Допомога</h3>
+                        </div>
+                        <p>Короткі вузькопрофільні консультації експертів FREE</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card-header">
+                            <img src="images/discount.svg"/>
+                            <h3>Знижки</h3>
+                        </div>
+                        <p>Від резидентів та Партнерів Клубу спеціальні цінові пропозиції для участі в івентах</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card-header">
+                            <img src="images/travel.svg"/>
+                            <h3>Подорожі</h3>
+                        </div>
+                        <p>Спільні поїздки в Україні та за кордон</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+    <!-- Формати заходів Клубу -->
+    <section class="sectionWrapper">
+      <div class="container containerSection">
+        <h2>Формати заходів Клубу</h2>
+        <div class="containerServicesBlocks">
+             <div class="swiper swiper-business-desktop">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="grid-4">
+                        <div class="cardBusiness"><img class="slide-image" src="images/businessSliderImg.png" alt="image1" />
+                           <div class="slideContentBusiness">
+                                <h3 class="slide-title">Бізнес-ігри</h3>
+                                <p class="slide-description">
+                                Ігри проводять кращі тренери за світовими стандартами. Використовуються як інноваційні так і традиційні підходи.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cardBusiness"><img class="slide-image" src="images/businessSliderImg.png" alt="image1" />
+                            <div class="slideContentBusiness">
+                                <h3 class="slide-title">Бізнес-ігри</h3>
+                                <p class="slide-description">
+                                Ігри проводять кращі тренери за світовими стандартами. Використовуються як інноваційні так і традиційні підходи.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cardBusiness"><img class="slide-image" src="images/businessSliderImg.png" alt="image1" />
+                            <div class="slideContentBusiness">
+                                <h3 class="slide-title">Бізнес-ігри</h3>
+                                <p class="slide-description">
+                                Ігри проводять кращі тренери за світовими стандартами. Використовуються як інноваційні так і традиційні підходи.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cardBusiness"><img class="slide-image" src="images/businessSliderImg.png" alt="image1" />
+                           <div class="slideContentBusiness">
+                                <h3 class="slide-title">Бізнес-ігри</h3>
+                                <p class="slide-description">
+                                Ігри проводять кращі тренери за світовими стандартами. Використовуються як інноваційні так і традиційні підходи.
+                                </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="grid-4">
+                        <div class="cardBusiness">
+                            <img class="slide-image" src="images/businessSliderImg.png" alt="image1" />
+                            <div class="slideContentBusiness">
+                                <h3 class="slide-title">Бізнес-ігри</h3>
+                                <p class="slide-description">
+                                Ігри проводять кращі тренери за світовими стандартами. Використовуються як інноваційні так і традиційні підходи.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cardBusiness">
+                            <img class="slide-image" src="images/businessSliderImg.png" alt="image1" />
+                            <div class="slideContentBusiness">
+                                <h3 class="slide-title">Бізнес-ігри</h3>
+                                <p class="slide-description">
+                                Ігри проводять кращі тренери за світовими стандартами. Використовуються як інноваційні так і традиційні підходи.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cardBusiness"><img class="slide-image" src="images/businessSliderImg.png" alt="image1" />
+                            <div class="slideContentBusiness">
+                                <h3 class="slide-title">Бізнес-ігри</h3>
+                                <p class="slide-description">
+                                Ігри проводять кращі тренери за світовими стандартами. Використовуються як інноваційні так і традиційні підходи.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cardBusiness"><img class="slide-image" src="images/businessSliderImg.png" alt="image1" />
+                            <div class="slideContentBusiness">
+                                <h3 class="slide-title">Бізнес-ігри</h3>
+                                <p class="slide-description">
+                                Ігри проводять кращі тренери за світовими стандартами. Використовуються як інноваційні так і традиційні підходи.
+                                </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination-business"></div>
+            </div>
+            <div class="swiper swiper-business-mobile">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="cardBusiness"><img class="slide-image" src="images/businessSliderImg.png" alt="image1" />
+                           <div class="slideContentBusiness">
+                                <h3 class="slide-title">Бізнес-ігри</h3>
+                                <p class="slide-description">
+                                Ігри проводять кращі тренери за світовими стандартами. Використовуються як інноваційні так і традиційні підходи.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="cardBusiness"><img class="slide-image" src="images/businessSliderImg.png" alt="image1" />
+                           <div class="slideContentBusiness">
+                                <h3 class="slide-title">Бізнес-ігри</h3>
+                                <p class="slide-description">
+                                Ігри проводять кращі тренери за світовими стандартами. Використовуються як інноваційні так і традиційні підходи.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="cardBusiness"><img class="slide-image" src="images/businessSliderImg.png" alt="image1" />
+                           <div class="slideContentBusiness">
+                                <h3 class="slide-title">Бізнес-ігри</h3>
+                                <p class="slide-description">
+                                Ігри проводять кращі тренери за світовими стандартами. Використовуються як інноваційні так і традиційні підходи.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination-business"></div>
+            </div>                              
+        </div>
+      </div>
+    </section>
+    <!-- Події та заходи -->
+    <section class="sectionWrapper">
+      <div class="container containerSection">
+        <h2>Події та заходи</h2>
+        <div class="calendar-container">
+          <div class="calendar">
+            <div class="calendar-header">
+              <button id="prevBtn" onclick="prevMonth()"></button>
+              <div id="monthYear"></div>
+              <button id="nextBtn" onclick="nextMonth()"></button>
+            </div>
+            <div class="calendar-grid" id="calendar-days"></div>
+            <div class="calendar-grid" id="calendar-dates"></div>
+          </div>
+
+          <div class="event-list">
+            <h3 id="selected-date-title" class="selected-date-title"></h3>
+            <div id="events-container">
+              <p>Оберіть дату, щоб побачити події</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Галерея -->
+    <section class="sectionWrapper">
+      <div class="container containerSection">
+        <h2>Галерея</h2>
+        <!-- Десктопний слайдер -->
+<div class="swiper desktop-slider">
+  <div class="swiper-wrapper">
+    <!-- Slide 1 -->
+    <div class="swiper-slide">
+      <div class="slide-grid">
+        <div class="top-row">
+          <video src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" controls >
+            Ваш браузер не підтримує відео.
+          </video>
+          <video src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" controls>
+            Ваш браузер не підтримує відео.
+          </video>
+        </div>
+        <div class="bottom-row">
+          <img src="images/about1.svg" alt="" />
+          <img src="images/about1.svg" alt="" />
+          <img src="images/about1.svg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="swiper-slide">
+      <div class="slide-grid">
+        <div class="top-row">
+          <video src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" controls>
+            Ваш браузер не підтримує відео.
+          </video>
+          <video src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" controls >
+            Ваш браузер не підтримує відео.
+          </video>
+        </div>
+        <div class="bottom-row">
+          <img src="images/about1.svg" alt="" />
+          <img src="images/about1.svg" alt="" />
+          <img src="images/about1.svg" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-pagination desktop-pagination"></div>
+</div>
+
+<!-- Мобільний слайдер -->
+<div class="swiper mobile-slider">
+  <div class="swiper-wrapper">
+    <!-- Slide 1 -->
+    <div class="swiper-slide">
+      <div class="mobile-slide-grid">
+        <div class="mobile-top">
+          <video src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" controls>
+            Ваш браузер не підтримує відео.
+          </video>
+        </div>
+        <div class="mobile-bottom">
+          <img src="images/about1.svg" alt="" />
+          <img src="images/about1.svg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="swiper-slide">
+      <div class="mobile-slide-grid">
+        <div class="mobile-top">
+          <video src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" controls>
+            Ваш браузер не підтримує відео.
+          </video>
+        </div>
+        <div class="mobile-bottom">
+          <img src="images/about1.svg" alt="" />
+          <img src="images/about1.svg" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-pagination mobile-pagination"></div>
+</div>
+
+      </div>
+    </section>
+    <!-- Як стати учасником Business People Club -->
+<section class="sectionWrapper">
+  <div class="container containerSection">
+    <h2 class="">Як стати учасником Business People Club</h2>
+    <div class="BecomeMember">
+        <div class="club-steps">
+  <div class="step">
+    <div class="step-number">1</div>
+    <img src="images/writeForm.svg" alt="icon1" class="step-icon" />
+    <p class="step-text">Заповніть заявку на сайті Клубу</p>
+  </div>
+  <div class="step">
+    <div class="step-number">2</div>
+    <img src="images/residents.svg" alt="icon2" class="step-icon" />
+    <p class="step-text">Отримайте 2 рекомендації резидентів Клубу</p>
+  </div>
+  <div class="step">
+    <div class="step-number">3</div>
+    <img src="images/meet.svg" alt="icon3" class="step-icon" />
+    <p class="step-text">Зустріч знайомство з президентом Клубу</p>
+  </div>
+  <div class="step">
+    <div class="step-number">4</div>
+    <img src="images/money.svg" alt="icon4" class="step-icon" />
+    <p class="step-text">Складіть вступний внесок</p>
+  </div>
+  <div class="step">
+    <div class="step-number">5</div>
+    <img src="images/presentation.svg" alt="icon5" class="step-icon" />
+    <p class="step-text">Зустріч-презентація на Зборах Ради Клубу</p>
+  </div>
+</div>
+  <a href="#" class="apply-button">Залишити заявку</a>
+
+    </div>
+  </div>
+</section>
+
+    <!-- Партнери -->
+    <section class="sectionWrapper">
+      <div class="container containerSection">
+        <h2>Партнери</h2>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide logo-slide">
+              <img src="images/partner.svg" class="slideImg" alt="Logo 1" />
+            </div>
+            <div class="swiper-slide logo-slide">
+              <img src="images/partner.svg" class="slideImg" alt="Logo 2" />
+            </div>
+            <div class="swiper-slide logo-slide">
+              <img src="images/partner.svg" class="slideImg" alt="Logo 3" />
+            </div>
+            <div class="swiper-slide logo-slide">
+              <img src="images/partner.svg" class="slideImg" alt="Logo 4" />
+            </div>
+            <div class="swiper-slide logo-slide">
+              <img src="images/partner.svg" class="slideImg" alt="Logo 5" />
+            </div>
+            <div class="swiper-slide logo-slide">
+              <img src="images/partner.svg" class="slideImg" alt="Logo 6" />
+            </div>
+            <div class="swiper-slide logo-slide">
+              <img src="images/partner.svg" class="slideImg" alt="Logo 6" />
+            </div>
+            <div class="swiper-slide logo-slide">
+              <img src="images/partner.svg" class="slideImg" alt="Logo 6" />
+            </div>
+          </div>
+
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Новини -->
+     <section class="sectionWrapper">
+      <div class="container containerSection">
+        <h2>Новини</h2>
+        <div class="NewsList">
+            <a href="#" class="newswrapper">
+              <div class="cardServiceInfo cardNews">
+                <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                <div class="cardContentService cardContentNews">
+                  <div class="titleService">Тендер на закупівлю техніки та обладнання для Центру підтримки підприємництва</div>
+                    <div class="dateNews">10 травня 2025</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="newswrapper">
+              <div class="cardServiceInfo cardNews">
+                <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                <div class="cardContentService cardContentNews">
+                  <div class="titleService">Назва заходу</div>
+                    <div class="dateNews">10 травня 2025</div>
+                </div>
+              </div>
+            </a>  
+            <a href="#" class="newswrapper">
+              <div class="cardServiceInfo cardNews">
+                <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                <div class="cardContentService cardContentNews">
+                  <div class="titleService">Назва заходу</div>
+                    <div class="dateNews">10 травня 2025</div>
+                </div>
+              </div>
+            </a>  
+            <a href="#" class="newswrapper">
+              <div class="cardServiceInfo cardNews">
+                <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                <div class="cardContentService cardContentNews">
+                  <div class="titleService">Назва заходу</div>
+                    <div class="dateNews">10 травня 2025</div>
+                </div>
+              </div>
+            </a>  
+            <a href="#" class="newswrapper">
+              <div class="cardServiceInfo cardNews">
+                <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                <div class="cardContentService cardContentNews">
+                  <div class="titleService">Назва заходу</div>
+                    <div class="dateNews">10 травня 2025</div>
+                </div>
+              </div>
+            </a>  
+            <a href="#" class="newswrapper">
+              <div class="cardServiceInfo cardNews">
+                <img class="cardImageService" src="images/programLearning.png" alt="Event">
+                <div class="cardContentService cardContentNews">
+                  <div class="titleService">Назва заходу</div>
+                    <div class="dateNews">10 травня 2025</div>
+                </div>
+              </div>
+            </a>    
+        </div>
+        <a href="#" class="buttonAllNews">Усі новини</a>
+      </div>
+    </section>
+    <!-- footer -->
+    <footer>
+      <div class="container footerWrapper">
+        <div class="footer-left">
+          <div class="logo logoBPC">
+            <a href="/"><img src="images/logoFooterBPC.png" alt="BSC Logo" /></a>
+          </div>
+          <nav class="footer-nav">
+            <a href="#">Про BSC</a>
+            <a href="#">Послуги</a>
+            <a href="#">Події та заходи</a>
+            <a href="#">Партнери</a>
+            <a href="#">Галерея</a>
+            <a href="#">Вакансії</a>
+          </nav>
+        </div>
+
+        <div class="footer-right">
+          <div>
+            <h4>Контакти</h4>
+            <a href="tel:+380937458745" class="telFooter">+380937458745</a>
+            <p>bpc.support@gmail.com</p>
+            <p>м. Вінниця, вул. Соборна 53</p>
+          </div>
+          <div class="social-icons">
+            <a href="#"><img src="images/facebook.svg"/></i></a>
+            <a href="#"><img src="images/insta.svg"/></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <section class="copyright">
+      <div class="container containerSection">
+        <div >
+          <p>Сайт було створено в межах проєкту «Трансформаційне відновлення задля безпеки людей в Україні», який фінансує уряд Японії та впроваджує Програма розвитку ООН (ПРООН) в Україні.</p>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      const swiper = new Swiper(".mySwiper", {
+        slidesPerView: 5,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          1024: {
+            slidesPerView: 6,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          480: {
+            slidesPerView: 2,
+          },
+          0: {
+            slidesPerView: 2,
+          },
+        },
+      });
+    </script>
+    <script>
+      const swiperG = new Swiper(".myCustomSlider", {
+        slidesPerView: 1,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+    <script>
+     const desktopSlider = new Swiper(".desktop-slider", {
+  pagination: {
+    el: ".desktop-pagination",
+    clickable: true,
+  },
+});
+
+const mobileSlider = new Swiper(".mobile-slider", {
+  pagination: {
+    el: ".mobile-pagination",
+    clickable: true,
+  },
+});
+
+
+    </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.querySelector('.read-more-btn');
+    const content = document.querySelector('.text-content');
+
+    btn.addEventListener('click', () => {
+      content.classList.toggle('expanded');
+      btn.textContent = content.classList.contains('expanded')
+        ? 'Згорнути'
+        : 'Читати далі';
+    });
+  });
+</script>
+
+<script>
+new Swiper(".swiper-business-desktop", {
+  pagination: {
+    el: ".swiper-pagination-business",
+    clickable: true,
+  },
+  slidesPerView: 1,
+  spaceBetween: 20,
+});
+
+new Swiper(".swiper-business-mobile", {
+  pagination: {
+    el: ".swiper-pagination-business",
+    clickable: true,
+  },
+  slidesPerView: 1,
+  spaceBetween: 20,
+});
+  </script>
+  
+
+
+  </body>
+</html>

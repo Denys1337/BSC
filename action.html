@@ -167,13 +167,15 @@
             </div>
           </div>
           <!-- Дата -->
-          <div class="custom-select">
+          <div class="custom-select DateAction" data-multiple="true">
             <button type="button" id="dataAction" class="select-toggle">Дата<img src="images/arrowLang.svg"/></button>
             <div class="select-options">
               <label><input type="checkbox" value="20.06.2025"/> 20 Червня 2025</label>
               <label><input type="checkbox" value="21.06.2025"/> 21 Червня 2025</label>
             </div>
           </div>
+           <input type="hidden" id="eventDate" name="eventDate" />
+           <input type="hidden" id="eventId" name="eventId" />
     
           <button type="submit" class="submitBtn">Відправити</button>
           <p class="link-bottom" style="display: none;">Форма відправлена</p>
@@ -214,210 +216,211 @@
     <script src="script.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-      const eventsData = {
-        "236": [
+        const eventsData = {
+        "2025-05-16": [
           {
-            time: "09:00-10:00",
-            title: "Lorem ipsum dolor sit amet",
-            link: "https://google.com",
-            date_sort: "2025-06-20",
-            date: "20 Червня 2025",
-            city: "Київ",
-          },
+          id: 1,
+          desc: "Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id.",
+          link:"https://bpc.in.ua/events/zustrich-z-mentorom/",
+          time: ["11:30-13:00","11:30-13:00"],
+          date: ["5.06.2025", "12.06.2025"],
+          location: ["Київ", "Вінниця"],
+          title: "Подія 1"
+        }],
+        "2025-05-18": [
           {
-            time: "10:00-12:00",
-            title: "Lorem ipsum dolor sit amet",
-            link: "https://google.com",
-            date_sort: "2025-06-21",
-            date: "21 Червня 2025",
-            city: "Львів",
-          },
-        ],
-        "237": [
+          id: 2,
+          desc: "Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id.",
+          link:"https://bpc.in.ua/events/zustrich-z-mentorom/",
+          time: ["11:30-13:00","11:30-13:00"],
+          date: ["5.06.2025", "12.06.2025"],
+          location: ["Київ", "Вінниця"],
+          title: "Подія 1"
+        }],
+        "2025-05-20": [
           {
-            time: "09:00-10:00",
-            title: "Lorem ipsum dolor sit amet",
-            link: "https://google.com",
-            date_sort: "2025-06-20",
-            date: "20 Червня 2025",
-            city: "Львів",
-          },
-        ],
-      };
-      
-      const selectedFiltersData = [];
-      
-      function getAllEvents() {
-        return Object.values(eventsData).flat();
+          id: 3,
+          desc: "Lorem ipsum dolor sit amet consectetur. Quis diam id est fermentum augue elementum vulputate. Vehicula sed sit eget egestas vestibulum. Ornare dui elit eu morbi donec id.",
+          link:"https://bpc.in.ua/events/zustrich-z-mentorom/",
+          time: ["11:30-13:00"],
+          date: ["21.06.2025"],
+          location: ["Київ", "Київ"],
+          title: "Подія 1"
+        }],
       }
-      
-      function getDateAfterDays(days) {
-        const date = new Date();
-        date.setDate(date.getDate() + days);
-        return date;
-      }
-      
-      function getFilteredEvents() {
-        const allEvents = getAllEvents();
-      
-        if (selectedFiltersData.length === 0) {
-          return allEvents; // якщо немає фільтрів — повертаємо всі події
-        }
-      
-        // Групуємо фільтри по групам
-        const groupedFilters = selectedFiltersData.reduce((acc, { group, value }) => {
-          acc[group] = acc[group] || [];
-          acc[group].push(value);
-          return acc;
-        }, {});
+  const selectedFiltersData = [];
 
-        return allEvents.filter((event) => {
-          for (const group in groupedFilters) {
-            const values = groupedFilters[group];
-      
-            if (group === "location") {
-              if (!values.includes(event.city)) return false;
-            }
-      
-            if (group === "date") {
-              const eventDate = new Date(event.date_sort);
-              let dateMatch = false;
-      
-              for (const val of values) {
-                if (val === "На тиждень" && eventDate <= getDateAfterDays(7)) dateMatch = true;
-                if (val === "На два тижні" && eventDate <= getDateAfterDays(14)) dateMatch = true;
-              }
-      
-              if (!dateMatch) return false;
-            }
-      
-            if (group === "duration") {
-              const isMultiDay = event.date.includes(",") || event.date.match(/\d{2}\s\w+\s\d{4}.*\d{2}/);
-              let match = false;
-      
-              for (const val of values) {
-                if (val === "Одноденні" && !isMultiDay) match = true;
-                if (val === "Багатоденні" && isMultiDay) match = true;
-              }
-      
-              if (!match) return false;
+  function getDateAfterDays(days) {
+    const date = new Date();
+    date.setDate(date.getDate() + days);
+    return date;
+  }
+
+  function getFilteredEvents() {
+  const filteredEvents = [];
+
+  Object.values(eventsData).forEach((events) => {
+    events.forEach((event) => {
+      const isMultiDay = event.date.length > 1;
+
+      // чи хоча б одна дата задовольняє фільтр
+      const matchAtLeastOneDate = event.date.some((dateStr, i) => {
+        const dateObj = new Date(dateStr.split(".").reverse().join("-"));
+
+        return selectedFiltersData.length === 0 || selectedFiltersData.every((filter) => {
+          const { group, value } = filter;
+
+          if (group === "format" && event.format !== value) return false;
+          if (group === "theme" && event.theme !== value) return false;
+          if (group === "location" && event.location?.[i] !== value) return false;
+
+          if (group === "date") {
+            if (
+              (value === "На тиждень" && dateObj > getDateAfterDays(7)) ||
+              (value === "На два тижні" && dateObj > getDateAfterDays(14))
+            ) return false;
+          }
+
+          if (group === "duration") {
+            if ((value === "Одноденні" && isMultiDay) || (value === "Багатоденні" && !isMultiDay)) {
+              return false;
             }
           }
-      
+
           return true;
         });
+      });
+
+      if (matchAtLeastOneDate) {
+        filteredEvents.push(event);
       }
-      
-      function renderEvents() {
-        const container = document.querySelector(".cards-grid");
-        container.innerHTML = "";
-      
-        const filtered = getFilteredEvents();
-      
-        if (filtered.length === 0) {
-          container.innerHTML = "<p class=noItemsFiltered>На жаль події не незаплановані</p>";
-          return;
-        }
-      
-        filtered.forEach((event) => {
-          const card = document.createElement("div");
-          card.className = "card";
-          card.innerHTML = `
-            <div class="card-date">${event.date}</div>
-            <div class="card-time">${event.time}</div>
-            <h4>${event.title}</h4>
-            <div class="card-buttons">
-              <a href="${event.link}" class="btn-outline">Детальний опис</a>
-              <button class="btn-fill" id="openModal">Зареєструватись</button>
-            </div>
-          `;
-          container.appendChild(card);
-        });
-        bindModalButtons();
-      }
-      
-      function renderSelectedFilters() {
-        const container = document.querySelector(".selected-filters");
-        container.innerHTML = "";
-      
-        selectedFiltersData.forEach((filter) => {
-          const chip = document.createElement("div");
-          chip.className = "filter-chip";
-          chip.innerHTML = `${filter.value} <span data-group="${filter.group}" data-value="${filter.value}"><img src="images/deleteIcon.svg" alt="delete"/></span>`;
-          container.appendChild(chip);
-        });
-       
-        toggleClearButton();
-        renderEvents();
-      }
-      
-      document.querySelectorAll(".dropdown-toggle").forEach((button) => {
-        button.addEventListener("click", () => {
-          const group = button.closest(".filter-group");
-          group.classList.toggle("active"); 
-        });
-      });
-      
-      document.querySelectorAll(".dropdown-menu input[type='checkbox']").forEach((checkbox) => {
-        checkbox.addEventListener("change", function () {
-          const value = this.value;
-          const group = this.closest(".filter-group").dataset.filter;
-          const groupElement = this.closest(".filter-group");
-      
-          if (this.checked) {
-            selectedFiltersData.push({ group, value });
-          } else {
-            const index = selectedFiltersData.findIndex((f) => f.group === group && f.value === value);
-            if (index !== -1) selectedFiltersData.splice(index, 1);
-          }
-      
-          groupElement.classList.remove("active");
-          renderSelectedFilters();
-        });
-      });
-      
-      document.querySelector(".selected-filters").addEventListener("click", function (e) {
-        const target = e.target.closest("span");
-        if (target) {
-          const group = target.dataset.group;
-          const value = target.dataset.value;
-          const index = selectedFiltersData.findIndex((f) => f.group === group && f.value === value);
-          if (index !== -1) selectedFiltersData.splice(index, 1);
-      
-          document.querySelectorAll(`.filter-group[data-filter="${group}"] input[value="${value}"]`).forEach((input) => (input.checked = false));
-      
-          renderSelectedFilters();
-        }
-      });
-      
-      document.getElementById("clear-filters").addEventListener("click", () => {
-        selectedFiltersData.length = 0;
-        document.querySelectorAll(".dropdown-menu input[type='checkbox']").forEach((input) => (input.checked = false));
-        renderSelectedFilters();
-      });
-      
-      document.addEventListener("click", function (e) {
-        document.querySelectorAll(".filter-group").forEach((group) => {
-          if (!group.contains(e.target)) {
-            group.classList.remove("active");
-          }
-        });
-      });
-      
-      function toggleClearButton() {
-        const clearBtn = document.getElementById("clear-filters");
-        const wrapperFilter = document.querySelector(".filterWrapper");
-        if (selectedFiltersData.length > 0) {
-          clearBtn.style.display = "inline-block";
-          wrapperFilter.style.gap = "20px";
-        } else {
-          clearBtn.style.display = "none";
-        }
-      }
-      
-      // Initial render
-      renderEvents();
     });
+  });
+
+  return filteredEvents;
+}
+
+function renderEvents() {
+  const container = document.querySelector(".cards-grid");
+  container.innerHTML = "";
+
+  const filtered = getFilteredEvents();
+
+  if (filtered.length === 0) {
+    container.innerHTML = "<p class=noItemsFiltered>На жаль події не заплановані</p>";
+    return;
+  }
+
+  filtered.forEach((event) => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    // const dateTimeList = event.date.map((date, i) => {
+    //   const time = event.time?.[i] ?? "";
+    //   return ``;
+    // }).join("");
+
+    card.innerHTML = `
+      <div>
+      <div class="card-date">${event.date.map(date => date).join(", ")}</div>
+      <div class="card-time">${event.time.map(time => time).join(", ")}</div>
+      </div>
+      <h4>${event.title}</h4>
+      <div class="card-buttons">
+        <a href="${event.link}" class="btn-outline">Детальний опис</a>
+        <button class="btn-fill register-btn" data-date="${event.date}" data-id="${event.id}" id="openModal">Зареєструватись</button>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+
+  bindModalButtons();
+}
+
+  function renderSelectedFilters() {
+    const container = document.querySelector(".selected-filters");
+    container.innerHTML = "";
+
+    selectedFiltersData.forEach((filter) => {
+      const chip = document.createElement("div");
+      chip.className = "filter-chip";
+      chip.innerHTML = `${filter.value} <span data-group="${filter.group}" data-value="${filter.value}"><img src="images/deleteIcon.svg" alt="delete"/></span>`;
+      container.appendChild(chip);
+    });
+
+    toggleClearButton();
+    renderEvents();
+  }
+
+  document.querySelectorAll(".dropdown-toggle").forEach((button) => {
+    button.addEventListener("click", () => {
+      const group = button.closest(".filter-group");
+      group.classList.toggle("active");
+    });
+  });
+
+
+  document.querySelectorAll(".dropdown-menu input[type='checkbox']").forEach((checkbox) => {
+    checkbox.addEventListener("change", function () {
+      const value = this.value;
+      const group = this.closest(".filter-group").dataset.filter;
+      const groupElement = this.closest(".filter-group");
+
+      if (this.checked) {
+        selectedFiltersData.push({ group, value });
+      } else {
+        const index = selectedFiltersData.findIndex((f) => f.group === group && f.value === value);
+        if (index !== -1) selectedFiltersData.splice(index, 1);
+      }
+
+      groupElement.classList.remove("active");
+      renderSelectedFilters();
+    });
+  });
+
+  document.querySelector(".selected-filters").addEventListener("click", function (e) {
+    const target = e.target.closest("span");
+    if (target) {
+      const group = target.dataset.group;
+      const value = target.dataset.value;
+      const index = selectedFiltersData.findIndex((f) => f.group === group && f.value === value);
+      if (index !== -1) selectedFiltersData.splice(index, 1);
+
+      document.querySelectorAll(`.filter-group[data-filter="${group}"] input[value="${value}"]`).forEach((input) => (input.checked = false));
+
+      renderSelectedFilters();
+    }
+  });
+
+  document.getElementById("clear-filters").addEventListener("click", () => {
+    selectedFiltersData.length = 0;
+    document.querySelectorAll(".dropdown-menu input[type='checkbox']").forEach((input) => (input.checked = false));
+    renderSelectedFilters();
+  });
+
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll(".filter-group").forEach((group) => {
+      if (!group.contains(e.target)) {
+        group.classList.remove("active");
+      }
+    });
+  });
+
+  function toggleClearButton() {
+    const clearBtn = document.getElementById("clear-filters");
+    const wrapperFilter = document.querySelector(".filterWrapper");
+    if (selectedFiltersData.length > 0) {
+      clearBtn.style.display = "inline-block";
+      wrapperFilter.style.gap = "20px";
+    } else {
+      clearBtn.style.display = "none";
+    }
+  }
+  
+  // Initial render
+  renderEvents();
+});
       
     </script>
     <script>
@@ -531,140 +534,59 @@
         filterWrapper.classList.toggle('active');
       });
     </script>
-    <!-- <script>
-      const selectedFilters = [];
+    <script>
+   function bindModalButtons() {
+  const modal = document.getElementById("popupModal");
+  const openBtns = document.querySelectorAll("#openModal");
+  const closeBtn = document.querySelector(".closeModal");
+  const overlay = document.querySelector(".modal-overlay");
 
-document.querySelectorAll(".dropdown-toggle").forEach((button) => {
-  button.addEventListener("click", () => {
-    const group = button.closest(".filter-group:not(.active)");
-    group.classList.toggle("active");
-  });
-});
+  // Припустимо, приховані поля в попапі мають id eventDate та eventId
+  const inputDate = document.getElementById("eventDate");
+  const inputId = document.getElementById("eventId");
 
-document
-  .querySelectorAll(".dropdown-menu input[type='checkbox']")
-  .forEach((checkbox) => {
-    checkbox.addEventListener("change", function () {
-      const value = this.value;
-      const group = this.closest(".filter-group").dataset.filter;
-      const groupElement = this.closest(".filter-group");
-
-      if (this.checked) {
-        selectedFilters.push({ group, value });
-      } else {
-        const index = selectedFilters.findIndex(
-          (f) => f.group === group && f.value === value
-        );
-        if (index !== -1) selectedFilters.splice(index, 1);
-      }
-
-      groupElement.classList.remove("active");  
-
-      renderSelectedFilters();
+  if (document.getElementById("openModalMobile")) {
+    const openBtnMobile = document.getElementById("openModalMobile");
+    openBtnMobile.addEventListener("click", () => {
+      modal.classList.add("open");
     });
-  });
-
-// Render chips
-function renderSelectedFilters() {
-  const container = document.querySelector(".selected-filters");
-  container.innerHTML = "";
-
-  console.log("selectedFiltersData:", selectedFiltersData);
-
-  selectedFilters.forEach((filter) => {
-    const chip = document.createElement("div");
-    chip.className = "filter-chip";
-    chip.innerHTML = `${filter.value} <span data-group="${filter.group}" data-value="${filter.value}"><img src="images/deleteIcon.svg" alt="delete"/></span>`;
-    container.appendChild(chip);
-  });
-
-  toggleClearButton();
-}
-
-// Remove chip
-document.querySelector(".selected-filters").addEventListener("click", function (e) {
-  const target = e.target.closest("span");
-  if (target) {
-    const group = target.dataset.group;
-    const value = target.dataset.value;
-
-    const index = selectedFilters.findIndex(
-      (f) => f.group === group && f.value === value
-    );
-    if (index !== -1) selectedFilters.splice(index, 1);
-
-    // Uncheck the checkbox
-    document
-      .querySelectorAll(
-        `.filter-group[data-filter="${group}"] input[value="${value}"]`
-      )
-      .forEach((input) => (input.checked = false));
-
-    renderSelectedFilters();
   }
-});
 
-// Clear all
-document.getElementById("clear-filters").addEventListener("click", () => {
-  selectedFilters.length = 0;
+  openBtns.forEach((btn) => {
+    if (btn) {
+      btn.addEventListener("click", (e) => {
+        const eventDate = btn.dataset.date;
+        const eventId = btn.dataset.id;
 
-  document
-    .querySelectorAll(".dropdown-menu input[type='checkbox']")
-    .forEach((input) => (input.checked = false));
+    const container = document.querySelector('.custom-select.DateAction .select-options');
+    if (!container) return;
+  
+    const dates = eventDate.split(',').map(date => date.trim());
+  
+    container.innerHTML = '';
+  
+    dates.forEach(dateStr => {
+      const label = document.createElement('label');
+      label.innerHTML = `<input type="checkbox" value="${dateStr}"/> ${dateStr}`;
+      container.appendChild(label);
+    });
 
-  renderSelectedFilters();
-});
+        if (inputDate) inputDate.value = eventDate || "";
+        if (inputId) inputId.value = eventId || "";
 
-// Close dropdowns on outside click
-document.addEventListener("click", function (e) {
-  document.querySelectorAll(".filter-group").forEach((group) => {
-    if (!group.contains(e.target)) {
-      group.classList.remove("active");
+        modal.classList.add("open");
+      });
     }
   });
-});
 
-function toggleClearButton() {
-  const clearBtn = document.getElementById("clear-filters");
-  const wrapperFilter = document.querySelector(".filterWrapper");
-  if (selectedFilters.length > 0) {
-    clearBtn.style.display = "inline-block";
-    wrapperFilter.style.gap = "20px"
-  } else {
-    clearBtn.style.display = "none";
-  }
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("open");
+  });
+
+  overlay.addEventListener("click", () => {
+    modal.classList.remove("open");
+  });
 }
-
-    </script> -->
-    <script>
-      function bindModalButtons() {
-        const modal = document.getElementById("popupModal");
-        const openBtns = document.querySelectorAll("#openModal");
-        const closeBtn = document.querySelector(".closeModal");
-      const overlay = document.querySelector(".modal-overlay");
-
-        if(document.getElementById("openModalMobile")) {
-              const openBtnMobile = document.getElementById("openModalMobile");
-              openModalMobile.addEventListener("click", () => {
-                modal.classList.add("open");
-              });
-            }
-              openBtns.forEach((btn) => {
-                if(btn) {
-                  btn.addEventListener('click', () => {
-                    modal.classList.add('open');
-                  });
-                }
-              });
-              
-      closeBtn.addEventListener("click", () => {
-        modal.classList.remove("open");
-      });
-    
-      overlay.addEventListener("click", () => {
-        modal.classList.remove("open");
-      });
-      }
 
       document.addEventListener("DOMContentLoaded", function () {
       
@@ -688,37 +610,39 @@ document.addEventListener("click", function (e) {
   });
 });
 
-document.querySelectorAll(".custom-select").forEach((select) => {
-  const checkboxes = select.querySelectorAll("input[type='checkbox']");
-  const toggle = select.querySelector(".select-toggle");
+});
 
-  checkboxes.forEach((checkbox) => {
-  checkbox.addEventListener("change", () => {
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll(".custom-select").forEach((select) => {
+    const toggle = select.querySelector(".select-toggle");
     const isMultiple = select.dataset.multiple === "true";
 
-    if (!isMultiple) {
-      checkboxes.forEach((cb) => {
-        if (cb !== checkbox) cb.checked = false;
-      });
+    select.addEventListener('change', (e) => {
+      if (!e.target.matches('input[type="checkbox"]')) return;
 
-      if (checkbox.checked) {
-        toggle.innerText = checkbox.value;
-        select.classList.remove("active");
+      if (isMultiple) {
+        const checkboxes = select.querySelectorAll("input[type='checkbox']");
+        const selected = Array.from(checkboxes)
+          .filter(cb => cb.checked)
+          .map(cb => cb.value)
+          .join(', ');
+
+        toggle.innerText = selected || "Виберіть";
       } else {
-        toggle.innerText = "Виберіть";
+        const checkboxes = select.querySelectorAll("input[type='checkbox']");
+        checkboxes.forEach(cb => {
+          if (cb !== e.target) cb.checked = false;
+        });
+        toggle.innerText = e.target.checked ? e.target.value : "Виберіть";
+        if (e.target.checked) select.classList.remove("active");
       }
-    } else {
-      const selected = Array.from(checkboxes)
-        .filter((cb) => cb.checked)
-        .map((cb) => cb.value);
-      toggle.innerText = selected.length > 0 ? selected.join(", ") : "Виберіть";
-    }
+    });
   });
 });
-});
-      });
+
 
     </script>
+  
     
   </body>
 </html>

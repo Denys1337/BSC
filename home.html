@@ -31,7 +31,7 @@
     <header class="header">
       <div class="container">
         <div class="logo">
-          <img src="images/Logo.svg" alt="BSC Logo" />
+          <a href="/"><img src="images/Logo.svg" alt="BSC Logo" /></a>
         </div>
         <div class="nav-wrapper">
           <nav class="nav" id="nav">
@@ -123,7 +123,7 @@
     <!-- Про Business Support Center -->
     <section class="sectionWrapper">
       <div class="container containerSection">
-        <h2 class="MinPadding">Про Business Support Center</h2>
+        <h2 class="MinPadding"><a href="#">Про Business Support Center</a></h2>
         <div class="contentAbout">
           <div class="text-container">
             <div class="text-content">
@@ -153,15 +153,21 @@
           <div class="wrapperServices">
             <div class="whiteBlockService">
               <h3>Консультації для бізнесу</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur. Quis diam id est
-                fermentum augue elementum vulputate. Vehicula sed sit eget
-                egestas vestibulum. Ornare dui elit eu morbi donec id.
-              </p>
+              <div class="blockServicetext">
+                <p>
+                 At the Center, you can choose a training program that fits your level:
+                </p>
+                <ul>
+                  <li>Lorem ipsum dolor</li>
+                  <li>Lorem ipsum dolor</li>
+                  <li>Lorem ipsum dolor</li>
+                </ul>
+             </div>
               <a href="#" class="buttonBlue marginButtonForClampText">Lorem ipsum</a>
             </div>
             <div class="blueBlockService">
               <h3>Навчальні програми</h3>
+              <div class="blockServicetextBlue">
               <p>
                 Lorem ipsum dolor sit amet consectetur. Quis diam id est
                 fermentum augue elementum vulputate. Vehicula sed sit eget
@@ -172,13 +178,14 @@
                 <li>Lorem ipsum dolor</li>
                 <li>Lorem ipsum dolor</li>
               </ul>
+            </div>
               <a href="#" class="buttonWhite buttonBlockMargin">Lorem ipsum</a>
             </div>
           </div>
           <div class="wrapperServices reverseBlock">
             <div class="blueBlockService bottomBlockMargin">
               <h3>Навчальні програми</h3>
-              <div class="wrapperTextBlock"><p>
+              <div class="blockServicetextBlue"><p>
                 Lorem ipsum dolor sit amet consectetur. Quis diam id est
                 fermentum augue elementum vulputate. Vehicula sed sit eget
                 egestas vestibulum. Ornare dui elit eu morbi donec id.
@@ -194,11 +201,12 @@
             </div>
             <div class="whiteBlockService">
               <h3>Консультації для бізнесу</h3>
-              <p>
+              <div class="blockServicetext"><p>
                 Lorem ipsum dolor sit amet consectetur. Quis diam id est
                 fermentum augue elementum vulputate. Vehicula sed sit eget
                 egestas vestibulum. Ornare dui elit eu morbi donec id.
               </p>
+            </div>
               <a href="#" class="buttonBlue marginButtonForClampText">Lorem ipsum</a>
             </div>
           </div>
@@ -474,7 +482,7 @@
       <div class="container footerWrapper">
         <div class="footer-left">
           <div class="logo">
-            <img src="images/LogoFooter.svg" alt="BSC Logo" />
+            <a href="/"><img src="images/LogoFooter.svg" alt="BSC Logo" /></a>
           </div>
           <nav class="footer-nav">
             <a href="#">Про BSC</a>
@@ -500,6 +508,13 @@
         </div>
       </div>
     </footer>
+    <section class="copyright">
+      <div class="container containerSection">
+        <div >
+          <p>Сайт було створено в межах проєкту «Трансформаційне відновлення задля безпеки людей в Україні», який фінансує уряд Японії та впроваджує Програма розвитку ООН (ПРООН) в Україні.</p>
+        </div>
+      </div>
+    </section>
     <script src="script.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
@@ -567,5 +582,6 @@ const mobileSlider = new Swiper(".mobile-slider", {
     });
   });
 </script>
+
   </body>
 </html>

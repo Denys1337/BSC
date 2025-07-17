@@ -117,7 +117,7 @@ const calendarDates = document.getElementById("calendar-dates");
 const monthYear = document.getElementById("monthYear");
 const eventsContainer = document.getElementById("events-container");
 
-let currentDate = new Date(2025, 4); // Травень 2025
+let currentDate = new Date();
 const today = new Date();
 const selectedDateFormatted = `${today.getFullYear()}-${String(
   today.getMonth() + 1

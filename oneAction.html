@@ -225,6 +225,26 @@
       document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".oneActionForm").addEventListener("submit", function (e) {
           e.preventDefault();
+
+           const customSelects = document.querySelectorAll(".custom-select");
+            let valid = true;
+
+            customSelects.forEach(select => {
+              const checkboxes = select.querySelectorAll("input[type='checkbox']");
+              const isAnyChecked = Array.from(checkboxes).some(cb => cb.checked);
+
+              if (!isAnyChecked) {
+                valid = false;
+                select.classList.add("error");
+              } else {
+                select.classList.remove("error");
+              }
+            });
+
+            if (!valid) {
+              alert("Будь ласка, виберіть хоча б одну опцію в кожному полі.");
+              return; // не відправляємо форму, якщо не валідно
+            }
     
           const fullname = document.getElementById("fullname").value;
           const phone = document.getElementById("phone").value;
